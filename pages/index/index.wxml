@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+<button class="index-loginbtn" bindtap="loginbtnclick">登录</button>
+  
+
+  
+</view>

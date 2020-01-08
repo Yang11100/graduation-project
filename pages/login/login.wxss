@@ -1,0 +1,102 @@
+/* pages/login/login.wxss */
+.mcontainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+} 
+.item{
+  
+    flex-grow:1;
+    height: 30%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 96%;
+    /* padding: 0 2%; */
+}
+
+/* 下拉框 */
+.select_box{
+ background: #fff;
+ width: 80%;
+ margin: 30rpx 0;
+ position: relative;
+ padding-bottom: 50px;
+}
+.select{
+ box-sizing: border-box;
+ width: 100%;
+ height: 70rpx;
+ border:1px solid #efefef;
+ border-radius: 8rpx;
+ display: flex;
+ align-items: center;
+ /* padding: 0 20rpx; */
+}
+.select_text{
+ font-size: 30rpx;
+ flex: 1;
+}
+
+.option_box{
+ position: absolute;
+ top: 70rpx;
+ width: 100%;
+ border:1px solid #efefef;
+ box-sizing: border-box;
+ height: 0;
+ overflow-y: auto;
+ border-top: 0;
+ background: #fff;
+ transition: height 0.3s;
+}
+.option{
+ display: block;
+ line-height: 40rpx;
+ font-size: 30rpx;
+ border-bottom: 1px solid #efefef;
+ padding: 10rpx 0;
+}
+/* 下拉框 */
+
+.imagesize{
+  width: 10px;
+  height: 10px;
+}
+.login-item{
+    width: 90%;
+    /* margin-top: 30rpx; */
+    border-bottom: 1px solid #eee;
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    height: 30px;
+    
+
+}
+
+.box{
+	width:220rpx;
+	height:60rpx;
+	text-align: center;
+	border:2rpx solid #ccc;
+  float: right;
+}
+
+.btn{
+  padding-top: 10px;
+}
+
+.loginbtn{
+    width: 80%;
+    color: white;
+    background-color: #05e48b;
+    border-radius: 0;
+    font-size: 14px;
+}
