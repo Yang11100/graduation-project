@@ -1,52 +1,52 @@
 <!--pages/login/login.wxml-->
 <view class="mcontainer">
-  <view class="item">
-    <!-- <image src="/images/教学资源预约系统.png" /> -->
-    <view style="font-size:36px;padding-top:20px;padding-bottom:20px;font-family:'STKaiti';">教学资源预约系统</view>
-  </view>
-  <!-- 下拉框 -->
-  <view class="item">
-    <view>请选择身份</view>
-    <view class='select_box'>
-      <view class='select' catchtap='selectTap'>
-        <text class='select_text'>{{selectData[index]}}</text>
-        <!-- <image class='select_img {{show&&"select_img_rotate"}}' src='/image/gobottom.png'></image> -->
-      </view>
-      <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
-        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
-      </view>
-    </view>
-  </view>
-  <!-- 下拉框 -->
-  <!-- 用户名，密码 -->
-  <view class="item">
-    <view class="login-item">
-      <!-- <view class="user-info">用户名</view> -->
-      <view class="search" style='border-top-left-radius:8px;border-top-right-radius:8px;width:100%;height:38px;display:inline-block;background:#fff;'>
-        <view style='width:10%;display:inline-block;height:100%;'>
-          <image src='/images/用户.png' style="display:inline;" mode="aspectFit" class="imagesize"></image>
-        </view>
-        <input style='width:80%;display:inline-block;' placeholder-style='font-size:12px;' placeholder='请输入用户名' bindblur="usernameinput "></input>
-      </view>
-    </view>
+	<view class="item">
+		<!-- <image src="/images/教学资源预约系统.png" /> -->
+		<view style="font-size:36px;padding-top:20px;padding-bottom:20px;font-family:'STKaiti';">教学资源预约系统</view>
+	</view>
+	<!-- 下拉框 -->
+	<view class="item">
+		<view>请选择身份</view>
+		<view class='select_box'>
+			<view class='select' catchtap='selectTap'>
+				<text class='select_text'>{{selectData[index]}}</text>
+			</view>
+			<view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+				<text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+			</view>
+		</view>
+	</view>
+	<!-- 下拉框 -->
+	<!-- 用户名，密码 -->
+	<view class="item">
+		<view class="login-item">
+			<!-- <view class="user-info">用户名</view> -->
+			<view class="search" style='border-top-left-radius:8px;border-top-right-radius:8px;width:100%;height:38px;display:inline-block;background:#fff;'>
+				<view style='width:10%;display:inline-block;height:100%;'>
+					<image src='/images/用户.png' style="display:inline;" mode="aspectFit" class="imagesize"></image>
+				</view>
+				<input style='width:80%;display:inline-block;' placeholder-style='font-size:12px;' placeholder='请输入用户名' bindinput="usernameinput"></input>
+			</view>
+		</view>
 
-    <view class="login-item ">
-      <!-- <view class="user-info ">密码</view> -->
-      <view class="search " style='width:100%;height:38px;display:inline-block;background:#fff;margin-top:-5px;border-top:1px solid #f8f8f8;border-bottom-left-radius:8px;border-bottom-right-radius:8px;'>
-        <view style='width:9%;display:inline-block;height:100%;'>
-          <image src='/images/密码.png' style='display:inline;' mode="aspectFit "></image>
-        </view>
-        <input style='width:80%;display:inline-block;height:100%;' placeholder-style='font-size:12px;' placeholder='请输入密码' password="true " bindinput="passwordinput "></input>
-      </view>
-    </view>
-  </view>
-  <view class="item">
+		<view class="login-item ">
+			<!-- <view class="user-info ">密码</view> -->
+			<view class="search " style='width:100%;height:38px;display:inline-block;background:#fff;margin-top:-5px;border-top:1px solid #f8f8f8;border-bottom-left-radius:8px;border-bottom-right-radius:8px;'>
+				<view style='width:9%;display:inline-block;height:100%;'>
+					<image src='/images/密码.png' style='display:inline;' mode="aspectFit "></image>
+				</view>
+				<input style='width:80%;display:inline-block;height:100%;' placeholder-style='font-size:12px;' placeholder='请输入密码' password="true " bindinput="passwordinput "></input>
+			</view>
+		</view>
+	</view>
+	<view class="item">
   <view class="code">
   <input style='width:30%;display:inline-block;height:100%;' placeholder-style='font-size:12px;' placeholder='请输入验证码' bindinput="codeinput"></input>
   <view class='box' bindtap='getcode'>{{abc}}</view>
   </view>
-  <view class="login-item btn ">
-  <button class="loginbtn " style="font-family:'STKaiti';" bindtap="loginbtnclick ">登录</button>
-  </view>
-  </view>
+  	</view>
+	<view class="login-item btn ">
+		<button class="loginbtn " style="font-family:'STKaiti';"  bindtap="loginbtnclick">登录</button>
+	</view>
+
 </view>

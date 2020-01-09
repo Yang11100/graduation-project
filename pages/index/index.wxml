@@ -1,7 +1,93 @@
 <!--index.wxml-->
-<view class="container">
-<button class="index-loginbtn" bindtap="loginbtnclick">登录</button>
-  
+<view class="nav">
+	<view class="selection">
+		<swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+			<block wx:for="{{imgUrls}}" wx:key="navItems">
+				<swiper-item>
+					<image src="{{item}}" class="slide-image" width="355" height="150" />
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
 
-  
+	<view class="selection">
+		<view class="header">
+			<text class="text-part">资源展示</text>
+
+			<view class="text-all" bindtap="resourcestap">全部资源</view><!-- 跳转到全部资源显示页面equipment -->
+
+
+		</view>
+
+		<view class="content">
+			<!-- 舞蹈室conten -->
+			<view class="content-item" bindtap="reservetap">
+				<!-- 跳转到全部资源显示页面reserve -->
+				<!-- 循环四个框的数组contentItems -->
+				<image src="../../images/舞蹈室.jpg" />
+				<view class="content-item-text">
+					<text>舞蹈室</text>
+				</view>
+			</view>
+			<!-- 教室conten -->
+			<view class="content-item" bindtap="reservetap">
+				<!-- 跳转到全部资源显示页面reserve -->
+				<!-- 循环四个框的数组contentItems -->
+				<image src="/images/教室.jpg" />
+				<view class="content-item-text">
+					<text>教室</text>
+				</view>
+			</view>
+			<!-- 会议室 -->
+			<view class="content-item" bindtap="reservetap">
+				<!-- 跳转到全部资源显示页面reserve -->
+				<!-- 循环四个框的数组contentItems -->
+				<image src="/images/会议室.jpg" />
+				<view class="content-item-text">
+					<text>会议室</text>
+				</view>
+			</view>
+			<!-- 琴房conten -->
+			<view class="content-item" bindtap="reservetap">
+				<!-- 跳转到全部资源显示页面reserve -->
+				<!-- 循环四个框的数组contentItems -->
+				<image src="/images/琴房.jpg" />
+				<view class="content-item-text">
+					<text>琴房</text>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<view class="selection">
+		<view class="header">
+			<text>热门评测</text>
+			<text class="text-all">全部评测</text>
+		</view>
+		<view class="list-item" wx:for="{{listItems}}" wx:key="navItems">
+
+			<view class="list-item-images">
+				<!-- <image src="../../images/img2.png" class="list-item-images-img" /> -->
+				<image src="../../images/个人中心.png" class="avatar" />
+			</view>
+
+			<view class="list-item-text">
+				<view class="list-item-text-title">
+					<text>标题标题标题</text>
+				</view>
+
+				<view class="list-item-text-content">
+					<text>这里是内容,这里是内容,这里是内容,这里是内容,这里是内容,这里是内容,这里是内容,这里是内容,</text>
+				</view>
+
+			</view>
+
+		</view>
+
+
+	</view>
+
+	<button class="index-loginbtn" bindtap="loginbtnclick">登录</button>
+
 </view>

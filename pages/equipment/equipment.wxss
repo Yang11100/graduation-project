@@ -1,0 +1,44 @@
+.text-all{
+  font-family:"STKaiti";
+  font-weight: bold; /*设置文字加粗*/
+  color: green;
+  font-size: 50rpx;
+}
+.content{
+  font-family:"KaiTi";
+  font-weight: bold; /*设置文字加粗*/
+  border-bottom: 2px solid #ddd;
+}
+.list-item{
+  height: 500rpx;
+  width: 100%;
+}
+.list-item-images{
+   height: 300rpx;
+   width: 100%;
+   position: relative;
+}
+.list-item-images-img{
+   height: 100%;
+   width: 100%;
+}
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;/*设置圆形*/
+  position: absolute;/*绝对定位相对于离他最近的父view进行定位，所以要先相对于它的父view进行定位*/
+  bottom: -50rpx;
+  right: 50rpx;
+}
+.list-item-text{
+  height: 200rpx;
+  width: 96%;
+  margin-top: 20rpx;
+  padding-left: 2%;
+  padding-right: 2%; 
+}
+.list-item-text-content{
+  font-size: 12px;
+  color: #999;
+  margin-top: 20rpx;
+}

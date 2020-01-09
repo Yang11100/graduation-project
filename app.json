@@ -1,11 +1,15 @@
 {
   "pages": [
+
    
-    "pages/login/login",
-     "test/code/code",
-    
-    
     "pages/index/index",
+    "pages/login/login",
+    "pages/equipment/equipment",
+    "test/code/code",
+    "test/ppt/ppt",
+    "test/select/select",
+
+
     "pages/mine/mine",
     "pages/check/check",
     "pages/audit/audit",
@@ -14,7 +18,7 @@
     "pages/manageperinfo/manageperinfo",
     "pages/cancel/cancel",
     "pages/reserve/reserve"
-    
+
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,14 +28,13 @@
   },
 
   "tabBar": {
-    "color":"#000000",
-    "selectedColor":"#00cc99",
-    "borderStyle":"white",
-    "list": [
-      {
+    "color": "#000000",
+    "selectedColor": "#00cc99",
+    "borderStyle": "white",
+    "list": [{
         "pagePath": "pages/index/index",
-        "iconPath":"images/资源浏览.png",
-        "selectedIconPath":"images/资源浏览s.png",
+        "iconPath": "images/资源浏览.png",
+        "selectedIconPath": "images/资源浏览s.png",
         "text": "资源显示"
       },
       {
@@ -40,7 +43,7 @@
         "selectedIconPath": "images/个人中心s.png",
         "text": "我的信息"
       }
-      
+
     ]
   },
   "sitemapLocation": "sitemap.json"

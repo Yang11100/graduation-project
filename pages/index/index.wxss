@@ -1,1 +1,102 @@
-/**index.wxss**/
+.selection{
+  border-bottom: 2px solid #ddd;
+}
+
+
+.header{
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: limegreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.text-part{
+  font-size: 14px;
+}
+.text-all{
+  color: green;
+  font-size: 15px;
+}
+
+.content{
+   display: flex;/*布局.设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。*/
+   flex-direction: row;
+   flex-wrap: wrap;/*换行*/
+   justify-content: center;
+}
+
+.content-item{
+  height: 250rpx;
+  width: 45%;
+  background-color: goldenrod;
+  margin: 5px;/*外边距*/
+  position: relative;/*定位，为了item-text的位置*/
+}
+
+.content-item image{/*item下面的图片样式*/
+  width: 100%;
+  height: 100%;
+}
+
+.content-item-text{
+  position: absolute;/*绝对布局*/
+  bottom: 0px;
+  color: white;
+  font-size: 10px;
+  background: -webkit-linear-gradient(bottom,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0));/*设置渐变黑色*/
+  height: 125rpx;
+  width: 98%;
+  display: flex;
+  flex-direction: column;/*方向：竖*/
+  justify-content: flex-end;/*对其方向：底部开始*/
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 1%;
+}
+
+.list-item{
+  height: 500rpx;
+  width: 100%;
+}
+.list-item-images{
+   height: 300rpx;
+   width: 100%;
+   position: relative;
+}
+
+.list-item-images-img{
+   height: 100%;
+   width: 100%;
+}
+
+
+.avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;/*设置圆形*/
+  position: absolute;/*绝对定位相对于离他最近的父view进行定位，所以要先相对于它的父view进行定位*/
+  bottom: -50rpx;
+  right: 50rpx;
+}
+
+
+.list-item-text{
+  height: 200rpx;
+  width: 96%;
+  margin-top: 20rpx;
+  padding-left: 2%;
+  padding-right: 2%; 
+}
+
+.list-item-text-content{
+  font-size: 10px;
+  color: #999;
+  margin-top: 20rpx;
+
+}
