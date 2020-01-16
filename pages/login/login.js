@@ -41,21 +41,22 @@ Page({
     //这里还需要用户名和密码提交验证的过程
     app.userData.username = this.data.username;
     app.userData.password = this.data.password;
-    // wx.switchTab({
-    //   url: '../mine/mine',
-    // })
-    if (abc1 == abc) {
-      wx.switchTab({
-        url: '../mine/mine',
-      })
-    } else {
-      //弹出验证码不正确
-      wx.showToast({
-        title: '验证码不正确',
-        icon: 'fail',
-        duration: 200 //持续的时间
-      })
-    }
+    // abc1=this.data.abc1;
+    wx.switchTab({
+      url: '../mine/mine',
+    })
+    // if (abc1 == abc) {
+    //   wx.switchTab({
+    //     url: '../mine/mine',
+    //   })
+    // } else {
+    //   //弹出验证码不正确
+    //   wx.showToast({
+    //     title: '验证码不正确',
+    //     icon: 'fail',
+    //     duration: 200 //持续的时间
+    //   })
+    // }
   },
   usernameinput: function (e) {
     //获得登录名输入框中的数据
@@ -101,6 +102,7 @@ Page({
     this.setData({
       abc1: e.detail.value
     })
+    // console.log(abc1)
   },
   // 获得随机验证码
 

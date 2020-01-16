@@ -48,7 +48,8 @@
   position: absolute;/*绝对布局*/
   bottom: 0px;
   color: white;
-  font-size: 10px;
+  font-size: 35rpx;
+  text-align: center;
   background: -webkit-linear-gradient(bottom,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0));/*设置渐变黑色*/
   height: 125rpx;
   width: 98%;
@@ -61,42 +62,45 @@
 }
 
 .list-item{
-  height: 500rpx;
-  width: 100%;
+  height: 400rpx;
+  width: 98%;
+  flex-direction: row;
+  display: flex;
+  border-top: 2px solid rgb(172, 128, 128);
+  /* margin-bottom: 10rpx; */
 }
 .list-item-images{
-   height: 300rpx;
-   width: 100%;
-   position: relative;
+   height: 350rpx;
+   width: 50%;
+   /* position: relative; */
+   margin-top: 15rpx;
+   margin-left: 5rpx;
+   float: left;
 }
 
 .list-item-images-img{
    height: 100%;
    width: 100%;
+  /* float: left; */
 }
-
-
-.avatar{
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50%;/*设置圆形*/
-  position: absolute;/*绝对定位相对于离他最近的父view进行定位，所以要先相对于它的父view进行定位*/
-  bottom: -50rpx;
-  right: 50rpx;
-}
-
-
 .list-item-text{
-  height: 200rpx;
-  width: 96%;
-  margin-top: 20rpx;
-  padding-left: 2%;
-  padding-right: 2%; 
+  /* height: 200rpx; */
+  width: 46%;
+  /* margin-top: 20rpx; */
+  padding-left: 2rpx;
+  padding-right: 2rpx; 
+  float: right
 }
+.list-item-text-title{
+  text-align: center;
 
+
+}
 .list-item-text-content{
-  font-size: 10px;
-  color: #999;
-  margin-top: 20rpx;
+  font-size: 30rpx;
+  color: rgb(61, 30, 30);
+  margin: 20rpx;
+  
+  margin-bottom: 15rpx;
 
 }

@@ -8,7 +8,7 @@
 
 			<view class="list-item-images">
 				<!-- <image src="../../images/img2.png" class="list-item-images-img" /> -->
-				<image src="../../images/个人中心.png" class="avatar" />
+				<image src="../../images/预订.png" class="avatar" bindtap="reservetap"/>
 			</view>
 
 			<view class="list-item-text">
