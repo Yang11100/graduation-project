@@ -92,8 +92,8 @@
 
 .loginbtn{
     width: 80%;
-    color: white;
-    background-color: #05e48b;
+    color: black;
+    background-color: #e7f1fb;
     border-radius: 0;
     font-size: 14px;
 }

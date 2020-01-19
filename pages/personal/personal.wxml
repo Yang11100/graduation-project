@@ -1,7 +1,7 @@
 <!--pages/personal/personal.wxml-->
 <view class="personalWrap">
     <view class="personalMe" >
-        <image src="{{userHead}}" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+        <image src="/images/用户.png" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
         <view class="personalInfo">
             <text>姓名: {{username}}</text>
             <text>身份: {{username}}</text>
