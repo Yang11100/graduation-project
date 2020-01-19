@@ -39,7 +39,7 @@ Page({
     // wx.switchTab({
     //   url: '../mine/mine',
     // })
-    if (this.data.inputVerificationCode == this.data.verificationCode) {
+    if (this.data.inputVerificationCode.toLowerCase() == this.data.verificationCode.toLowerCase()) {
       wx.switchTab({
         url: '../mine/mine'
       })
@@ -47,7 +47,7 @@ Page({
       //弹出验证码不正确
       wx.showToast({
         title: '验证码不正确',
-        icon: 'fail',
+        icon: 'none',
         duration: 200 //持续的时间
       })
     }
