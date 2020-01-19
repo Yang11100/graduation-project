@@ -43,7 +43,7 @@ Page({
     app.userData.password = this.data.password;
     // abc1=this.data.abc1;
     wx.switchTab({
-      url: '../mine/mine',
+      url: '../personal/personal',
     })
     // if (abc1 == abc) {
     //   wx.switchTab({

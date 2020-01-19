@@ -31,7 +31,7 @@ Page({
   },
   resourcestap: function () {
     wx.navigateTo({
-      url: '../equipment/equipment',
+      url: '../booking/booking',
     })
   },
   reservetap: function () {

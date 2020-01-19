@@ -1,7 +1,7 @@
 {
   "pages": [
 
-   
+    
     "pages/index/index",
     "pages/login/login",
     "pages/equipment/equipment",
@@ -9,8 +9,10 @@
     "test/ppt/ppt",
     "test/select/select",
 
+    "pages/personal/personal",
+   
+    "pages/booking/booking",
 
-    "pages/mine/mine",
     "pages/check/check",
     "pages/audit/audit",
     "pages/changeperinfo/changeperinfo",
@@ -22,7 +24,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarBackgroundColor": "#e7f1fb",
     "navigationBarTitleText": "教学资源预约",
     "navigationBarTextStyle": "black"
   },
@@ -38,7 +40,7 @@
         "text": "资源显示"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/personal/personal",
         "iconPath": "images/个人中心.png",
         "selectedIconPath": "images/个人中心s.png",
         "text": "我的信息"

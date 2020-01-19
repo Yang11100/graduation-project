@@ -1,0 +1,20 @@
+<!--pages/personal/personal.wxml-->
+<view class="personalWrap">
+    <view class="personalMe" >
+        <image src="{{userHead}}" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+        <view class="personalInfo">
+            <text>姓名: {{username}}</text>
+            <text>身份: {{username}}</text>
+    
+        </view>
+    </view>
+    <!-- 列表 -->
+    <view class="personalList">
+        <view class="iconfont icon-reserve"  bindtap="listFirst">我的预定</view>
+        <view>历史记录</view>
+        <view class="iconfont icon-password" >修改密码</view>
+        <view class="iconfont icon-feedback" style="border:none;">意见反馈</view>
+    </view>
+</view>
+<import src="../../template/template.wxml"/>
+<template is="qrcode" />
