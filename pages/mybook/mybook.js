@@ -1,4 +1,4 @@
-// pages/cancel/cancel.js
+// pages/mybook/mybook.js
 Page({
 
   /**

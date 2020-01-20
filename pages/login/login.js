@@ -5,27 +5,21 @@ Page({
     username: null, //登录名数据
     password: null, //密码数据（变量）
 
-    how: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    selectData: ['管理员', '普通用户'], //下拉列表的数据
-    index: 0, //选择的下拉列表下标
+    options: false, //控制下拉列表的显示隐藏，false隐藏、true显示
+    identity: ['管理员', '普通用户'], //下拉列表的数据
+    first: 0, //选择的下拉列表下标
 
     verificationCode: '获取验证码', //验证码变量
     inputVerificationCode: null //输入的验证码值
   },
 
   //下拉框
-  selectTap() {
+  bindPickeridentity: function(e) {
+    // 身份
     this.setData({
-      show: !this.data.show
-    })
-  },
-  // 点击下拉列表
-  optionTap(e) {
-    let Index = e.currentTarget.dataset.index //获取点击的下拉列表的下标
-    this.setData({
-      index: Index,
-      show: !this.data.show
-    })
+      first: e.detail.value
+    });
+    //console.log(e.detail.value)
   },
   //下拉框
 
@@ -43,7 +37,16 @@ Page({
       wx.switchTab({
         url: '../personal/personal'
       })
-    } else {
+    } 
+    // else if (this.data.inputVerificationCode == null) {
+      //验证码为空
+    //   wx.showToast({
+    //     title: '验证码为空',
+    //     icon: 'none',
+    //     duration: 1000 //持续的时间
+    //   })
+    // } 
+    else {
       //弹出验证码不正确
       wx.showToast({
         title: '验证码不正确',

@@ -1,37 +1,32 @@
 {
   "pages": [
-
-    
     "pages/index/index",
     "pages/login/login",
     "pages/equipment/equipment",
+    "pages/admin/admin",
     "test/code/code",
     "test/ppt/ppt",
     "test/select/select",
-
     "pages/personal/personal",
-   
     "pages/booking/booking",
-
     "pages/check/check",
     "pages/audit/audit",
     "pages/changeperinfo/changeperinfo",
     "pages/estimate/estimate",
     "pages/manageperinfo/manageperinfo",
-    "pages/cancel/cancel",
-    "pages/reserve/reserve"
+    "pages/mybook/mybook"
 
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#e7f1fb",
+    "navigationBarBackgroundColor": "#cddaea",
     "navigationBarTitleText": "教学资源预约",
     "navigationBarTextStyle": "black"
   },
 
   "tabBar": {
     "color": "#000000",
-    "selectedColor": "#00cc99",
+    "selectedColor": "#105eba",
     "borderStyle": "white",
     "list": [{
         "pagePath": "pages/index/index",

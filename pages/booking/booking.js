@@ -16,7 +16,8 @@ Page({
     //点开自动获取当前日期
     this.setData({
       region: options.type,
-      date:util.formatTime(new Date)
+      date:util.formatTime(new Date),
+     //设置不能选择当前日期以前的日期 minData:new Date()
     })
   },
 

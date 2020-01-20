@@ -1,7 +1,5 @@
 /* pages/booking/booking.wxss */
-page {
-    background-color: #fff;
-}
+
 
 .header {
     background-color: #cee4fa;
@@ -48,25 +46,15 @@ page {
     color: #fff;
 }
 
-
-
-.button-Submit {
-    margin: 70rpx auto;
-}
-
-
-
 picker {
     display: inline-block;
 }
-
 .picker {
     position: relative;
     display: inline-block;
     padding-right: 36rpx;
     font-size: 30rpx;
 }
-
 .picker:before {
     content: '';
     height: 8px;
