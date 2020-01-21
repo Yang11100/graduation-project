@@ -15,7 +15,7 @@
 		<view bindtap="listmanageperinfo">管理用户信息</view>
 	</view>
 	<view class="exit">
-		<button>退出登录</button>
+		<button bindtap="exitlogin">退出登录</button>
 	</view>
 </view>
 <import src="../../template/template.wxml" />

@@ -14,127 +14,132 @@ Page({
   },
 
   //下拉框
-  bindPickeridentity: function(e) {
+  bindPickeridentity: function (e) {
     // 身份
     this.setData({
       first: e.detail.value
     });
-    //console.log(e.detail.value)
+    console.log(e.detail.value)
   },
   //下拉框
 
-  onLoad: function(options) {},
+  onLoad: function (options) {},
 
-  loginbtnclick: function() {
+  loginbtnclick: function () {
     //登录事件
     //这里还需要用户名和密码提交验证的过程
     app.userData.username = this.data.username
     app.userData.password = this.data.password
-    // wx.switchTab({
-    //   url: '../mine/mine',
-    // })
     if (this.data.inputVerificationCode.toLowerCase() == this.data.verificationCode.toLowerCase()) {
-      wx.switchTab({
-        url: '../personal/personal'
-      })
-    } 
-    // else if (this.data.inputVerificationCode == null) {
-      //验证码为空
-    //   wx.showToast({
-    //     title: '验证码为空',
-    //     icon: 'none',
-    //     duration: 1000 //持续的时间
-    //   })
-    // } 
-    else {
-      //弹出验证码不正确
-      wx.showToast({
-        title: '验证码不正确',
-        icon: 'none',
-        duration: 1000 //持续的时间
-      })
+      if (this.data.first == 1) {
+        wx.switchTab({
+          url: '../personal/personal'
+        })
+      } else {
+        wx.redirectTo({
+          url: '../admin/admin'
+        })
+      }
     }
-  },
-  usernameinput: function(e) {
-    //获得登录名输入框中的数据
-    this.setData({
-      username: e.detail.value
-    })
-  },
-  passwordinput: function(e) {
-    //获得密码输入框中的数据
-    this.setData({
-      password: e.detail.value
-    })
-  },
-
-  // 获得随机验证码
-  getcode: function() {
-    this.createCode()
-  },
-  createCode() {
-    var verificationCode
-    //首先默认abc为空字符串
-    verificationCode = ''
-    //设置长度，这里看需求，这里设置的是4位
-    var codeLength = 4
-    //设置随机字符
-    var random = new Array(
-      'A',
-      'B',
-      'C',
-      'D',
-      'E',
-      'F',
-      'G',
-      'H',
-      'I',
-      'J',
-      'K',
-      'L',
-      'M',
-      'N',
-      'O',
-      'P',
-      'Q',
-      'R',
-      'S',
-      'T',
-      'U',
-      'V',
-      'W',
-      'X',
-      'Y',
-      'Z',
-      0,
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9
-    )
-    //循环codeLength 设置的4就循环4次
-    for (var i = 0; i < codeLength; i++) {
-      //设置随机数范围为0 ~ 36
-      var index = Math.floor(Math.random() * 36)
-      //字符串拼接每次随机的字符进行一次拼接
-      verificationCode += random[index]
-    }
-    //将拼好的字符串赋值给abc
-    this.setData({
-      verificationCode: verificationCode
-    })
-    // console.log(verificationCode)
-  },
-  codeinput: function(e) {
-    //获得验证码框的值，判断验证码是否正确
-    this.setData({
-      inputVerificationCode: e.detail.value
+  
+  // else if (this.data.inputVerificationCode == null) {
+  //验证码为空
+  //   wx.showToast({
+  //     title: '验证码为空',
+  //     icon: 'none',
+  //     duration: 1000 //持续的时间
+  //   })
+  // } 
+  else {
+    //弹出验证码不正确
+    wx.showToast({
+      title: '验证码不正确',
+      icon: 'none',
+      duration: 1000 //持续的时间
     })
   }
-  // 获得随机验证码
+},
+usernameinput: function (e) {
+  //获得登录名输入框中的数据
+  this.setData({
+    username: e.detail.value
+  })
+},
+passwordinput: function (e) {
+  //获得密码输入框中的数据
+  this.setData({
+    password: e.detail.value
+  })
+},
+
+// 获得随机验证码
+getcode: function () {
+  this.createCode()
+},
+createCode() {
+  var verificationCode
+  //首先默认abc为空字符串
+  verificationCode = ''
+  //设置长度，这里看需求，这里设置的是4位
+  var codeLength = 4
+  //设置随机字符
+  var random = new Array(
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  )
+  //循环codeLength 设置的4就循环4次
+  for (var i = 0; i < codeLength; i++) {
+    //设置随机数范围为0 ~ 36
+    var index = Math.floor(Math.random() * 36)
+    //字符串拼接每次随机的字符进行一次拼接
+    verificationCode += random[index]
+  }
+  //将拼好的字符串赋值给abc
+  this.setData({
+    verificationCode: verificationCode
+  })
+  //console.log(verificationCode)
+},
+codeinput: function (e) {
+  //获得验证码框的值，判断验证码是否正确
+  this.setData({
+    inputVerificationCode: e.detail.value
+  })
+
+}
+// 获得随机验证码
 })

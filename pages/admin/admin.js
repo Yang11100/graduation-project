@@ -1,4 +1,5 @@
 // pages/admin/admin.js
+const app = getApp()
 Page({
   data: {
     username: null,
@@ -6,7 +7,9 @@ Page({
 
 
   onLoad: function (options) {
-
+    this.setData({
+      username: app.userData.username
+    })
   },
 
   onShow: function () {
@@ -54,6 +57,27 @@ Page({
       url: '../manageperinfo/manageperinfo',
     })
   },
+  exitlogin: function (e) {
+    wx.showModal({
+      title: '提示',
+      content: '是否确认退出',
+      success: function (res) {
+        if (res.confirm) {
+          // console.log('用户点击确定')
+          wx.removeStorageSync('username');
+          //页面跳转
+          wx.redirectTo({
+            url: '../login/login',
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+
+
+  },
+
   getScanning: function () {
     app.getScanning()
   }
