@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/login/login",
     "pages/equipment/equipment",
@@ -17,7 +16,6 @@
     "pages/estimate/estimate",
     "pages/manageperinfo/manageperinfo",
     "pages/mybook/mybook"
-
   ],
   "window": {
     "backgroundTextStyle": "light",
