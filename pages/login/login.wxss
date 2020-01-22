@@ -47,10 +47,14 @@
     height: 30px;
 }
 
+.code{
+  padding-top: 5%;
+}
 .box{
 	width:220rpx;
 	height:60rpx;
-	text-align: center;
+  text-align: center;
+  line-height: 60rpx;
 	border:2rpx solid #ccc;
   float: right;
 }
@@ -61,8 +65,12 @@
 
 .loginbtn{
     width: 80%;
+    height: auto;
     color: black;
-    background-color: #6cb4bb;
+    background-color: #b6dfe2;
     border-radius: 0;
-    font-size: 14px;
+    text-align: center;
+    padding-top: 15rpx;
+    
 }
+

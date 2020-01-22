@@ -1,6 +1,6 @@
 // pages/login/login.js
 var app = getApp() //获得app.js里面的信息
-var Bmob = require('../../utils/bmob.js');
+var Bmob = require('../../utils/bmob.js')
 Page({
   data: {
     username: null, //登录名数据
@@ -32,15 +32,10 @@ Page({
 
       Bmob.User.login(String(this.data.username), String(this.data.password)).then(res => {
         if (res.sessionToken) {
-          if (this.data.first == 1) {
+          wx.setStorageSync('role', this.data.first)
             wx.switchTab({
               url: '../personal/personal'
             })
-          } else {
-            wx.redirectTo({
-              url: '../admin/admin'
-            })
-          }
         } else {
           wx.showToast({
             title: '用户名或者验证码不正确！',

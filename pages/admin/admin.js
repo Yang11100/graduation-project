@@ -2,35 +2,22 @@
 const app = getApp()
 Page({
   data: {
-    username: null,
+    userinfo: {}
   },
 
 
   onLoad: function (options) {
-    this.setData({
-      username: app.userData.username
-    })
+    if (wx.getStorageSync('bmob')) {
+      this.setData({
+        userinfo: JSON.parse(wx.getStorageSync('bmob'))
+      })
+    }
+
   },
 
   onShow: function () {
-    var userInfo = wx.getStorageSync('userInfo');
-    if (userInfo.length !== 0) {
-      this.setData({
-        operation: '退出',
-        login: true,
-        userName: userInfo.userName,
-        userPhone: userInfo.userPhone,
-        userHead: '../../images/userhead.jpg'
-      })
-    } else {
-      this.setData({
-        userName: '',
-        userPhone: '',
-        userHead: '../../images/unuserhead.jpg',
-        operation: '登录',
-        login: false
-      })
-    }
+   
+    
 
   },
   listcheck: function () {
