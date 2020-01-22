@@ -1,21 +1,24 @@
 // pages/personal/personal.js
 var app = getApp();
+var Bmob = require('../../utils/bmob.js');
 Page({
   data: {
-    username: null,
+    userinfo: JSON.parse(
+      wx.getStorageSync('bmob')
+    ),
   },
   onLoad: function (options) {
-    if (app.userData.username == null) {
+    console.log("s")
+    if(this.data.userinfo.sessionToken){
+      console.log('cc')
       wx.redirectTo({
         url: '../login/login',
       })
-    } else {
-      this.setData({
-        username: app.userData.username
-      })
     }
-    // 页面初始化 options为页面跳转所带来的参数
+
   },
+  // 页面初始化 options为页面跳转所带来的参数
+
   onShow: function () {
     // 页面显示.
 

@@ -3,7 +3,7 @@
 	<view class="personalMe">
 		<image src="/images/默认头像.png" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
 		<view class="personalInfo">
-			<text>姓名: {{username}}</text>
+			<text>姓名: {{userinfo.username}}</text>
 			<text>身份: 普通用户</text>
 
 		</view>

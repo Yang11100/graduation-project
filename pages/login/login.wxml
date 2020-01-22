@@ -32,7 +32,7 @@
 				<view style='width:9%;display:inline-block;height:100%;'>
 					<image src='/images/密码.png' style='display:inline;' mode="aspectFit "></image>
 				</view>
-				<input style='width:80%;display:inline-block;height:100%;' placeholder-style='font-size:12px;' placeholder='请输入密码' password="true " bindinput="passwordinput "></input>
+				<input style='width:80%;display:inline-block;height:100%;' placeholder-style='font-size:12px;' placeholder='请输入密码' password="true " bindinput="passwordinput"></input>
 			</view>
 		</view>
 	</view>
