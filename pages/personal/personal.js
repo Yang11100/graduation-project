@@ -8,13 +8,15 @@ Page({
     ),
   },
   onLoad: function (options) {
-    console.log("s")
-    if(this.data.userinfo.sessionToken){
-      console.log('cc')
-      wx.redirectTo({
-        url: '../login/login',
-      })
-    }
+    
+    // if(this.data.userinfo.sessionToken){
+    //   wx.redirectTo({
+    //     url: '../login/login',
+    //   })
+    // }
+    wx.redirectTo({
+          url: '../login/login',
+        })
 
   },
   // 页面初始化 options为页面跳转所带来的参数
