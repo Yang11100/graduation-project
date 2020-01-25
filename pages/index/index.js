@@ -10,8 +10,8 @@ Page({
       'http://img5.imgtn.bdimg.com/it/u=4069497681,1728256116&fm=26&gp=0.jpg',
       'http://img4.imgtn.bdimg.com/it/u=3180806136,1967627276&fm=26&gp=0.jpg'
     ],
-
     listItems: ['', '', ''],
+    first:null
 
   },
   //事件处理函数
@@ -37,7 +37,7 @@ Page({
   reservetap: function () {
     wx.navigateTo({
 
-      url: '../reserve/reserve?id=1',
+      url: '../booking/booking?first=6',
     })
   },
 

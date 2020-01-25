@@ -11,7 +11,9 @@ Page({
     first: 0, //选择的下拉列表下标
 
     verificationCode: '获取验证码', //验证码变量
-    inputVerificationCode: null //输入的验证码值
+    inputVerificationCode: null,//输入的验证码值
+
+    emptyvalue:null,//清空输入
   },
 
   //下拉框
@@ -25,6 +27,14 @@ Page({
   //下拉框
 
   onLoad: function (options) {},
+
+  clearbtnclick:function(){
+    //清空信息事件
+    this.setData({
+      emptyvalue:'',
+    })
+
+  },
 
   loginbtnclick: function () {
     //登录事件

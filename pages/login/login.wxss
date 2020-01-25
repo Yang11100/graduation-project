@@ -31,9 +31,10 @@
  flex: 1;
 }
 /* 下拉框 */
+
 .imagesize{
-  width: 10px;
-  height: 10px;
+  width: 15rpx;
+  height: 15rpx;
 }
 .login-item{
     width: 90%;
@@ -48,7 +49,7 @@
 }
 
 .code{
-  padding-top: 5%;
+  padding-top: 8%;
 }
 .box{
 	width:220rpx;
@@ -57,20 +58,26 @@
   line-height: 60rpx;
 	border:2rpx solid #ccc;
   float: right;
+  border-radius: 5px;
 }
 
-.btn{
-  padding-top: 10px;
+.clear-login{
+  width: 80%;
+  padding-top: 50rpx;
+  padding-left: 70rpx;
+  padding-right: 70rpx;
 }
-
+.clearbtn{
+  width: 32%;
+  float: left;
+  border-radius: 5;
+}
 .loginbtn{
-    width: 80%;
-    height: auto;
+    width: 32%;
+    float: right;
     color: black;
     background-color: #b6dfe2;
-    border-radius: 0;
-    text-align: center;
-    padding-top: 15rpx;
-    
+    border-radius: 5;
+    padding-top: -250rpx;
 }
 
