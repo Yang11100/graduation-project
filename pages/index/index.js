@@ -30,13 +30,12 @@ Page({
     })
   },
   resourcestap: function () {
-    wx.navigateTo({
+    wx.navigateBack({
       url: '../booking/booking',
     })
   },
   reservetap: function () {
-    wx.navigateTo({
-
+    wx.navigateBack({
       url: '../booking/booking?first=6',
     })
   },

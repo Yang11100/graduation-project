@@ -12,10 +12,10 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    this.setData({
-      projecturl: options.projecturl
-    })
-    console.log(first)
+    // this.setData({
+    //   projecturl: options.projecturl
+    // })
+    // console.log(first)
     //点开自动获取当前日期
     this.setData({
       region: options.type,

@@ -13,6 +13,12 @@
 		</view>
 		<view class="header-qrcode iconfont icon-qrcode" bindtap="getScanning"></view>
 	</view>
+	<view class="body">
+		<view class="messages">
+			<text>容纳人数：</text>
+			<text>基础设备：</text>
+		</view>
+	</view>
+	<button>提交预订</button>
 
-	<button type="default" class="button-Submit" bindtap="submitBtn" data-login="{{login}}" hover-class="other-button-hover">提交预定</button>
 </view>

@@ -20,7 +20,7 @@
 
 		<!-- 普通用户 -->
 		<block wx:else>
-			<view bindtap="listmybook">预定/退订</view>
+			<view bindtap="listmybook">我的预定/退订</view>
 			<view bindtap="listchangeperinfo">修改个人信息</view>
 		</block>
 	</view>

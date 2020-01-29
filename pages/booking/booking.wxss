@@ -70,3 +70,6 @@ picker {
     -moz-transform: rotate(135deg);
     transform: rotate(135deg);
 }
+.body{
+padding-top: 180rpx;
+}
