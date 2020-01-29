@@ -1,5 +1,5 @@
-var app = getApp()
-var Bmob = require('../../utils/bmob.js')
+let app = getApp()
+let Bmob = require('../../utils/bmob.js')
 Page({
   data: {
     userinfo: {},
