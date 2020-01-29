@@ -30,7 +30,7 @@ Page({
     })
   },
   resourcestap: function () {
-    wx.navigateBack({
+    wx.navigateTo({
       url: '../booking/booking',
     })
   },
