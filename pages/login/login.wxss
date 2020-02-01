@@ -17,9 +17,11 @@
     width: 96%;
     /* padding: 0 2%; */
 }
-
+.double{
+  padding-top: 40%;
+}
 /* 下拉框 */
-.select_box{
+/* .select_box{
  background: #fff;
  width: 80%;
  margin: 30rpx 0;
@@ -30,7 +32,7 @@
  font-size: 30rpx;
  flex: 1;
 }
-/* 下拉框 */
+下拉框 */
 
 .imagesize{
   width: 15rpx;

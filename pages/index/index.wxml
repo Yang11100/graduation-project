@@ -22,7 +22,7 @@
 			<view class="content-item" bindtap="reservetap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
-				<image src="../../images/舞蹈室.jpg" />
+				<image src="../../images/dance.jpg" />
 				<view class="content-item-text">
 					<text>舞蹈室</text>
 				</view>
@@ -31,7 +31,7 @@
 			<view class="content-item" bindtap="reservetap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
-				<image src="/images/教室.jpg" />
+				<image src="/images/classroom.jpg" />
 				<view class="content-item-text">
 					<text>教室</text>
 				</view>
@@ -40,7 +40,7 @@
 			<view class="content-item" bindtap="reservetap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
-				<image src="/images/会议室.jpg" />
+				<image src="/images/meeting.jpg" />
 				<view class="content-item-text">
 					<text>会议室</text>
 				</view>
@@ -49,7 +49,7 @@
 			<view class="content-item" bindtap="reservetap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
-				<image src="/images/琴房.jpg" />
+				<image src="/images/pianoroom.jpg" />
 				<view class="content-item-text">
 					<text>琴房</text>
 				</view>
@@ -66,7 +66,7 @@
 		<!-- <view class="list-item" wx:for="{{listItems}}" wx:key="navItems"> -->
 		<view class="list-item">
 			<view class="list-item-images">
-				<image src="../../images/1特别公告.png" class="list-item-images-img"></image>
+				<image src="../../images/notice.png" class="list-item-images-img"></image>
 			</view>
 			<!-- <view class="list-item-text">
 				<text  class="list-item-text-title">资源使用预订公告</text>
@@ -86,7 +86,7 @@
 
 		<view class="list-item">
 			<view class="list-item-images">
-				<image src="../../images/2招聘.png" class="list-item-images-img"></image>
+				<image src="../../images/recruit.png" class="list-item-images-img"></image>
 			</view>
 			<view class="list-item-text">
 				<view class="list-item-text-title">
@@ -107,7 +107,7 @@
 
 		<view class="list-item">
 			<view class="list-item-images">
-				<image src="../../images/3通报.jpg" class="list-item-images-img"></image>
+				<image src="../../images/bulletin.jpg" class="list-item-images-img"></image>
 			</view>
 			<view class="list-item-text">
 				<view class="list-item-text-title">

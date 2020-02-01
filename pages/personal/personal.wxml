@@ -1,11 +1,10 @@
 <!--pages/personal/personal.wxml-->
 <view class="personalWrap">
 	<view class="personalMe">
-		<image src="/images/默认头像.png" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+		<image src="/images/headportrait.png" style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
 		<view class="personalInfo">
-			<text>姓名: {{userinfo.username}}</text>
-			<text>身份: {{identity}} </text>
-
+			<text>{{userinfo.Nickname}}</text>
+			<text>{{identityname}} </text>
 		</view>
 	</view>
 	<!-- 列表 -->
@@ -20,6 +19,7 @@
 
 		<!-- 普通用户 -->
 		<block wx:else>
+		<view>信用积分：{{userinfo.mark}}</view>
 			<view bindtap="listmybook">我的预定/退订</view>
 			<view bindtap="listchangeperinfo">修改个人信息</view>
 		</block>

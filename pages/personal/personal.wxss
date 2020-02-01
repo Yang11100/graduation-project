@@ -1,11 +1,7 @@
-/* pages/personal/personal.wxss */
-/** 修改button默认的点击态样式类**/
 page{
     /*background-color:#fff;*/
     font-size:30rpx;
 }
-
-
 .personalMe{
     height:210rpx;
     margin:30rpx 0rpx 30rpx 0rpx;
@@ -65,4 +61,10 @@ page{
     -webkit-transform:rotate(45deg);
        -moz-transform:rotate(45deg);
             transform:rotate(45deg);
+}
+.exit{
+    width: 60%;
+    text-align: center;
+    display:block;
+    margin:0 auto;
 }

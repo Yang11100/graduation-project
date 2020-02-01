@@ -1,40 +1,53 @@
-var app = getApp()
-var Bmob = require('../../utils/bmob.js')
+let app = getApp()
+let Bmob = require('../../utils/bmob.js')
 Page({
   data: {
     userinfo: {},
-    role: 0,
-    identity: null
+    role: null,
+    identityname: null,
+    Nickname: null
   },
   onLoad: function (options) {
-    if (wx.getStorageSync('role')) {
-      this.setData({
-        role: wx.getStorageSync('role'),
-        identity: '普通用户'
-      })
-    } else {
-      this.setData({
-        identity: '管理员'
-      })
+    /*注册
+      let params = {
+        username: '1645100',
+        password: '123456',
+        email: '1645100@bmob.cn',
+        phone: '1645100',
+        Nickname:'FU Till I FU',
+        identity:'0'
     }
-    console.log(wx.getStorageSync('role'))
-
+    Bmob.User.register(params).then(res => {
+      console.log(res)
+    }).catch(err => {
+     console.log(err)
+    });*/
     if (wx.getStorageSync('bmob')) {
       this.setData({
-        userinfo: JSON.parse(wx.getStorageSync('bmob'))
+        userinfo: JSON.parse(wx.getStorageSync('bmob')),
+        role: JSON.parse(wx.getStorageSync('bmob')).identity
       })
-
+     // console.log(this.data.role)
+      if (this.data.role==1) {
+        this.setData({
+          role: this.data.role,
+          identityname: '普通用户'
+        })
+      } else {
+        this.setData({
+          role: 0,
+          identityname: '管理员'
+        })
+      }
     }
-    console.log(this.data.userinfo)
     if (!this.data.userinfo.sessionToken) {
-      console.log('cc')
       wx.redirectTo({
         url: '../login/login'
       })
     }
+  //  console.log(this.data.role)
   },
-  // 页面初始化 options为页面跳转所带来的参数
-
+  // 页面初始化 options为页面跳转所带来的
   onShow: function () {
     // 页面显示.
   },
@@ -72,7 +85,7 @@ Page({
       url: '../estimate/estimate',
     })
   },
-  listmanageperinfo: function() {
+  listmanageperinfo: function () {
     //管理用户信息
     wx.navigateTo({
       url: '../manageperinfo/manageperinfo',
@@ -97,7 +110,6 @@ Page({
       }
     })
   },
-
   getScanning: function () {
     app.getScanning()
   }

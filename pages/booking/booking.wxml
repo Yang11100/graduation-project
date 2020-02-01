@@ -19,6 +19,6 @@
 			<text>基础设备：</text>
 		</view>
 	</view>
-	<button>提交预订</button>
+	<button bindtap="bookingbtn">提交预订</button>
 
 </view>
