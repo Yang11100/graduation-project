@@ -12,7 +12,7 @@ Page({
       '14:30-16:00', //4
       '16:00-18:00', //5
       '14:30-18:00', //6
-      '08:30-18:00',//7
+      '08:30-18:00', //7
     ],
     type: [
       '请选择',
@@ -23,9 +23,9 @@ Page({
       '琴房',
       '实验室',
       '舞蹈室'
-    ], // '0多媒体教室', '1机房', '2学生工作室', '3会议室', '4琴房', '5实验室', '6舞蹈室'
+    ], // '1多媒体教室', '2机房', '3学生工作室', '4会议室', '5琴房', '6实验室', '7舞蹈室'
     first: 0,
-    seconds:0,
+    time: null,
     userChosen: '',
     roominfo: {},
     number: null, //容纳人数
@@ -55,12 +55,20 @@ Page({
     this.setData({
       first: e.detail.value
     })
-    console.log(this.data.first)
+    const query = Bmob.Query('room')
+    const query1 = query.equalTo('time', '!=', this.data.first)
+    query.find().then(res => {
+      console.log('查询成功', res)
+      // this.setData({
+      //   time: res
+      // })
+      wx.setStorageSync('time', res)
+    })
   },
   bindPickertype: function (e) {
     // 类型
     this.setData({
-      first: e.detail.value+1
+      first: e.detail.value
     })
     console.log(this.data.first)
     // ###################
@@ -68,14 +76,16 @@ Page({
     const query1 = query.equalTo('type', '==', this.data.first)
     const query2 = query.equalTo('active', '==', '0')
     query.find().then(res => {
-      console.log('查询成功', res)
+      console.log('查询成功')
       this.setData({
-        roominfo: res
+        roominfo: res,
+        number:roominfo.number
       })
-      console.log(this.data.roominfo)
+      console.log(this.data.number)
+      wx.setStorageSync('room', this.data.roominfo)
+      //console.log(this.data.roominfo)
     })
     // ##################
-
   },
   bookingbtn: function () {
     wx.navigateTo({
