@@ -3,6 +3,7 @@ const util = require('../../utils/util.js')
 const Bmob = require('../../utils/bmob.js')
 Page({
   data: {
+    startDate: util.formatTime(new Date()), // 最早时间 
     options: false,
     daytime: [
       '请选择',
@@ -12,7 +13,7 @@ Page({
       '14:30-16:00', //4
       '16:00-18:00', //5
       '14:30-18:00', //6
-      '08:30-18:00', //7
+      '08:30-18:00' //7
     ],
     type: [
       '请选择',
@@ -28,9 +29,9 @@ Page({
     time: null,
     userChosen: '',
     roominfo: {},
-    number: null, //容纳人数
+    number: null //容纳人数
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
     // this.setData({
     //   projecturl: options.projecturl
@@ -39,61 +40,54 @@ Page({
     //点开自动获取当前日期
     this.setData({
       region: options.type,
-      date: util.formatTime(new Date()),
+      date: util.formatTime(new Date())
       //设置不能选择当前日期以前的日期 minData:new Date()
     })
   },
-
-  bindDateChange: function (e) {
-    // 日期
+  // 日期
+  bindDateChange: function(e) {
     this.setData({
       date: e.detail.value
     })
+    this.searchClassRoom()
   },
-  bindPickerOrder: function (e) {
-    // 时间(几点几点
+  bindPickerOrder: function(e) {
+    // 时间(几点几点)
     this.setData({
       first: e.detail.value
     })
-    const query = Bmob.Query('room')
-    const query1 = query.equalTo('time', '!=', this.data.first)
-    query.find().then(res => {
-      console.log('查询成功', res)
-      // this.setData({
-      //   time: res
-      // })
-      wx.setStorageSync('time', res)
-    })
+    this.searchClassRoom()
   },
-  bindPickertype: function (e) {
+  bindPickertype: function(e) {
     // 类型
     this.setData({
       first: e.detail.value
     })
-    console.log(this.data.first)
-    // ###################
+    this.searchClassRoom()
+  },
+  // 查询教室
+  searchClassRoom() {
     const query = Bmob.Query('room')
-    const query1 = query.equalTo('type', '==', this.data.first)
-    const query2 = query.equalTo('active', '==', '0')
+    query.equalTo('type', '==', this.data.first)
+    query.equalTo('active', '==', '0')
     query.find().then(res => {
-      console.log('查询成功')
+      console.log('查询成功', res)
       this.setData({
         roominfo: res,
-        number:roominfo.number
+        number: roominfo.number
       })
       console.log(this.data.number)
       wx.setStorageSync('room', this.data.roominfo)
       //console.log(this.data.roominfo)
     })
-    // ##################
   },
-  bookingbtn: function () {
+  bookingbtn: function() {
     wx.navigateTo({
-      url: '../mybook/mybook',
+      url: '../mybook/mybook'
     })
   },
 
-  getScanning: function () {
+  getScanning: function() {
     app.getScanning()
   }
 })
