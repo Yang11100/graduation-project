@@ -4,7 +4,7 @@
 		<swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
 			<block wx:for="{{imgUrls}}" wx:key="navItems">
 				<swiper-item>
-					<image src="{{item}}" class="slide-image"/>
+					<image src="{{item}}" class="slide-image" />
 				</swiper-item>
 			</block>
 		</swiper>
@@ -68,10 +68,6 @@
 			<view class="list-item-images">
 				<image src="../../images/notice.png" class="list-item-images-img"></image>
 			</view>
-			<!-- <view class="list-item-text">
-				<text  class="list-item-text-title">资源使用预订公告</text>
-				<text class="list-item-text-content">1.资源需先预订审批再使用，不可直接使用；2.使用资源时需注意使用安全，规范使用；3.当使用不符合规范被管理员扣分是会影响下次的预订</text>
-			</view> -->
 			<view class="list-item-text">
 				<view class="list-item-text-title">
 					<text>资源使用预订公告</text>
@@ -96,13 +92,6 @@
 					<text>现招聘学生管理员一名，大一大二学生即可。有意向的同学请上班时间带着课表到大学生服务中心报名，截止时间4月20号。</text>
 				</view>
 			</view>
-			<!-- <view class="list-item-images">
-				<image src="../../images/2招聘.png" class="list-item-images-img"></image>
-			</view>
-			<view class="list-item-images">
-				<image src="../../images/1特别公告.png" class="list-item-images-img"></image> -->
-			<!-- <image src="../../images/img2.png" class="list-item-images-img" /> -->
-			<!-- <image src="../../images/个人中心.png" class="avatar" /> -->
 		</view>
 
 		<view class="list-item">
@@ -116,21 +105,7 @@
 				<view class="list-item-text-content">
 					<text>国际经济与贸易学院2020级金融管理1班的李某在使用教室资源时，因使用错误对教室造成极大的损伤，故从4月1日起限制李某的资源使用直至其毕业。</text>
 				</view>
-				<!-- <view class="list-item-images">
-				<image src="../../images/2招聘.png" class="list-item-images-img"></image>
 			</view>
-			<view class="list-item-images">
-				<image src="../../images/1特别公告.png" class="list-item-images-img"></image> -->
-				<!-- <image src="../../images/img2.png" class="list-item-images-img" /> -->
-				<!-- <image src="../../images/个人中心.png" class="avatar" /> -->
-			</view>
-
-
-
 		</view>
-
-
-		<!-- <button class="index-loginbtn" bindtap="loginbtnclick">登录</button> -->
-
 	</view>
 </view>

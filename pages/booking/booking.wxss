@@ -2,7 +2,6 @@
 
 
 .header {
-    background-color: #cee4fa;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,7 +18,7 @@
 .header-date,
 .header-time,
 .header-type {
-    background-color: #fff;
+    background-color: rgb(216, 188, 188, 0.2);
     border-radius: 4px;
     font-size: 28rpx;
     color: #b02923;

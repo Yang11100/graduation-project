@@ -9,11 +9,9 @@ Page({
       '请选择',
       '08:30-10:00', //1
       '10:00-12:00', //2
-      '08:30-12:00', //3
-      '14:30-16:00', //4
-      '16:00-18:00', //5
-      '14:30-18:00', //6
-      '08:30-18:00' //7
+      '14:30-16:00', //3
+      '16:00-18:00', //4
+
     ],
     type: [
       '请选择',
@@ -26,12 +24,13 @@ Page({
       '舞蹈室'
     ], // '1多媒体教室', '2机房', '3学生工作室', '4会议室', '5琴房', '6实验室', '7舞蹈室'
     first: 0,
-    time: null,
+    time: 0,
+    id:null,
     userChosen: '',
     roominfo: {},
     number: null //容纳人数
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     // this.setData({
     //   projecturl: options.projecturl
@@ -45,49 +44,63 @@ Page({
     })
   },
   // 日期
-  bindDateChange: function(e) {
+  bindDateChange: function (e) {
     this.setData({
       date: e.detail.value
     })
     this.searchClassRoom()
   },
-  bindPickerOrder: function(e) {
+  bindPickerOrder: function (e) {
     // 时间(几点几点)
     this.setData({
-      first: e.detail.value
+      time: e.detail.value
     })
     this.searchClassRoom()
   },
-  bindPickertype: function(e) {
+  bindPickertype: function (e) {
     // 类型
     this.setData({
       first: e.detail.value
     })
     this.searchClassRoom()
+
   },
   // 查询教室
   searchClassRoom() {
+    console.log(this.data.date)
+    console.log(this.data.first)
+    console.log(this.data.time)
+    //查询莫个类型所有的数据
     const query = Bmob.Query('room')
     query.equalTo('type', '==', this.data.first)
-    query.equalTo('active', '==', '0')
     query.find().then(res => {
+      console.log(res)
+    });
+    //查询booking里面占用的数据
+    const query1 = Bmob.Query('booking')
+    query1.equalTo('time', '==', this.data.time)
+    query1.equalTo('date', '==', this.data.date)
+    query1.find().then(res => {
       console.log('查询成功', res)
       this.setData({
         roominfo: res,
-        number: roominfo.number
+        number: res.number,
+        id: res.id
       })
+      console.log(this.data.id)
       console.log(this.data.number)
-      wx.setStorageSync('room', this.data.roominfo)
       //console.log(this.data.roominfo)
     })
+
+
   },
-  bookingbtn: function() {
+  bookingbtn: function () {
     wx.navigateTo({
       url: '../mybook/mybook'
     })
   },
 
-  getScanning: function() {
+  getScanning: function () {
     app.getScanning()
   }
 })

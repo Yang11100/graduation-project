@@ -19,24 +19,20 @@ Page({
   // onLoad: function () {
 
   // },
-  loginbtnclick: function () {
-    wx.switchTab({
-      //只适用于调转到设置了tabbar的页面
+
+  resourcestap: function () {
+    wx.navigateTo({
+      //wx.switchTab只适用于调转到设置了tabbar的页面
       //navigateTo此方法能够从跳转的页面会回到当前页面;
       //  wx.redirectTo 方法跳转会关闭当前页面跳转到某个页面; 
       // wx.reLaunch 方法跳转会关闭所有打开的页面，跳转到某个页面; 
       // wx.navigateBack 方法返回到父页面 ，可以多级返回
-      url: '../mine/mine',
-    })
-  },
-  resourcestap: function () {
-    wx.navigateTo({
       url: '../booking/booking',
     })
   },
   reservetap: function () {
-    wx.navigateBack({
-      url: '../booking/booking?first=6',
+    wx.navigateTo({
+      url: '../booking/booking',
     })
   },
 
