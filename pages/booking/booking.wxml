@@ -5,7 +5,7 @@
 			日期：<picker mode="date" bindchange="bindDateChange" value="{{date}}" start='{{startDate}}' end='2100-01-01'><text class="picker">{{date}}</text></picker>
 		</view>
 		<view class="header-time">
-			时间：<picker disabled="{{picker}}" bindchange="bindPickerOrder" value="{{first}}" range="{{daytime}}"><text class="picker">{{daytime[first]}}</text>
+			时间：<picker disabled="{{picker}}" bindchange="bindPickerOrder" value="{{time}}" range="{{daytime}}"><text class="picker">{{daytime[time]}}</text>
 			</picker>
 		</view>
 		<view class="header-type">
