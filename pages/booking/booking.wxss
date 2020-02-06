@@ -1,6 +1,3 @@
-/* pages/booking/booking.wxss */
-
-
 .header {
     position: fixed;
     top: 0;
@@ -9,6 +6,9 @@
     height: 176rpx;
     line-height: 88rpx;
     z-index: 100;
+    position: fixed;
+    background-color: white;
+    border-bottom:1px solid rgb(216, 188, 188, 0.2);
 }
 
 .header>view {
@@ -73,4 +73,17 @@ picker {
 }
 .body{
 padding-top: 180rpx;
+/* width: 45%; */
+}
+.messages{
+    border: darkgray solid 1px;
+    background-color: darkgray;
+    color: #28a5a5;
+    font-size: 35rpx;
+    /* position: relative; */
+    float: left;
+    padding-top: 2rpx;
+     /*padding是容器内部的距离，margin是容器外部的距离（margin是指从自身边框到另一个容器边框之间的距离，就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
+     margin: 20rpx;
+
 }

@@ -1,11 +1,13 @@
 {
   "pages": [
+   
     "pages/index/index",
     "pages/login/login",
     "pages/equipment/equipment",
     "pages/admin/admin",
     "test/code/code",
     "test/ppt/ppt",
+    "test/computed/computed",
     "test/select/select",
     "test/exit/exit",
     "pages/personal/personal",

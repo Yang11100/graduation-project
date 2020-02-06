@@ -25,9 +25,10 @@ Page({
     first: 0,
     time: 0,
     id: null,
-    userChosen: '',
-    roominfo: {},
+  //  userChosen: '',
+    specificroom:null,
     number: null, //容纳人数
+    equipment:null,
     roomList: [] // 未被占用的房间
   },
   onLoad: function(options) {
@@ -108,16 +109,23 @@ Page({
           })
         }
         console.log('roomList', this.data.roomList)
-        this.setData({
-          roominfo: rep,
-          number: rep.number,
-          id: rep.id
-        })
-        console.log(this.data.id)
-        console.log(this.data.number)
-        //console.log(this.data.roominfo)
       })
     })
+  },
+  //通过点击资源名字来显示资源的具体信息
+  nametap(e){
+    let objectId=e.currentTarget.dataset.id
+    console.log(objectId)
+    const query = Bmob.Query("room");
+    query.equalTo("objectId","==", objectId);
+    query.find().then(res => {
+        this.setData({
+          specificroom:res
+        })
+    });
+    console.log('specific',this.data.specificroom)
+    
+
   },
   bookingbtn: function() {
     wx.navigateTo({

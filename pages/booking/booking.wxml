@@ -12,15 +12,18 @@
 			资源类型：<picker disabled="{{picker}}" bindchange="bindPickertype" value="{{first}}" range="{{type}}"><text class="picker">{{type[first]}}</text></picker>
 		</view>
 		<view class="head-btn">
-		<!-- <button>查询</button> -->
+			<!-- <button>查询</button> -->
 		</view>
 		<view class="header-qrcode iconfont icon-qrcode" bindtap="getScanning"></view>
 	</view>
 	<view class="body">
-		<view class="messages">
-			<text>容纳人数：</text>
-			<text>基础设备：</text>
-		</view>
+		<block wx:for="{{roomList}}" wx:key="index">
+			<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
+		</block>
+		<block wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
+			<view class="msg">容纳人数：{{specific.number}}</view>
+			<view class="msg">基础设备：{{specific.equipment}}</view>
+		</block>
 	</view>
 	<button bindtap="bookingbtn">提交预订</button>
 

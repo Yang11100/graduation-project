@@ -1,0 +1,26 @@
+{
+  "name": "graduation-project",
+  "version": "1.0.0",
+  "description": "毕业设计",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "miniprogram-computed": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yang11100/graduation-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yang11100/graduation-project/issues"
+  },
+  "homepage": "https://github.com/Yang11100/graduation-project#readme"
+}
