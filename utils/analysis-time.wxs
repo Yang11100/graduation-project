@@ -1,19 +1,18 @@
-<wxs module="analysisTime">
-	var handaltime = function (time) {
-		var value = null;
-		switch (time) {
-			case '1':
-				value = '08:30-10:00'
-				break;
-			case '2':
-				value = '10:00-12:00'
-				break;
-			case '3':
-				value = '14:30-16:00'
-				break;
-			case '4':
-				value = '16:00-18:00'
-		}
-	}
-	module.exports.handaltime = handaltime;
-</wxs>
+var handaltime = function(time) {
+  var value = null
+  switch (time) {
+    case '1':
+      value = '08:30-10:00'
+      break
+    case '2':
+      value = '10:00-12:00'
+      break
+    case '3':
+      value = '14:30-16:00'
+      break
+    case '4':
+      value = '16:00-18:00'
+  }
+	return value
+}
+module.exports.handaltime = handaltime

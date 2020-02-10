@@ -1,5 +1,6 @@
-<view class="nav">
+<wxs src="../../utils/analysis-time.wxs" module="analysisTime"></wxs>
 
+<view class="nav">
 	<view class="content">
 		<view class="header">
 			<view>预订成功</view>
@@ -8,7 +9,7 @@
 			<block wx:for="{{successInfo}}" wx:key="index">
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
-				<view>时间：{{analysisTime(item.time)}}</view>
+				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
 			</block>
 		</view>
 	</view>
