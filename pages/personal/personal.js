@@ -47,10 +47,7 @@ Page({
     }
   //  console.log(this.data.role)
   },
-  // 页面初始化 options为页面跳转所带来的
-  onShow: function () {
-    // 页面显示.
-  },
+
 
   //普通用户
   listmybook: function () {
@@ -90,6 +87,13 @@ Page({
     wx.navigateTo({
       url: '../manageperinfo/manageperinfo',
     })
+  },
+  bookingbtn(){
+    wx.navigateTo({
+      url: '../booking/booking',
+
+    })
+
   },
   exitlogin: function (e) {
     wx.showModal({

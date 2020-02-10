@@ -21,10 +21,14 @@
 			<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
 		</block>
 		<block wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
+			<view class="msg">名称：{{specific.name}}</view>
 			<view class="msg">容纳人数：{{specific.number}}</view>
 			<view class="msg">基础设备：{{specific.equipment}}</view>
 		</block>
 	</view>
-	<button bindtap="bookingbtn">提交预订</button>
-
+	<view>
+		<text class="words">提前预定不等位</text>
+		<text class="word">|</text>
+		<button class="submit" bindtap="bookingbtn">提交预订</button>
+	</view>
 </view>

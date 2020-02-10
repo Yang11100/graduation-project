@@ -26,16 +26,16 @@ Page({
   // },
   //下拉框
 
-  onLoad: function(options) {},
+  onLoad: function (options) {},
 
-  clearbtnclick: function() {
+  clearbtnclick: function () {
     //清空信息事件
     this.setData({
       emptyvalue: ''
     })
   },
 
-  loginbtnclick: function() {
+  loginbtnclick: function () {
     //登录事件
     //查询user表中数据
     if (
@@ -50,7 +50,7 @@ Page({
               url: '../personal/personal'
             })
           } else {
-            
+
             wx.showToast({
               title: '用户名或者验证码不正确！',
               icon: 'none',
@@ -94,13 +94,13 @@ Page({
       })
     }
   },
-  usernameinput: function(e) {
+  usernameinput: function (e) {
     //获得登录名输入框中的数据
     this.setData({
       username: e.detail.value
     })
   },
-  passwordinput: function(e) {
+  passwordinput: function (e) {
     //获得密码输入框中的数据
     this.setData({
       password: e.detail.value
@@ -109,7 +109,7 @@ Page({
   },
 
   // 获得随机验证码
-  getcode: function() {
+  getcode: function () {
     this.createCode()
   },
   createCode() {
@@ -170,7 +170,7 @@ Page({
     })
     //console.log(verificationCode)
   },
-  codeinput: function(e) {
+  codeinput: function (e) {
     //获得验证码框的值，判断验证码是否正确
     this.setData({
       inputVerificationCode: e.detail.value

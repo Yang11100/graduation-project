@@ -22,43 +22,46 @@ Page({
       '实验室',
       '舞蹈室'
     ], // '1多媒体教室', '2机房', '3学生工作室', '4会议室', '5琴房', '6实验室', '7舞蹈室'
-    first: 0,
-    time: 0,
-    id: null,
-  //  userChosen: '',
-    specificroom:null,
+    first: 0, //资源类型
+    time: 0, //时间段id
+    id: null, //资源id
+    specificroom: null, //选定的具体资源的信息
     number: null, //容纳人数
-    equipment:null,
-    roomList: [] // 未被占用的房间
+    equipment: null,
+    roomList: [], // 未被占用的房间
+    userid: null, //当前用户的id
+    name: null, //选择的资源的名字
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     // this.setData({
     //   projecturl: options.projecturl
     // })
-    // console.log(first)
     //点开自动获取当前日期
+    //console.log(this.data.date)
     this.setData({
       region: options.type,
-      date: util.formatTime(new Date())
+      date: util.formatTime(new Date()),
+      userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
       //设置不能选择当前日期以前的日期 minData:new Date()
     })
+    console.log(this.data.userid)
   },
   // 日期
-  bindDateChange: function(e) {
+  bindDateChange: function (e) {
     this.setData({
       date: e.detail.value
     })
     this.searchClassRoom()
   },
-  bindPickerOrder: function(e) {
+  bindPickerOrder: function (e) {
     // 时间(几点几点)
     this.setData({
       time: e.detail.value
     })
     this.searchClassRoom()
   },
-  bindPickertype: function(e) {
+  bindPickertype: function (e) {
     // 类型
     this.setData({
       first: e.detail.value
@@ -68,6 +71,12 @@ Page({
   // 查询教室
   searchClassRoom() {
     //查询莫个类型所有的数据
+    console.log('time', this.data.time)
+    console.log(this.data.date)
+    console.log(this.data.first)
+    this.setData({
+      specificroom: null
+    })
     const query = Bmob.Query('room')
     query.equalTo('type', '==', this.data.first)
     query.find().then(res => {
@@ -113,27 +122,86 @@ Page({
     })
   },
   //通过点击资源名字来显示资源的具体信息
-  nametap(e){
-    let objectId=e.currentTarget.dataset.id
-    console.log(objectId)
-    const query = Bmob.Query("room");
-    query.equalTo("objectId","==", objectId);
-    query.find().then(res => {
-        this.setData({
-          specificroom:res
-        })
-    });
-    console.log('specific',this.data.specificroom)
-    
-
-  },
-  bookingbtn: function() {
-    wx.navigateTo({
-      url: '../mybook/mybook'
+  nametap(e) {
+    this.setData({
+      id: e.currentTarget.dataset.id,
     })
+    console.log(this.data.id)
+    const query = Bmob.Query("room");
+    query.equalTo("objectId", "==", this.data.id);
+    query.find().then(res => {
+      this.setData({
+        specificroom: res,
+        //name:specificroom.name
+      })
+      //console.log(this.data.name)
+    });
+    console.log('specific', this.data.specificroom)
+
+
+  },
+  bookingbtn: function () {
+    if (!wx.getStorageSync('bmob')) {
+      wx.showModal({
+        title: '提交失败',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../login/login',
+            })
+          } else { //这里是点击了取消以后
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else {
+      console.log('1', this.data.userid)
+      if (this.data.specificroom != null && this.data.time != 0) {
+        console.log('2', this.data.userid)
+        let _this = this
+        wx.showModal({
+          title: '提示',
+          content: '确认申请预订',
+          success: (res)=>{
+            if (res.confirm) { //这里是点击了确定以后
+              // wx.showToast({
+              //     title: '提交成功',
+              //     icon: 'success',
+              //     duration: 2000
+              //   })
+              console.log('3', _this.data.userid)
+              const query = Bmob.Query('booking');
+              query.set("userid", _this.data.userid)
+              query.set("id", _this.data.id)
+              query.set("name", _this.data.id)
+              query.set("time", _this.data.time)
+              query.set("data", _this.data.date)
+              query.set("results", "0")
+              query.save().then(res => {
+                console.log(res)
+              }).catch(err => {
+                console.log(err)
+              })
+              wx.navigateTo({
+                url: '../mybook/mybook'
+              })
+            } else { //这里是点击了取消以后
+              console.log('用户点击取消')
+            }
+          },
+        })
+      } else {
+        wx.showModal({
+          title: '提交失败',
+          content: '请选择内容(日期、时间、资源类型)',
+        })
+      }
+    }
+
   },
 
-  getScanning: function() {
+  getScanning: function () {
     app.getScanning()
   }
 })

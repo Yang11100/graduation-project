@@ -8,13 +8,14 @@
     z-index: 100;
     position: fixed;
     background-color: white;
-    border-bottom:1px solid rgb(216, 188, 188, 0.2);
+    border-bottom: 1px solid rgb(216, 188, 188, 0.2);
 }
 
 .header>view {
     display: inline-block;
     padding: 0 14rpx;
 }
+
 .header-date,
 .header-time,
 .header-type {
@@ -30,10 +31,12 @@
     margin-left: 30rpx;
 }
 
-.header-date, .header-type {
+.header-date,
+.header-type {
     margin-left: 20rpx;
 }
-.head-btn{
+
+.head-btn {
     float: right;
 }
 
@@ -50,12 +53,14 @@
 picker {
     display: inline-block;
 }
+
 .picker {
     position: relative;
     display: inline-block;
     padding-right: 36rpx;
     font-size: 30rpx;
 }
+
 .picker:before {
     content: '';
     height: 8px;
@@ -71,19 +76,52 @@ picker {
     -moz-transform: rotate(135deg);
     transform: rotate(135deg);
 }
-.body{
-padding-top: 180rpx;
-/* width: 45%; */
+
+.body {
+    overflow: hidden;
+    padding-top: 180rpx;
+    margin: 20rpx;
+    /* width: 45%; */
 }
-.messages{
+
+.messages {
     border: darkgray solid 1px;
-    background-color: darkgray;
-    color: #28a5a5;
-    font-size: 35rpx;
+    background-color:rgb(182, 182, 216, 0.5);
+    /* color: #b02923; */
+    font-size: 38rpx;
     /* position: relative; */
     float: left;
-    padding-top: 2rpx;
-     /*padding是容器内部的距离，margin是容器外部的距离（margin是指从自身边框到另一个容器边框之间的距离，就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
-     margin: 20rpx;
+    border-radius: 10%;
+    padding: 20rpx;
+    margin: 25rpx 15rpx;
+    /*padding是容器内部的距离，margin是容器外部的距离（margin是指从自身边框到另一个容器边框之间的距离，
+    就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
+}
 
+.msg {
+    margin: 0 auto;
+    clear: left;
+    padding: 14rpx;
+}
+.words{
+    position: fixed;
+    left: 30px;
+    bottom: 25px;
+    color: rgba(92, 89, 90, 0.87);
+}
+.word{
+    position: fixed;
+    left: 180px;
+    bottom: 25px;
+    color: rgba(92, 89, 90, 0.87);
+}
+
+.submit {
+    width: 35%;
+    color: rgba(92, 89, 90, 0.95);
+    background-color: rgb(182, 182, 216, 0.8);
+    border-radius: 4px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
 }

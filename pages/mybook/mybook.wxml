@@ -1,17 +1,16 @@
 <view class="nav">
 	<view class="header">
-		<view>我的预定</view>
+		<view>预订成功</view>
+		<view class="details"></view>
 	</view>
-	<view class="details">
+		<view class="header">
+			<view>正在审核 </view>
+		</view>
+		<view class="details">
+		</view>
+		<view class="header">
+			<view>历史记录（已使用完、已经退订</view>
+		</view>
+		<view class="details">
+		</view>
 	</view>
-	<view class="header">
-		<view>我的退订 </view>
-	</view>
-	<view class="details">
-	</view>
-	<view class="header">
-		<view>已完成</view>
-	</view>
-	<view class="details">
-	</view>
-</view>
