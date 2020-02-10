@@ -86,7 +86,7 @@ picker {
 
 .messages {
     border: darkgray solid 1px;
-    background-color:rgb(182, 182, 216, 0.5);
+    background-color: rgb(182, 182, 216, 0.5);
     /* color: #b02923; */
     font-size: 38rpx;
     /* position: relative; */
@@ -103,17 +103,27 @@ picker {
     clear: left;
     padding: 14rpx;
 }
-.words{
+
+.word-submit {
     position: fixed;
-    left: 30px;
-    bottom: 25px;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    bottom: 5px;
     color: rgba(92, 89, 90, 0.87);
+    margin-left: 5px;
+    font-size: 45rpx;
 }
-.word{
+
+.words {
     position: fixed;
-    left: 180px;
-    bottom: 25px;
-    color: rgba(92, 89, 90, 0.87);
+    bottom: 45rpx;
+    margin-left: 40px;
+}
+
+.word {
+    position: fixed;
+    bottom: 45rpx;
+    margin-left: 190px;
 }
 
 .submit {

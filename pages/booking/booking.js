@@ -31,6 +31,7 @@ Page({
     roomList: [], // 未被占用的房间
     userid: null, //当前用户的id
     name: null, //选择的资源的名字
+    mark: null, //用户的积分
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -43,6 +44,7 @@ Page({
       region: options.type,
       date: util.formatTime(new Date()),
       userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
+      mark: JSON.parse(wx.getStorageSync('bmob')).mark,
       //设置不能选择当前日期以前的日期 minData:new Date()
     })
     console.log(this.data.userid)
@@ -95,7 +97,7 @@ Page({
             res.forEach(element => {
               let active = false
               rep.forEach(el => {
-                if (element.objectId === el.id) {
+                if (element.objectId === el.resourceid && el.results !== 2) {
                   active = true
                 }
               })
@@ -132,9 +134,9 @@ Page({
     query.find().then(res => {
       this.setData({
         specificroom: res,
-        //name:specificroom.name
+        name: res[0].name
       })
-      //console.log(this.data.name)
+      console.log(this.data.name)
     });
     console.log('specific', this.data.specificroom)
 
@@ -156,46 +158,50 @@ Page({
         }
       })
     } else {
-      console.log('1', this.data.userid)
-      if (this.data.specificroom != null && this.data.time != 0) {
-        console.log('2', this.data.userid)
-        let _this = this
-        wx.showModal({
-          title: '提示',
-          content: '确认申请预订',
-          success: (res)=>{
-            if (res.confirm) { //这里是点击了确定以后
-              // wx.showToast({
-              //     title: '提交成功',
-              //     icon: 'success',
-              //     duration: 2000
-              //   })
-              console.log('3', _this.data.userid)
-              const query = Bmob.Query('booking');
-              query.set("userid", _this.data.userid)
-              query.set("id", _this.data.id)
-              query.set("name", _this.data.id)
-              query.set("time", _this.data.time)
-              query.set("data", _this.data.date)
-              query.set("results", "0")
-              query.save().then(res => {
-                console.log(res)
-              }).catch(err => {
-                console.log(err)
-              })
-              wx.navigateTo({
-                url: '../mybook/mybook'
-              })
-            } else { //这里是点击了取消以后
-              console.log('用户点击取消')
-            }
-          },
-        })
-      } else {
+      console.log(this.data.mark)
+      if (this.data.mark < 95) {
         wx.showModal({
           title: '提交失败',
-          content: '请选择内容(日期、时间、资源类型)',
+          content: '您当前的积分小于95分不能提交申请',
         })
+      } else {
+        if (this.data.specificroom != null && this.data.time != 0) {
+          wx.showModal({
+            title: '提示',
+            content: '确认申请预订',
+            success: (res) => {
+              if (res.confirm) { //这里是点击了确定以后
+                wx.showToast({
+                  title: '提交成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+                const query = Bmob.Query('booking');
+                query.set("userid", this.data.userid)
+                query.set("resourceid", this.data.id)
+                query.set("name", this.data.name)
+                query.set("time", this.data.time)
+                query.set("date", this.data.date)
+                query.set("results", "0")
+                query.save().then(res => {
+                  console.log(res)
+                }).catch(err => {
+                  console.log(err)
+                })
+                wx.navigateTo({
+                  url: '../mybook/mybook'
+                })
+              } else { //这里是点击了取消以后
+                console.log('用户点击取消')
+              }
+            },
+          })
+        } else {
+          wx.showModal({
+            title: '提交失败',
+            content: '请选择内容(日期、时间、资源类型)',
+          })
+        }
       }
     }
 
