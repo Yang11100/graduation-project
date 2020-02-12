@@ -57,8 +57,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/mybook/mybook",
-					"pathName": "pages/mybook/mybook",
+					"name": "pages/check/check",
+					"pathName": "pages/check/check",
 					"query": "",
 					"scene": null
 				}

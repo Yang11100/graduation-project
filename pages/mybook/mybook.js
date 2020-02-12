@@ -6,10 +6,11 @@ Page({
     allInfo: {}, //当前用户的所有信息
     successInfo: {}, //预订成功的资源信息（未使用或者正在使用）
     examiningInfo: {}, //正在审核的资源信息
-    completedInfo: {}, //已经完成的资源信息（已经使用完成，审核未通过）
+    completedInfo: {}, //已经完成的资源信息（已经使用完成）
+    failInfo: {}, //用户自己退订的和管理员审核未通过的
     time: null //时间
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       userid: JSON.parse(wx.getStorageSync('bmob')).objectId
     })
@@ -20,8 +21,8 @@ Page({
 
     //未处理0，examiningInfo
     const query = Bmob.Query('booking')
-    query.equalTo('userid', '==', this.data.userid)
-    query.equalTo('results', '==', '0')
+    query.equalTo("userid", "==", this.data.userid)
+    query.equalTo("results", "==", "0")
     query.find().then(res => {
       this.setData({
         examiningInfo: res
@@ -38,18 +39,55 @@ Page({
       })
       console.log('success', this.data.successInfo)
     })
-    //2,3
+    //2,
     const query2 = Bmob.Query('booking')
     query2.equalTo('userid', '==', this.data.userid)
-    const query3 = query2.equalTo('results', '==', '2')
-    const query4 = query2.equalTo('results', '==', '3')
-    query2.or(query3, query4)
+    query2.equalTo('results', '==', '2')
     query2.find().then(res => {
+      console.log(res)
+      this.setData({
+        failInfo: res
+      })
+      console.log('fail', this.data.failInfo)
+    })
+    //3
+    const query3 = Bmob.Query('booking')
+    query3.equalTo('userid', '==', this.data.userid)
+    const query4 =query3.equalTo('results', '==', '3')
+    const query5 =query3.equalTo('results', '==', '4')
+    query3.or(query4, query5);
+    query3.find().then(res => {
       console.log(res)
       this.setData({
         completedInfo: res
       })
       console.log('complete', this.data.completedInfo)
+    })
+  },
+  cancelTap() {
+    console.log
+    wx.showModal({
+      title: '确定退订',
+      content: '是否确定取消预订',
+      success: function (res) {
+        if (res.confirm) {
+          const query = Bmob.Query('booking');
+          query.set('objectId', 'objectId') //需要修改的objectId
+          query.set('nickName', 'Bmob后端云')
+          query.save().then(res => {
+          console.log(res)
+          }).catch(err => {
+          console.log(err)
+          })
+          wx.showToast({
+            title: '退订成功',
+            icon: 'success',
+            duration: 2000
+          })
+        } else { //这里是点击了取消以后
+          console.log('用户点击取消')
+        }
+      }
     })
   }
 })

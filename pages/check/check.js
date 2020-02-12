@@ -1,66 +1,50 @@
-// pages/check/check.js
+const app = getApp()
+const Bmob = require('../../utils/bmob.js')
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    untreated:{},//未处理 0
+    noteValuatedInfo: {}, //未评价的申请的信息 3
+    allInfo: null, //所有申请的数据 0-1-2-3-4
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    const query = Bmob.Query('booking')
+    query.equalTo("results", "==", "0");
+    query.find().then(res => {
+      console.log(res)
+      this.setData({
+        untreated: res
+      })
+    });
+    console.log('untreated', this.data.untreated)
+    const query1 = Bmob.Query('booking')
+    query1.equalTo("results", "==", "3");
+    query1.find().then(res => {
+      console.log(res)
+      this.setData({
+        noteValuatedInfo: res
+      })
+    });
+    console.log('noteValuatedInfo', this.data.noteValuatedInfo)
+    const query2 = Bmob.Query("booking");
+    query2.find().then(res => {
+      console.log(res)
+      this.setData({
+        allInfo: res
+      })
+    });
+    console.log('allInfo', this.data.allInfo)
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  auditTap(){
+    wx.navigateTo({
+      url: '../audit/audit',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  estimateTap(){
+    wx.navigateTo({
+      url: '../estimate/estimate',
+    })
   }
+
 })

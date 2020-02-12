@@ -1,4 +1,4 @@
-var handaltime = function(time) {
+var handaltime = function (time) {
   var value = null
   switch (time) {
     case '1':
@@ -13,6 +13,30 @@ var handaltime = function(time) {
     case '4':
       value = '16:00-18:00'
   }
-	return value
+  return value
 }
 module.exports.handaltime = handaltime
+
+
+var handelResults = function (results) {
+  var value = null
+  switch (results) {
+    case '0':
+      value = '未处理'
+      break
+    case '1':
+      value = '预订成功'
+      break
+    case '2':
+      value = '审核失败/退订'
+      break
+    case '3':
+      value = '使用结束（未评价）'
+      break
+    case '4':
+      value = '评价完成'
+
+  }
+  return value
+}
+module.exports.handelResults = handelResults

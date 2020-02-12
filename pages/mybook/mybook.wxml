@@ -3,10 +3,42 @@
 <view class="nav">
 	<view class="content">
 		<view class="header">
-			<view>预订成功</view>
+			<view>----------预订成功----------</view>
 		</view>
 		<view class="details">
-			<block wx:for="{{successInfo}}" wx:key="index">
+			<block class="block-details" wx:for="{{successInfo}}" wx:key="index">
+				<view>{{index+1}}    id:{{item.objectId}}</view>
+				<view>资源名称：{{item.name}}</view>
+				<view>日期：{{item.date}}</view>
+				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
+				<view class="cancelBtn" bindtap="cancelTap">退订</view>
+			</block>
+		</view>
+	</view>
+
+
+	<view class="content">
+		<view class="header">
+			<view>----------正在审核----------</view>
+		</view>
+		<view class="details">
+			<block class="block-details" wx:for="{{examiningInfo}}" wx:key="index">
+				<view>{{index+1}}</view>
+				<view>资源名称：{{item.name}}</view>
+				<view>日期：{{item.date}}</view>
+				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
+				<view class="cancelBtn" bindtap="cancelTap">退订</view>
+			</block>
+		</view>
+	</view>
+
+	<view class="content">
+		<view class="header">
+			<view>----------已退订/未通过----------</view>
+		</view>
+		<view class="details">
+			<block class="block-details" wx:for="{{failInfo}}" wx:key="index">
+				<view>{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
@@ -17,50 +49,20 @@
 
 	<view class="content">
 		<view class="header">
-			<view>正在审核 </view>
+			<view>----------使用完成----------</view>
 		</view>
 		<view class="details">
-			<block wx:for="{{examiningInfo}}" wx:key="index">
+			<block class="block-details" wx:for="{{completedInfo}}" wx:key="index">
+				<view>{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
-				<view>时间：{{item.time}}</view>
+				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
+				<view>信用积分变化：{{item.markChange}}</view>
 			</block>
 		</view>
 	</view>
 
 
-	<view class="content">
-		<view class="header">
-			<view>历史记录（已使用完、已经退订</view>
-		</view>
-		<view class="details">
-			<block wx:for="{{completedInfo}}" wx:key="index">
-				<view>资源名称：{{item.name}}</view>
-				<view>日期：{{item.date}}</view>
-				<view>时间：{{item.time}}</view>
-			</block>
-		</view>
-	</view>
 
 
 </view>
-
-<!-- <wxs module="analysisTime">
-	let handaltime = function (time) {
-		let value
-		switch (time) {
-			case '1':
-				value = '08:30-10:00'
-				break
-			case '2':
-				value = '10:00-12:00'
-				break
-			case '3':
-				value = '14:30-16:00'
-				break
-			case '4':
-				value = '16:00-18:00'
-		}
-	}
-	module.exports.handaltime = handaltime;
-</wxs> -->

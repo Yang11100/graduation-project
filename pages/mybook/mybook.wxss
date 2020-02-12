@@ -1,17 +1,26 @@
 .header {
-  border-left-width: 2px;
-  border-left-style: solid;
-  border-left-color: limegreen;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
   margin-top: 10rpx;
-	margin-bottom: 10rpx;
-	background-color: rgb(184, 198, 212,  0.2);
+  margin-bottom: 20rpx;
+  background-color: rgb(184, 198, 212, 0.2);
+  color: red;
+  text-align: center;
 }
-.text-part {
-  font-size: 14px;
+.details{
+ 
+  padding-bottom: 10rpx;
+  padding-left: 20rpx;
+}
+
+.block-details {
+  float: left;
+  border-bottom: 1px solid rgb(184, 198, 212, 0.2);
+  padding-bottom: 10rpx;
+}
+.cancelBtn{
+  float: right;
 }

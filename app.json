@@ -3,8 +3,6 @@
    
     "pages/index/index",
     "pages/login/login",
-    "pages/equipment/equipment",
-    "pages/admin/admin",
     "test/code/code",
     "test/ppt/ppt",
     "test/computed/computed",

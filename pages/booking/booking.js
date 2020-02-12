@@ -32,6 +32,7 @@ Page({
     userid: null, //当前用户的id
     name: null, //选择的资源的名字
     mark: null, //用户的积分
+    username:null,//用户名称
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -45,6 +46,7 @@ Page({
       date: util.formatTime(new Date()),
       userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
       mark: JSON.parse(wx.getStorageSync('bmob')).mark,
+      username: JSON.parse(wx.getStorageSync('bmob')).Nickname,
       //设置不能选择当前日期以前的日期 minData:new Date()
     })
     console.log(this.data.userid)
@@ -178,6 +180,7 @@ Page({
                 })
                 const query = Bmob.Query('booking');
                 query.set("userid", this.data.userid)
+                query.set("username", this.data.username)
                 query.set("resourceid", this.data.id)
                 query.set("name", this.data.name)
                 query.set("time", this.data.time)
