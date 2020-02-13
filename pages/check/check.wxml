@@ -1,50 +1,56 @@
 <wxs src="../../utils/analysis-time.wxs" module="analysisTime"></wxs>
 <view class="nav">
-    <view class="content">
-		<view class="header">
-			<view>----------待处理----------</view>
-		</view>
-		<view class="details">
-			<block class="block-details" wx:for="{{untreated}}" wx:key="index">
-                <view>{{index+1}}</view>
-                <view>用户名称：{{item.username}}</view>
-				<view>资源名称：{{item.name}}</view>
-				<view>日期：{{item.date}}</view>
-                <view>时间：{{analysisTime.handaltime(item.time)}}</view>
-                <view>申请状态：{{analysisTime.handelResults(item.results)}}</view>
-                <button bindtap="auditTap">去处理</button>
-			</block>
-		</view>
+  <view class="content">
+    <view class="header">
+      <view bind:tap="$onClickIsShow" data-type="isUntreated"
+        >----------待处理----------</view
+      >
     </view>
-    <view class="content">
-		<view class="header">
-			<view>----------待评价----------</view>
-		</view>
-		<view class="details">
-			<block class="block-details" wx:for="{{noteValuatedInfo}}" wx:key="index">
-                <view>{{index+1}}</view>
-                <view>用户名称：{{item.username}}</view>
-				<view>资源名称：{{item.name}}</view>
-				<view>日期：{{item.date}}</view>
-                <view>时间：{{analysisTime.handaltime(item.time)}}</view>
-                <view>申请状态：{{analysisTime.handelResults(item.results)}}</view>
-                <button bindtap="estimateTap">去评价</button>
-			</block>
-		</view>
+    <view class="details" wx:if="{{ isUntreated }}">
+      <block class="block-details" wx:for="{{ untreated }}" wx:key="index">
+        <view>{{ index + 1 }}</view>
+        <view>用户名称：{{ item.username }}</view>
+        <view>资源名称：{{ item.name }}</view>
+        <view>日期：{{ item.date }}</view>
+        <view>时间：{{ analysisTime.handaltime(item.time) }}</view>
+        <view>申请状态：{{ analysisTime.handelResults(item.results) }}</view>
+        <button bindtap="auditTap" data-id="{{  }}">去处理</button>
+      </block>
     </view>
-    <view class="content">
-		<view class="header">
-			<view>----------使用记录----------</view>
-		</view>
-		<view class="details">
-			<block class="block-details" wx:for="{{allInfo}}" wx:key="index">
-                <view>{{index+1}}</view>
-                <view>用户名称：{{item.username}}</view>
-				<view>资源名称：{{item.name}}</view>
-                <view>日期：{{item.date}}</view>
-                <view>时间：{{analysisTime.handaltime(item.time)}}</view>
-				<view>申请状态：{{analysisTime.handelResults(item.results)}}</view>
-			</block>
-		</view>
-	</view>
+  </view>
+  <view class="content">
+    <view class="header">
+      <view bind:tap="$onClickIsShow" data-type="isNoteValuatedInfo">----------待评价----------</view>
+    </view>
+    <view class="details" wx:if="{{ isNoteValuatedInfo }}">
+      <block
+        class="block-details"
+        wx:for="{{ noteValuatedInfo }}"
+        wx:key="index"
+      >
+        <view>{{ index + 1 }}</view>
+        <view>用户名称：{{ item.username }}</view>
+        <view>资源名称：{{ item.name }}</view>
+        <view>日期：{{ item.date }}</view>
+        <view>时间：{{ analysisTime.handaltime(item.time) }}</view>
+        <view>申请状态：{{ analysisTime.handelResults(item.results) }}</view>
+        <button bindtap="estimateTap">去评价</button>
+      </block>
+    </view>
+  </view>
+  <view class="content">
+    <view class="header">
+      <view>----------使用记录----------</view>
+    </view>
+    <view class="details">
+      <block class="block-details" wx:for="{{ allInfo }}" wx:key="index">
+        <view>{{ index + 1 }}</view>
+        <view>用户名称：{{ item.username }}</view>
+        <view>资源名称：{{ item.name }}</view>
+        <view>日期：{{ item.date }}</view>
+        <view>时间：{{ analysisTime.handaltime(item.time) }}</view>
+        <view>申请状态：{{ analysisTime.handelResults(item.results) }}</view>
+      </block>
+    </view>
+  </view>
 </view>
