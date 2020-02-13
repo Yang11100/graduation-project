@@ -5,6 +5,8 @@ Page({
     untreated:{},//未处理 0
     noteValuatedInfo: {}, //未评价的申请的信息 3
     allInfo: null, //所有申请的数据 0-1-2-3-4
+
+    isExpanding: false,
   },
 
   onLoad: function (options) {
@@ -45,6 +47,11 @@ Page({
     wx.navigateTo({
       url: '../estimate/estimate',
     })
-  }
+  },
+  handleExpandingChange: function () {
+    this.setData({
+      isExpanding: !this.data.isExpanding
+    })
+  },
 
 })
