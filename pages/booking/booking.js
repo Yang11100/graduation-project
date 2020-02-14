@@ -210,6 +210,7 @@ Page({
 
   },
 
+
   getScanning: function () {
     app.getScanning()
   }

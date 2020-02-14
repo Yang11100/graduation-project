@@ -4,14 +4,14 @@ Page({
   data: {
     isUntreated: true, // 是否显示未处理
     isNoteValuatedInfo: true, // 是否显示待评价
+    isAllInfo:true,//是否显示全部的使用记录
     untreated: {}, //未处理 0
     noteValuatedInfo: {}, //未评价的申请的信息 3
     allInfo: null, //所有申请的数据 0-1-2-3-4
 
-    isExpanding: false
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     const query = Bmob.Query('booking')
     query.equalTo('results', '==', '0')
     query.find().then(res => {
@@ -39,14 +39,17 @@ Page({
     })
     console.log('allInfo', this.data.allInfo)
   },
-  auditTap() {
+  auditTap(e) {
+    let resourceId = e.currentTarget.dataset.id
+    console.log(resourceId)
     wx.navigateTo({
-      url: '../audit/audit'
+      url: '../audit/audit?resourceId=' + resourceId,
     })
   },
-  estimateTap() {
+  estimateTap(e) {
+    let resourceId = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../estimate/estimate'
+      url: '../estimate/estimate?resourceId=' + resourceId,
     })
   },
   // 展示隐藏

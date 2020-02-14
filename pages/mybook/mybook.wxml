@@ -3,15 +3,15 @@
 <view class="nav">
 	<view class="content">
 		<view class="header">
-			<view>----------预订成功----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isSuccessInfo">----------预订成功----------</view>
 		</view>
-		<view class="details">
+		<view class="details" wx:if="{{isSuccessInfo}}">
 			<block class="block-details" wx:for="{{successInfo}}" wx:key="index">
-				<view>{{index+1}}    id:{{item.objectId}}</view>
+				<view>{{index+1}} id:{{item.objectId}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
-				<view class="cancelBtn" bindtap="cancelTap">退订</view>
+				<view class="cancelBtn" bindtap="cancelTap" data-id="{{item.objectId}}">退订</view>
 			</block>
 		</view>
 	</view>
@@ -19,24 +19,24 @@
 
 	<view class="content">
 		<view class="header">
-			<view>----------正在审核----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isExaminingInfo">----------正在审核----------</view>
 		</view>
-		<view class="details">
+		<view class="details" wx:if="{{isExaminingInfo}}">
 			<block class="block-details" wx:for="{{examiningInfo}}" wx:key="index">
-				<view>{{index+1}}</view>
+				<view>{{index+1}} id:{{item.objectId}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
-				<view class="cancelBtn" bindtap="cancelTap">退订</view>
+				<view class="cancelBtn" bindtap="cancelTap" data-id="{{item.objectId}}">退订</view>
 			</block>
 		</view>
 	</view>
 
 	<view class="content">
 		<view class="header">
-			<view>----------已退订/未通过----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isFailInfo">----------已退订/未通过----------</view>
 		</view>
-		<view class="details">
+		<view class="details" wx:if="{{isFailInfo}}">
 			<block class="block-details" wx:for="{{failInfo}}" wx:key="index">
 				<view>{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>
@@ -49,9 +49,9 @@
 
 	<view class="content">
 		<view class="header">
-			<view>----------使用完成----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isCompletedInfo">----------使用完成----------</view>
 		</view>
-		<view class="details">
+		<view class="details" wx:if="{{isCompletedInfo}}">
 			<block class="block-details" wx:for="{{completedInfo}}" wx:key="index">
 				<view>{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>

@@ -6,9 +6,16 @@ Page({
     allInfo: {}, //当前用户的所有信息
     successInfo: {}, //预订成功的资源信息（未使用或者正在使用）
     examiningInfo: {}, //正在审核的资源信息
-    completedInfo: {}, //已经完成的资源信息（已经使用完成）
     failInfo: {}, //用户自己退订的和管理员审核未通过的
-    time: null //时间
+    completedInfo: {}, //已经完成的资源信息（已经使用完成）
+
+    time: null, //时间
+
+    isSuccessInfo: true, //是否显示预订成功
+    isExaminingInfo: true, //是否显示正在审核
+    isFailInfo: true, //是否显示预订成功
+    isCompletedInfo: true, //是否显示预订成功
+
   },
   onLoad: function (options) {
     this.setData({
@@ -29,7 +36,7 @@ Page({
       })
       console.log('examining', this.data.examiningInfo)
     })
-    //1
+    //1,预订成功success
     const query1 = Bmob.Query('booking')
     query1.equalTo('userid', '==', this.data.userid)
     query1.equalTo('results', '==', '1')
@@ -39,7 +46,7 @@ Page({
       })
       console.log('success', this.data.successInfo)
     })
-    //2,
+    //2,已退订，未通过，fail
     const query2 = Bmob.Query('booking')
     query2.equalTo('userid', '==', this.data.userid)
     query2.equalTo('results', '==', '2')
@@ -50,11 +57,11 @@ Page({
       })
       console.log('fail', this.data.failInfo)
     })
-    //3
+    //3，使用完成，complete
     const query3 = Bmob.Query('booking')
     query3.equalTo('userid', '==', this.data.userid)
-    const query4 =query3.equalTo('results', '==', '3')
-    const query5 =query3.equalTo('results', '==', '4')
+    const query4 = query3.equalTo('results', '==', '3')
+    const query5 = query3.equalTo('results', '==', '4')
     query3.or(query4, query5);
     query3.find().then(res => {
       console.log(res)
@@ -64,20 +71,20 @@ Page({
       console.log('complete', this.data.completedInfo)
     })
   },
-  cancelTap() {
-    console.log
+  cancelTap(e) {
+    console.log(e.currentTarget.dataset.id)
     wx.showModal({
       title: '确定退订',
       content: '是否确定取消预订',
       success: function (res) {
         if (res.confirm) {
           const query = Bmob.Query('booking');
-          query.set('objectId', 'objectId') //需要修改的objectId
-          query.set('nickName', 'Bmob后端云')
-          query.save().then(res => {
-          console.log(res)
+          query.get(e.currentTarget.dataset.id).then(res => {
+            console.log(res)
+            res.set('results', '2')
+            res.save()
           }).catch(err => {
-          console.log(err)
+            console.log(err)
           })
           wx.showToast({
             title: '退订成功',
@@ -89,5 +96,14 @@ Page({
         }
       }
     })
-  }
+  },
+
+  // 展示隐藏
+  $onClickIsShow(type) {
+    let types = type.target.dataset.type
+    this.setData({
+      [types]: !this.data[types]
+    })
+  },
+
 })
