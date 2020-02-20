@@ -5,9 +5,9 @@
             <view>用户名：{{username}}</view>
             <view>
                 <view class="nick text">昵称：{{Nickname}}</view>
-                <image class="nick changeImg" src="/images/change.png">
+                <image bind:tap="$onChangeNickName" class="nick changeImg" src="/images/change.png">
                 </image>
-                <input focus="false" placeholder='修改昵称（20个字符以内）' maxlength="20" bindtap="NicknameInput"></input>
+                <input focus="false" wx:if="{{ isChangeNickName }}" placeholder='修改昵称（20个字符以内）' maxlength="20" bindtap="NicknameInput"></input>
             </view>
             <view>身份：普通用户</view>
             <view>信用分：{{mark}}（信用分低于95时，会影响你的预约）</view>
