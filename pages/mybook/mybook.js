@@ -26,6 +26,51 @@ Page({
     //results=0是表示未处理，1是预订成功，2是预订失败和3是使用结束
     //（都属于已完成的
 
+    //调用获得数据的函数
+    this.refreshData()
+
+
+  },
+  cancelTap(e) {
+    console.log(e.currentTarget.dataset.id)
+    let _this = this
+    wx.showModal({
+      title: '确定退订',
+      content: '是否确定取消预订',
+      success: function (res) {
+        if (res.confirm) {
+          const query = Bmob.Query('booking');
+          query.get(e.currentTarget.dataset.id).then(res => {
+            console.log(res)
+            res.set('results', '2')
+            res.save()
+            //调用获得数据的函数，重新获得数据、刷新
+            _this.refreshData()
+          }).catch(err => {
+            console.log(err)
+          })
+          wx.showToast({
+            title: '退订成功',
+            icon: 'success',
+            duration: 2000
+          })
+        } else { //这里是点击了取消以后
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  // 展示隐藏
+  $onClickIsShow(type) {
+    let types = type.target.dataset.type
+    this.setData({
+      [types]: !this.data[types]
+    })
+  },
+
+  //刷新删除的数据
+  refreshData() {
     //未处理0，examiningInfo
     const query = Bmob.Query('booking')
     query.equalTo("userid", "==", this.data.userid)
@@ -70,40 +115,8 @@ Page({
       })
       console.log('complete', this.data.completedInfo)
     })
-  },
-  cancelTap(e) {
-    console.log(e.currentTarget.dataset.id)
-    wx.showModal({
-      title: '确定退订',
-      content: '是否确定取消预订',
-      success: function (res) {
-        if (res.confirm) {
-          const query = Bmob.Query('booking');
-          query.get(e.currentTarget.dataset.id).then(res => {
-            console.log(res)
-            res.set('results', '2')
-            res.save()
-          }).catch(err => {
-            console.log(err)
-          })
-          wx.showToast({
-            title: '退订成功',
-            icon: 'success',
-            duration: 2000
-          })
-        } else { //这里是点击了取消以后
-          console.log('用户点击取消')
-        }
-      }
-    })
+
   },
 
-  // 展示隐藏
-  $onClickIsShow(type) {
-    let types = type.target.dataset.type
-    this.setData({
-      [types]: !this.data[types]
-    })
-  },
 
 })

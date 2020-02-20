@@ -7,7 +7,7 @@
 		</view>
 		<view class="details" wx:if="{{isSuccessInfo}}">
 			<block class="block-details" wx:for="{{successInfo}}" wx:key="index">
-				<view>{{index+1}} id:{{item.objectId}}</view>
+				<view class="indexId">{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
@@ -23,7 +23,7 @@
 		</view>
 		<view class="details" wx:if="{{isExaminingInfo}}">
 			<block class="block-details" wx:for="{{examiningInfo}}" wx:key="index">
-				<view>{{index+1}} id:{{item.objectId}}</view>
+				<view class="indexId">{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
@@ -38,7 +38,7 @@
 		</view>
 		<view class="details" wx:if="{{isFailInfo}}">
 			<block class="block-details" wx:for="{{failInfo}}" wx:key="index">
-				<view>{{index+1}}</view>
+				<view class="indexId">{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
@@ -53,7 +53,7 @@
 		</view>
 		<view class="details" wx:if="{{isCompletedInfo}}">
 			<block class="block-details" wx:for="{{completedInfo}}" wx:key="index">
-				<view>{{index+1}}</view>
+				<view class="indexId">{{index+1}}</view>
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>

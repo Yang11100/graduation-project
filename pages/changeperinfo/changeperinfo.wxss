@@ -1,1 +1,4 @@
-/* pages/changeperinfo/changeperinfo.wxss */
+.changeImg{
+    height: 30rpx;
+    width: 30rpx;
+}

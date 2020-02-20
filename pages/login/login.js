@@ -6,25 +6,11 @@ Page({
     username: null, //登录名数据
     password: null, //密码数据（变量）
 
-    options: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    identity: ['管理员', '普通用户'], //下拉列表的数据
-    first: 0, //选择的下拉列表下标
-
     verificationCode: '获取验证码', //验证码变量
     inputVerificationCode: null, //输入的验证码值
 
     emptyvalue: null //清空输入
   },
-
-  //下拉框
-  // bindPickeridentity: function (e) {
-  //   // 身份
-  //   this.setData({
-  //     first: e.detail.value
-  //   });
-  //   console.log(e.detail.value)
-  // },
-  //下拉框
 
   onLoad: function (options) {},
 

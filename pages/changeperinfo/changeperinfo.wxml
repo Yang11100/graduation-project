@@ -1,2 +1,20 @@
-<!--pages/changeperinfo/changeperinfo.wxml-->
-<text>pages/changeperinfo/changeperinfo.wxml</text>
+<view class="nav">
+    <view class="msg">
+        <view>我的信息</view>
+        <block>
+            <view>用户名：{{username}}</view>
+            <view>
+                <view class="nick text">昵称：{{Nickname}}</view>
+                <image class="nick changeImg" src="/images/change.png">
+                </image>
+                <input focus="false" placeholder='修改昵称（20个字符以内）' maxlength="20" bindtap="NicknameInput"></input>
+            </view>
+            <view>身份：普通用户</view>
+            <view>信用分：{{mark}}（信用分低于95时，会影响你的预约）</view>
+            <view>修改密码</view>
+            <input placeholder='输入原密码' password="true"></input>
+            <input placeholder='修改密码' password="true"></input>
+            <input placeholder='确认密码' password="true"></input>
+        </block>
+    </view>
+</view>

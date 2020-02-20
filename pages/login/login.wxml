@@ -1,20 +1,10 @@
 <!-- pages/login/login.wxml -->
 <view class="mcontainer">
 	<view class="item">
-		<!-- <image src="/images/教学资源预约系统.png" /> -->
 		<view style="font-size:36px;padding-top:20px;padding-bottom:20px;font-family:'STKaiti';">
 			教学资源预约系统
 		</view>
 	</view>
-	<!-- 下拉框 -->
-	<!-- <view class="item">
-		<view>请选择身份</view>
-		<view class='select_box'>
-			<picker disabled="{{picker}}" bindchange="bindPickeridentity" value="{{first}}" range="{{identity}}"><text class="picker">{{identity[first]}}</text></picker>
-
-		</view>
-	</view> -->
-	<!-- 下拉框 -->
 	<!-- 用户名，密码 -->
 	<view class="item double">
 		<view class="login-item">
@@ -28,11 +18,12 @@
 		</view>
 		<view class="login-item ">
 			<!-- <view class="user-info ">密码</view> -->
-			<view class="search " style='width:100%;height:38px;display:inline-block;background:#fff;margin-top:-5px;border-top:1px solid #f8f8f8;border-bottom-left-radius:8px;border-bottom-right-radius:8px;'>
+			<view class="search "
+				style='width:100%;height:38px;display:inline-block;background:#fff;margin-top:-5px;border-top:1px solid #f8f8f8;border-bottom-left-radius:8px;border-bottom-right-radius:8px;'>
 				<view style='width:9%;display:inline-block;height:100%;'>
 					<image src='/images/password.png' style='display:inline;' mode="aspectFit "></image>
 				</view>
-				<input style='width:80%;display:inline-block;height:100%;' placeholder-style='font-size:12px;' placeholder='请输入密码' password="true " bindinput="passwordinput" value="{{emptyvalue}}"></input>
+				<input style='width:80%;display:inline-block;height:100%;' placeholder-style='font-size:12px;' placeholder='请输入密码' password="true" bindinput="passwordinput" value="{{emptyvalue}}"></input>
 			</view>
 		</view>
 	</view>
@@ -43,7 +34,7 @@
 		</view>
 	</view>
 </view>
-	<view class="clear-login">
-		<button class="clearbtn" style="font-family:'STKaiti';" bindtap="clearbtnclick">清空</button>
-		<button class="loginbtn" style="font-family:'STKaiti';" bindtap="loginbtnclick">登录</button>
-	</view>
+<view class="clear-login">
+	<button class="clearbtn" style="font-family:'STKaiti';" bindtap="clearbtnclick">清空</button>
+	<button class="loginbtn" style="font-family:'STKaiti';" bindtap="loginbtnclick">登录</button>
+</view>

@@ -51,6 +51,14 @@ Page({
     })
     console.log(this.data.userid)
   },
+
+  onShow(){
+    this.setData({
+      time:0,
+      first:0
+    })
+    this.searchClassRoom()
+  },
   // 日期
   bindDateChange: function (e) {
     this.setData({
