@@ -1,2 +1,18 @@
-<!--pages/manageperinfo/manageperinfo.wxml-->
-<text>pages/manageperinfo/manageperinfo.wxml</text>
+<view class="nav">
+    <view class="msg">
+        <block wx:for="{{userInfo}}" wx:key="index">
+            <view class="changeId">
+                <view>用户Id：{{item.objectId}}</view>
+            </view>
+            <view>用户名：{{item.username}}</view>
+            <view>昵称：{{item.Nickname}}</view>
+            <view>用户信用分：{{item.mark}}</view>
+            <view data-id="{{item.objectId}}" bindtap="resetPasswordTap">重置用户密码</view>
+        </block>
+    </view>
+    <view class="register">
+        <view bindtap="registerTap">注册</view>
+
+    </view>
+
+</view>

@@ -1,34 +1,33 @@
-<!--pages/booking/booking.wxml-->
+<wxs src="../../utils/analysis-time.wxs" module="analysisTime"></wxs>
 <view class="nav">
 	<view class="header">
 		<view class="header-date">
-			日期：<picker mode="date" bindchange="bindDateChange" value="{{date}}" start='{{startDate}}' end='2100-01-01'><text class="picker">{{date}}</text></picker>
+			日期：<picker mode="date" bindchange="bindDateChange" value="{{date}}" start='{{startDate}}' end='2100-01-01'><text
+					class="picker">{{date}}</text></picker>
 		</view>
 		<view class="header-time">
-			时间：<picker disabled="{{picker}}" bindchange="bindPickerOrder" value="{{time}}" range="{{daytime}}"><text class="picker">{{daytime[time]}}</text>
+			时间：<picker disabled="{{picker}}" bindchange="bindPickerOrder" value="{{time}}" range="{{daytime}}"><text
+					class="picker">{{daytime[time]}}</text>
 			</picker>
 		</view>
 		<view class="header-type">
-			资源类型：<picker disabled="{{picker}}" bindchange="bindPickertype" value="{{first}}" range="{{type}}"><text class="picker">{{type[first]}}</text></picker>
-		</view>
-		<view class="head-btn">
-			<!-- <button>查询</button> -->
+			资源类型：<picker disabled="{{picker}}" bindchange="bindPickertype" value="{{first}}" range="{{type}}"><text
+					class="picker">{{type[first]}}</text></picker>
 		</view>
 		<view class="header-qrcode iconfont icon-qrcode" bindtap="getScanning"></view>
 	</view>
-	<view class="body">
-		<block wx:for="{{roomList}}" wx:key="index">
+	<view>
+		<view style="padding-top: 180rpx;width: 88%; padding-left: 6%;">
+			<image style="border-radius: 10px;padding-top: 20rpx;" src="{{analysisTime.handelImages(first)}}"></image>
+		</view>
+		<block class="item-messages" wx:for="{{roomList}}" wx:key="index">
 			<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
 		</block>
-		<block wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
+		<block class="item-msg" wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
 			<view class="msg">名称：{{specific.name}}</view>
 			<view class="msg">容纳人数：{{specific.number}}</view>
 			<view class="msg">基础设备：{{specific.equipment}}</view>
 		</block>
 	</view>
-	<view class="word-submit">
-		<text class="words">提前预定不等位</text>
-		<text class="word">|</text>
-		<button class="submit" bindtap="bookingbtn">提交预订</button>
-	</view>
+	<button class="submit" bindtap="bookingbtn">预订</button>
 </view>

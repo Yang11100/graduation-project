@@ -2,10 +2,11 @@
 <view class="personalWrap">
 	<view class="personalMe">
 		<image src="/images/headportrait.png"
-			style="width:68px;height:68px;border:1px solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+			style="width:65px;height:65px;border:6rpx solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
 		<view class="personalInfo">
-			<text>{{userinfo.Nickname}}</text>
-			<text>{{identityname}} </text>
+			<text style="float: left;">用户名：{{userinfo.username}}</text>
+			<text style="float: right;margin-left: 80rpx;padding: 3rpx;padding-left: 10rpx;font-size: 30rpx;color: rgb(16, 130, 245);">{{identityname}} </text>
+			<text>昵称：{{userinfo.Nickname}}</text>
 		</view>
 	</view>
 	<!-- 列表 -->
@@ -17,6 +18,7 @@
 			<view bindtap="listestimate">评价用户使用</view>
 			<view bindtap="listmanageperinfo">管理用户信息</view>
 			<view bindtap="listmybook">我的预定/退订</view>
+			<view bindtap="listregister">注册新用户</view>
 		</block>
 
 		<!-- 普通用户 -->
@@ -28,8 +30,8 @@
 	</view>
 
 	<view class="exit-book">
-		<view class="book" bindtap="bookingbtn">去预订</view>
-		<view class="exit" bindtap="exitlogin">退出登录</view>
+		<!-- <button class="book" bindtap="bookingbtn">去预订</button> -->
+		<button class="exit" bindtap="exitlogin">退出登录</button>
 	</view>
 </view>
 <import src="../../template/template.wxml" />

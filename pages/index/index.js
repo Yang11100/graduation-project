@@ -11,7 +11,7 @@ Page({
       'http://img4.imgtn.bdimg.com/it/u=3180806136,1967627276&fm=26&gp=0.jpg'
     ],
     listItems: ['', '', ''],
-    first:null
+    first: null
 
   },
   //事件处理函数
@@ -32,7 +32,7 @@ Page({
   },
   reservetap: function () {
     wx.navigateTo({
-      url: '../booking/booking',
+      url: '../booking/booking?first=' + '7',
     })
   },
 

@@ -32,16 +32,13 @@ Page({
     userid: null, //当前用户的id
     name: null, //选择的资源的名字
     mark: null, //用户的积分
-    username:null,//用户名称
+    username: null, //用户名称
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    // this.setData({
-    //   projecturl: options.projecturl
-    // })
-    //点开自动获取当前日期
-    //console.log(this.data.date)
+    console.log('options',options)
     this.setData({
+      // first: options.first,
       region: options.type,
       date: util.formatTime(new Date()),
       userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
@@ -49,13 +46,12 @@ Page({
       username: JSON.parse(wx.getStorageSync('bmob')).Nickname,
       //设置不能选择当前日期以前的日期 minData:new Date()
     })
-    console.log(this.data.userid)
   },
 
-  onShow(){
+  onShow() {
     this.setData({
-      time:0,
-      first:0
+      time: 0,
+      first: 0
     })
     this.searchClassRoom()
   },
@@ -210,7 +206,7 @@ Page({
         } else {
           wx.showModal({
             title: '提交失败',
-            content: '请选择内容(日期、时间、资源类型)',
+            content: '请选择具体内容',
           })
         }
       }

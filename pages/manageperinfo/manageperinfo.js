@@ -1,66 +1,48 @@
-// pages/manageperinfo/manageperinfo.js
+const app = getApp()
+const Bmob = require('../../utils/bmob.js')
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    userInfo: {}, //普通用火的信息
+
+    //userID, //选择到的普通用户的ID
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
+    this.refresh()
+  },
+
+  //刷新数据
+  refresh() {
+    const query = Bmob.Query("_User");
+    query.equalTo("identity", "==", "1");
+    query.find().then(res => {
+      this.setData({
+        userInfo: res,
+      })
+    });
+  },
+
+
+  //重置密码
+  resetPasswordTap(e) {
+    const query = Bmob.Query('_User');
+    query.set('id', e.currentTarget.dataset.id) //需要修改的objectId
+    query.set('password', '123456')
+    query.save().then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+    console.log(e.currentTarget.dataset.id)
+  },
+  registerTap() {
+    wx.navigateTo({
+      url: '../register/register',
+    })
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

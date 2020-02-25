@@ -1,0 +1,34 @@
+<view class="nav">
+    <view class="item-register">
+        <view class="info-input">
+            <view>用户名</view>
+            <input bindinput="usernameInput" value="{{emptyvalue}}" />
+        </view>
+        <view class="info-input">
+            <view>密码</view>
+            <input bindinput="passwordInput" password="true" value="{{emptyvalue}}" />
+        </view>
+        <!-- <view class="info-input">
+            <view>email</view>
+            <input bindinput="emailInput" value="{{emptyvalue}}" />
+        </view> -->
+        <view class="info-input">
+            <view>手机号</view>
+            <input bindinput="phoneInput" value="{{emptyvalue}}" />
+        </view>
+        <view class="info-input">
+            <view class="identity-picker">
+                身份<picker disabled="{{picker}}" bindchange="bindPickerIdentity" value="{{identity}}" range="{{options}}">
+                    <text class="picker">
+                        {{options[identity]}}
+                    </text>
+                </picker>
+            </view>
+        </view>
+        <view class="info-input">
+            <view>昵称</view>
+            <input bindinput="NicknameInput" value="{{emptyvalue}}" />
+        </view>
+    </view>
+    <button bindtap="submitRegister">提交注册</button>
+</view>

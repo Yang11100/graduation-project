@@ -1,4 +1,0 @@
-<scroll-view style='height:{{systemInfo.windowHeight}}px;' scroll-y='true' scroll-into-view='{{toview}}'>
-<view bindtap="click" data-hash="hash1">点击跳转</view>
-<view>非定位</view>
-<view id="hash1">定位</view></scroll-view>

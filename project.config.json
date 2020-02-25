@@ -57,8 +57,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/changeperinfo/changeperinfo",
-					"pathName": "pages/changeperinfo/changeperinfo",
+					"name": "pages/booking/booking",
+					"pathName": "pages/booking/booking",
 					"query": "",
 					"scene": null
 				}

@@ -1,1 +1,4 @@
-/* pages/manageperinfo/manageperinfo.wxss */
+.changeImg{
+    height: 35rpx;
+    width: 35rpx;
+}

@@ -85,52 +85,29 @@ picker {
 }
 
 .messages {
-    border: darkgray solid 1px;
-    background-color: rgb(182, 182, 216, 0.5);
+    border: white solid 1px;
+    background-color: rgba(223, 122, 122, 0.193);
     /* color: #b02923; */
-    font-size: 38rpx;
+    font-size: 32rpx;
     /* position: relative; */
     float: left;
     border-radius: 10%;
     padding: 20rpx;
-    margin: 25rpx 15rpx;
+    margin: 25rpx;
     /*padding是容器内部的距离，margin是容器外部的距离（margin是指从自身边框到另一个容器边框之间的距离，
     就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
 }
 
 .msg {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     clear: left;
     padding: 14rpx;
-}
-
-.word-submit {
-    position: fixed;
-    /* display: flex; */
-    /* justify-content: space-between; */
-    bottom: 5px;
-    color: rgba(92, 89, 90, 0.87);
-    margin-left: 5px;
-    font-size: 45rpx;
-}
-
-.words {
-    position: fixed;
-    bottom: 45rpx;
-    margin-left: 40px;
-}
-
-.word {
-    position: fixed;
-    bottom: 45rpx;
-    margin-left: 190px;
+    font-size: 32rpx;
 }
 
 .submit {
-    width: 35%;
-    color: rgba(92, 89, 90, 0.95);
-    background-color: rgb(182, 182, 216, 0.8);
-    border-radius: 4px;
+    color: rgb(196, 7, 70);
+    font-size: 16px;
     position: fixed;
     right: 10px;
     bottom: 10px;

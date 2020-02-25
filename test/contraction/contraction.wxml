@@ -1,2 +1,0 @@
-<view class="business-text {{ isExpanding ? 'block' : 'none' }}">小程序用 js + css +html 实现展开和收起的操作方法，实例代码简单，实现方式有很多种。小程序用 js + css +html 实现展开和收起的操作方法，实例代码简单，实现方式有很多种。</view>
-<view class="business-btn" bindtap="handleExpandingChange">{{isExpanding ? "收起" : "展开"}} <text class="horn {{ isExpanding ? 'block' : 'none' }}"></text></view>

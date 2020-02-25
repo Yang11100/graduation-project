@@ -11,25 +11,27 @@ page {
 
 .personalInfo {
     float: left;
-    margin: 20rpx 0rpx 0rpx 20rpx;
-    font-size: 38rpx;
+    margin: 10px 0rpx 0rpx 10px;
+    font-size: 32rpx;
+    color: rgb(5, 49, 129);
 }
 
 .personalInfo wx-text {
     display: block;
-    line-height: 70rpx;
-    height: 70rpx;
+    line-height: 90rpx;
+    height: 90rpx;
 }
 
 .personalList {
     background-color: #fff;
-    padding: 0rpx 20rpx;
+    padding: 0rpx 35rpx;
+    font-size: 30rpx;
 }
 
 .personalList view {
     display: block;
-    line-height: 70rpx;
-    height: 70rpx;
+    line-height: 80rpx;
+    height: 80rpx;
     border-bottom: 1px solid #ddd;
 }
 
@@ -77,12 +79,13 @@ page {
     width: 90%;
     text-align: center;
     display: block;
-}
-
-.book {
-    float: left;
+    margin-top: 80rpx;
 }
 
 .exit {
     float: right;
+    padding: 20rpx;
+    border: 2rpx solid silver;
+    font-size: 32rpx;
+    border-radius: 12px;
 }

@@ -40,3 +40,33 @@ var handelResults = function (results) {
   return value
 }
 module.exports.handelResults = handelResults
+
+
+var handelImages = function (type) {
+  var value = null
+  switch (type) {
+    case '1':
+      value = '/images/classroomf.jpg'
+      break
+    case '2':
+      value = '/images/computeroomm.jpg'
+      break
+    case '3':
+      value = '/images/student.jpg'
+      break
+    case '4':
+      value = '/images/meetingf.jpg'
+      break
+    case '5':
+      value = '/images/pianoroomf.jpg'
+      break
+    case '6':
+      value = '/images/laboratory.jpg'
+      break
+    case '7':
+      value = '/images/dancef.jpg'
+
+  }
+  return value
+}
+module.exports.handelImages = handelImages

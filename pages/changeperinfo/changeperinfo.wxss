@@ -1,4 +1,4 @@
 .changeImg{
-    height: 30rpx;
-    width: 30rpx;
+    height: 35rpx;
+    width: 35rpx;
 }

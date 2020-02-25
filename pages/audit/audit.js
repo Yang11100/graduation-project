@@ -33,7 +33,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          wx.redirectTo({
+          wx.navigateTo({
             url: '../check/check',
           })
         } else { //这里是点击了取消以后
@@ -62,7 +62,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          wx.redirectTo({
+          wx.navigateTo({
             url: '../check/check',
           })
         } else { //这里是点击了取消以后

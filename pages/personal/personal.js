@@ -8,20 +8,6 @@ Page({
     Nickname: null
   },
   onLoad: function (options) {
-    /*注册
-      let params = {
-        username: '1645100',
-        password: '123456',
-        email: '1645100@bmob.cn',
-        phone: '1645100',
-        Nickname:'FU Till I FU',
-        identity:'0'
-    }
-    Bmob.User.register(params).then(res => {
-      console.log(res)
-    }).catch(err => {
-     console.log(err)
-    });*/
     if (wx.getStorageSync('bmob')) {
       this.setData({
         userinfo: JSON.parse(wx.getStorageSync('bmob')),
@@ -41,7 +27,7 @@ Page({
       }
     }
     if (!this.data.userinfo.sessionToken) {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../login/login'
       })
     }
@@ -88,10 +74,18 @@ Page({
       url: '../manageperinfo/manageperinfo',
     })
   },
+  //注册新用户
+  listregister(){
+    wx.navigateTo({
+      url: '../register/register',
+    })
+
+  },
+
+
   bookingbtn(){
     wx.navigateTo({
       url: '../booking/booking',
-
     })
 
   },
