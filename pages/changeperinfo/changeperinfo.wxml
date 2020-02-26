@@ -20,9 +20,9 @@
                 </image>
             </view>
             <view wx:if="{{ isChangePassword }}">
-                <input placeholder='输入旧密码' password="true" bindinput="oldPasswordInput"></input>
-                <input placeholder='修改密码' password="true" bindinput="firstPasswordInput"></input>
-                <input placeholder='确认密码' password="true" bindinput="checkPasswordInput"></input>
+                <input placeholder='输入旧密码' password="true" bindinput="oldPasswordInput" maxlength="20"></input>
+                <input placeholder='修改密码(长度不超过20)' password="true" bindinput="firstPasswordInput" maxlength="20"></input>
+                <input placeholder='确认密码' password="true" bindinput="checkPasswordInput" maxlength="20"></input>
                 <view class="submit passwordBtn" bindtap="submitPasswordTap">提交密码修改</view>
             </view>
         </block>

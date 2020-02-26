@@ -101,8 +101,13 @@ picker {
 .msg {
     /* margin: 0 auto; */
     clear: left;
-    padding: 14rpx;
+    padding: 5px 1px;
+    margin-top: 4px;
     font-size: 32rpx;
+}
+
+.equipment {
+    
 }
 
 .submit {

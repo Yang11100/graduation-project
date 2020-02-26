@@ -4,6 +4,7 @@ Page({
   data: {
     username: null,
     password: null,
+    ensurePassword:null,
     email: null,
     phone: null,
     options: ['管理员', '普通用户'],
@@ -41,6 +42,12 @@ Page({
   passwordInput: function (e) {
     this.setData({
       password: e.detail.value
+    })
+    console.log(e.detail.value)
+  },
+  ensurePasswordInput(e){
+    this.setData({
+      ensurePassword: e.detail.value
     })
     console.log(e.detail.value)
   },
@@ -152,8 +159,13 @@ Page({
         }
       })
     }
-
-  }
+  },
+  clearbtnclick: function () {
+    //清空信息事件
+    this.setData({
+      emptyvalue: ''
+    })
+  },
 
 
 })

@@ -1,34 +1,53 @@
 <view class="nav">
+    <image class='background' src="/images/register.jpg" mode="aspectFill"></image>
     <view class="item-register">
         <view class="info-input">
-            <view>用户名</view>
-            <input bindinput="usernameInput" value="{{emptyvalue}}" />
+            <view class="title">
+                <view style="float: left;">用户名：</view>
+                <view style="color: red;padding-top: 1px;">*</view>
+            </view>
+            <input class="inputClass" bindinput="usernameInput" value="{{emptyvalue}}" maxlength="20"
+                placeholder='(长度不超过20)'
+                placeholder-style='font-size:12px;color: rgb(153, 141, 141);padding-left:8px;' />
         </view>
         <view class="info-input">
-            <view>密码</view>
-            <input bindinput="passwordInput" password="true" value="{{emptyvalue}}" />
-        </view>
-        <!-- <view class="info-input">
-            <view>email</view>
-            <input bindinput="emailInput" value="{{emptyvalue}}" />
-        </view> -->
-        <view class="info-input">
-            <view>手机号</view>
-            <input bindinput="phoneInput" value="{{emptyvalue}}" />
+            <view class="title">
+                <view style="float: left;">密码：</view>
+                <view style="color: red;padding-top: 1px;">*</view>
+            </view>
+            <input class="inputClass" bindinput="passwordInput" password="true" maxlength="20" value="{{emptyvalue}}"
+                placeholder='(长度6-20)' placeholder-style='font-size:12px;color: rgb(153, 141, 141);padding-left:8px;' />
         </view>
         <view class="info-input">
-            <view class="identity-picker">
-                身份<picker disabled="{{picker}}" bindchange="bindPickerIdentity" value="{{identity}}" range="{{options}}">
+            <view class="title">
+                <view style="float: left;">确认密码：</view>
+                <view style="color: red;padding-top: 1px;">*</view>
+            </view>
+            <input class="inputClass" bindinput="ensurePasswordInput" password="true" maxlength="20"
+                value="{{emptyvalue}}" placeholder='(长度6-20)'
+                placeholder-style='font-size:12px;color: rgb(153, 141, 141);padding-left:8px;' />
+        </view>
+        <view class="info-input">
+            <view class="title">手机号：</view>
+            <input class="inputClass" bindinput="phoneInput" value="{{emptyvalue}}" maxlength="11" />
+        </view>
+        <view class="info-input">
+            <view class="identity-picker title">
+                身份：<picker class="pickerClass" disabled="{{picker}}" bindchange="bindPickerIdentity" value="{{identity}}"
+                    range="{{options}}">
                     <text class="picker">
-                        {{options[identity]}}
+                        ▼{{options[identity]}}
                     </text>
                 </picker>
             </view>
         </view>
         <view class="info-input">
-            <view>昵称</view>
-            <input bindinput="NicknameInput" value="{{emptyvalue}}" />
+            <view class="title">昵称：</view>
+            <input class="inputClass" bindinput="NicknameInput" value="{{emptyvalue}}" />
         </view>
     </view>
-    <button bindtap="submitRegister">提交注册</button>
+    <view class="clear-register">
+        <button bindtap="clearbtnclick">清空</button>
+        <button bindtap="submitRegister">注册</button>
+    </view>
 </view>

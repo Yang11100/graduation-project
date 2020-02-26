@@ -24,9 +24,9 @@
 			<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
 		</block>
 		<block class="item-msg" wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
-			<view class="msg">名称：{{specific.name}}</view>
-			<view class="msg">容纳人数：{{specific.number}}</view>
-			<view class="msg">基础设备：{{specific.equipment}}</view>
+			<view class="msg" style="float: left;">{{specific.name}}</view>
+			<view class="msg" style="float: right;">容纳人数：{{specific.number}}</view>
+			<view class="msg equipment">{{specific.equipment}}</view>
 		</block>
 	</view>
 	<button class="submit" bindtap="bookingbtn">预订</button>
