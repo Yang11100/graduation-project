@@ -41,7 +41,31 @@ Page({
     wx.navigateTo({
       url: '../register/register',
     })
-
+  },
+  //删除用户
+  deleteUserTap() {
+    let _this = this
+    wx.showModal({
+      title: '删除当前用户',
+      content: '是否确定',
+      success: function (res) {
+        if (res.confirm) {
+          const query = Bmob.Query('_User');
+          query.destroy(e.currentTarget.dataset.id).then(res => {
+            console.log(res)
+          }).catch(err => {
+            console.log(err)
+          })
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000
+          })
+        } else { //这里是点击了取消以后
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
 
