@@ -70,3 +70,7 @@ var handelImages = function (type) {
   return value
 }
 module.exports.handelImages = handelImages
+
+var sliceTime = function(date) {
+  return date.slice(0, 10)
+}

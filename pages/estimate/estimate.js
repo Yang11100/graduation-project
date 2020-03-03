@@ -26,6 +26,9 @@ Page({
     query.equalTo('results', '==', '3')
     query.find().then(res => {
       console.log('booking', res)
+      res.forEach(element => {
+        element.mark = 0
+      })
       this.setData({
         currentInfo: res,
         userId: res[0].userid,
@@ -40,8 +43,10 @@ Page({
     });
   },
   markPicker: function (e) {
+    this.data.currentInfo[e.target.dataset.index].mark = this.data.options[e.detail.value]
     this.setData({
-      changeMark: e.detail.value
+      changeMark: e.detail.value,
+      currentInfo: this.data.currentInfo
     })
     console.log(e.detail.value)
   },
