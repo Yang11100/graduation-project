@@ -145,8 +145,6 @@ Page({
       console.log(this.data.name)
     });
     console.log('specific', this.data.specificroom)
-
-
   },
   bookingbtn: function () {
     if (!wx.getStorageSync('bmob')) {
@@ -211,9 +209,7 @@ Page({
         }
       }
     }
-
   },
-
 
   getScanning: function () {
     app.getScanning()

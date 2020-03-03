@@ -4,5 +4,13 @@
         "*.wxss": "css",
         "*.wxs": "javascript",
         "*.wxml": "html"
+    },
+    "python.pythonPath": "D:\\Python\\python.exe",
+    "python.formatting.provider": "yapf",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
     }
 }

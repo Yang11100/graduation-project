@@ -2,14 +2,21 @@
 <view class="nav">
     <view class="current">
         <block wx:for="{{currentInfo}}" wx:key="index">
-            <view>资源名称：{{item.name}}</view>
-            <view>提交时间：{{ item.createdAt }}</view>
-            <view>用户名：{{ item.username}}</view>
-            <view>申请时间：{{item.date}}</view>
-            <view>申请时间段：{{ analysisTime.handaltime(item.time) }}</view>
-            <view class="addMark" bindtap="addMarkTap">加一分</view>
-            <view class="notChange" bindtap="notChangeTap">保持</view>
-            <view class="reduceMark" bindtap="reduceMarkTap">减一分</view>
+            <view>
+                <view>资源名称：{{item.name}}</view>
+                <view>提交时间：{{ item.createdAt }}</view>
+                <view>用户名：{{ item.username}}</view>
+                <view>申请时间：{{item.date}}</view>
+                <view>申请时间段：{{ analysisTime.handaltime(item.time) }}</view>
+            </view>
+            <view>
+                积分变化：<picker class="markChange" disabled="{{picker}}" range="{{options}}" value="{{changeMark}}"
+                    bindchange="markPicker">
+                    ▼{{options[changeMark]}}</picker>
+            </view>
+            <view>
+                <button bindtap="submitEstimate">提交处理</button>
+            </view>
         </block>
     </view>
 </view>

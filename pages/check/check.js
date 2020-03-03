@@ -20,13 +20,13 @@ Page({
   auditTap(e) {
     let resourceId = e.currentTarget.dataset.id
     console.log(resourceId)
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../audit/audit?resourceId=' + resourceId,
     })
   },
   estimateTap(e) {
     let resourceId = e.currentTarget.dataset.id
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../estimate/estimate?resourceId=' + resourceId,
     })
   },

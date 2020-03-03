@@ -6,6 +6,9 @@ Page({
     userId: null, //申请用户的Id
     currentInfo: {},
 
+    options:['+3','+2','+1','0','-1','-2','-3'],//选择增加减少的积分
+    changeMark:'3',//选择的顺序
+
   },
 
 
@@ -20,6 +23,7 @@ Page({
   refreshData() {
     const query = Bmob.Query('booking');
     query.equalTo("objectId", "==", this.data.resourceId);
+    query.equalTo('results', '==', '3')
     query.find().then(res => {
       console.log('booking', res)
       this.setData({
@@ -35,13 +39,14 @@ Page({
       console.log('user',res)
     });
   },
-  addMarkTap() {
-
+  markPicker: function (e) {
+    this.setData({
+      changeMark: e.detail.value
+    })
+    console.log(e.detail.value)
   },
-  notChangeTap() {
 
-  },
-  reduceMarkTap() {
+  submitEstimate(){
 
   },
 

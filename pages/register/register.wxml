@@ -6,7 +6,7 @@
                 <view style="float: left;">用户名：</view>
                 <view style="color: red;padding-top: 1px;">*</view>
             </view>
-            <input class="inputClass" bindinput="usernameInput" value="{{emptyvalue}}" maxlength="20"
+            <input class="inputClass" type="number" bindinput="usernameInput" value="{{emptyvalue}}" maxlength="20"
                 placeholder='(长度不超过20)'
                 placeholder-style='font-size:12px;color: rgb(153, 141, 141);padding-left:8px;' />
         </view>

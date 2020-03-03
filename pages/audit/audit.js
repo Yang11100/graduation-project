@@ -1,4 +1,5 @@
 const app = getApp()
+var util = require('../../utils/util.js')
 const Bmob = require('../../utils/bmob.js')
 Page({
   data: {
@@ -16,8 +17,8 @@ Page({
   agreeTap() {
     let _this = this
     wx.showModal({
-      title: '确定同意',
-      content: '是否确定同意',
+      title: '同意',
+      content: '是否确定',
       success: function (res) {
         if (res.confirm) {
           const query = Bmob.Query('booking');
@@ -33,7 +34,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../check/check',
           })
         } else { //这里是点击了取消以后
@@ -45,8 +46,8 @@ Page({
   disagreeTap() {
     let _this = this
     wx.showModal({
-      title: '确定不同意',
-      content: '是否确定不同意',
+      title: '不同意',
+      content: '是否确定',
       success: function (res) {
         if (res.confirm) {
           const query = Bmob.Query('booking');
@@ -62,7 +63,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../check/check',
           })
         } else { //这里是点击了取消以后
@@ -74,6 +75,7 @@ Page({
   refreshData() {
     const query = Bmob.Query('booking');
     query.equalTo("objectId", "==", this.data.resourceId);
+    query.equalTo("results", "==", "0");
     query.find().then(res => {
       console.log('res', res)
       this.setData({
@@ -82,6 +84,4 @@ Page({
     });
     console.log('current', this.data.currentInfo)
   },
-
-
 })

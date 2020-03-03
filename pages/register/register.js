@@ -4,7 +4,7 @@ Page({
   data: {
     username: null,
     password: null,
-    ensurePassword:null,
+    ensurePassword: null,
     email: null,
     phone: null,
     options: ['管理员', '普通用户'],
@@ -27,8 +27,8 @@ Page({
       })
       console.log(this.data.usernameInfo)
     })
-    
-    
+
+
   },
 
   //输入框用户名获取
@@ -45,11 +45,18 @@ Page({
     })
     console.log(e.detail.value)
   },
-  ensurePasswordInput(e){
+  ensurePasswordInput(e) {
     this.setData({
       ensurePassword: e.detail.value
     })
     console.log(e.detail.value)
+    if (this.data.password != this.data.ensurePassword) {
+      wx.showToast({
+        title: '密码不一致',
+        icon: 'none',
+        duration: 1000,
+      })
+    }
   },
   /*输入框email获取
   emailInput(e) {
@@ -109,6 +116,12 @@ Page({
         icon: 'none',
         duration: 1000
       })
+    } else if (_this.data.password != _this.data.ensurePassword) {
+      wx.showToast({
+        title: '密码不一致',
+        icon: 'none',
+        duration: 1000,
+      })
     } else {
       wx.showModal({
         title: '确定提交',
@@ -137,7 +150,7 @@ Page({
             })
             setTimeout(function () {
               //要延时执行的代码
-             }, 1100) //延迟时间 这里是1秒
+            }, 1100) //延迟时间 这里是1秒
             wx.showModal({
               title: '继续注册',
               success: function (res) {
