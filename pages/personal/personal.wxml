@@ -4,7 +4,7 @@
 		<image src="/images/headportrait.png"
 			style="width:65px;height:65px;border:6rpx solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
 		<view class="personalInfo">
-			<text style="float: left;">用户名：{{userinfo.username}}</text>
+			<text style="float: left;display: flex;align-content:justify-content;">用户名：{{userinfo.username}}</text>
 			<text style="float: right;margin-left: 80rpx;padding: 3rpx;padding-left: 10rpx;font-size: 30rpx;color: rgb(16, 130, 245);">{{identityname}} </text>
 			<text>昵称：{{userinfo.Nickname}}</text>
 		</view>

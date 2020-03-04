@@ -6,8 +6,10 @@ Page({
     userId: null, //申请用户的Id
     currentInfo: {},
 
-    options:['+3','+2','+1','0','-1','-2','-3'],//选择增加减少的积分
-    changeMark:'3',//选择的顺序
+    options: ['+3', '+2', '+1', '0', '-1', '-2', '-3'], //选择增加减少的积分0=3,1=2,2=1,3=0,4=-1,5=-2,6=-3
+    changeMark: '3', //选择的顺序
+    userMark: null, //用户的积分
+    changedMark: null, //更改后的积分，录入进数据库
 
   },
 
@@ -17,7 +19,6 @@ Page({
       resourceId: options.resourceId,
     })
     this.refreshData()
-    console.log('userId', this.data.userId)
   },
 
   refreshData() {
@@ -39,7 +40,7 @@ Page({
     const query1 = Bmob.Query("_User");
     query1.equalTo("objectId", "==", this.data.userId);
     query1.find().then(res => {
-      console.log('user',res)
+      console.log('user', res)
     });
   },
   markPicker: function (e) {
@@ -51,10 +52,29 @@ Page({
     console.log(e.detail.value)
   },
 
-  submitEstimate(){
+  submitEstimate(e) {
+    console.log('changeMarkOrder', this.data.changeMark)
+    let userId = e.currentTarget.dataset.id
+    console.log(userId)
+    const query = Bmob.Query("_User");
+    query.equalTo("objectId", "==", userId);
+    query.find().then(res => {
+      console.log(res)
+      this.setData({
+        userMark: res[0].mark
+      })
+      console.log('userMark', this.data.userMark)
+      console.log('number', parseInt(this.data.userMark))
+    })
+    console.log('number1', parseInt(this.data.userMark))
+    if (parseInt(this.data.userMark) === 100 && (parseInt(this.data.changeMark) >= 0 && parseInt(this.data.changeMark) < 4)) {
+      wx.showToast({
+        title: '已是满分',
+        icon: 'none',
+        duration: 1000
+      })
+      console.log('111')
+    }
 
   },
-
-
-
 })

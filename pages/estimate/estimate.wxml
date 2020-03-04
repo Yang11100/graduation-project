@@ -15,7 +15,7 @@
                     ▼{{item.mark}}</picker>
             </view>
             <view>
-                <button bindtap="submitEstimate">提交处理</button>
+                <button bindtap="submitEstimate" data-id="{{item.userid}}">提交处理</button>
             </view>
         </block>
     </view>

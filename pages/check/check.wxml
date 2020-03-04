@@ -34,7 +34,7 @@
   </view>
   <view class="content">
     <view class="header">
-      <view bind:tap="$onClickIsShow" data-type="isAllInfo">----------使用记录----------</view>
+      <view bind:tap="$onClickIsShow" data-type="isAllInfo">----------已完成----------</view>
     </view>
     <view class="details" wx:if="{{isAllInfo}}">
       <block class="block-details" wx:for="{{allInfo}}" wx:key="index">
