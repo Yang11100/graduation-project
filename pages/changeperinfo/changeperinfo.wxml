@@ -1,29 +1,42 @@
 <view class="nav">
     <view class="msg">
-        <view>我的信息</view>
+        <view class="title">我的信息</view>
         <block>
-            <view>用户名：{{username}}</view>
-            <view>
-                <view class="nick text">昵称：{{Nickname}}</view>
+            <view class="text">
+                <view style="float: left;">用户名：</view>
+                <view>{{username}}</view>
+            </view>
+            <view class="text">
+                <view>
+                    <view class="nick" style="float: left;">昵称：</view>
+                    <view style="float: left;">{{Nickname}}</view>
+                </view>
                 <image bind:tap="$onChangeNickName" class="nick changeImg" src="/images/change.png">
                 </image>
                 <view wx:if="{{ isChangeNickName }}">
-                    <input placeholder='修改昵称（20个字符以内）' maxlength="20" bindinput="NicknameInput"></input>
-                    <view class="submit nicknameBtn" bindtap="submitNicknameTap">提交昵称修改</view>
+                    <input class="inputChange" placeholder='修改昵称(20个字符以内)' placeholder-style="padding-left:8px;" maxlength="20" bindinput="NicknameInput"></input>
+                    <view class="submit nicknameBtn" bindtap="submitNicknameTap">提交</view>
                 </view>
             </view>
-            <view>身份：普通用户</view>
-            <view>信用分：{{mark}}（信用分低于95时，会影响你的预约）</view>
-            <view>
-                <view>修改密码</view>
+            <view class="text">
+                <view style="float: left;">身份：</view>
+                <view>普通用户</view>
+            </view>
+            <view class="text">
+                <view style="float: left;">信用分：</view>
+                <view>{{mark}}(低于95时,不能申请预约)</view>
+            </view>
+            <view class="text">
+                <view style="float: left;">修改密码</view>
                 <image bind:tap="$onChangePassword" class="nick changeImg" src="/images/change.png">
                 </image>
-            </view>
-            <view wx:if="{{ isChangePassword }}">
-                <input placeholder='输入旧密码' password="true" bindinput="oldPasswordInput" maxlength="20"></input>
-                <input placeholder='修改密码(长度不超过20)' password="true" bindinput="firstPasswordInput" maxlength="20"></input>
-                <input placeholder='确认密码' password="true" bindinput="checkPasswordInput" maxlength="20"></input>
-                <view class="submit passwordBtn" bindtap="submitPasswordTap">提交密码修改</view>
+                <view wx:if="{{ isChangePassword }}">
+                    <input class="inputChange" placeholder='输入旧密码' placeholder-style="padding-left:8px;" password="true" bindinput="oldPasswordInput" maxlength="20"></input>
+                    <input class="inputChange" placeholder='修改密码(长度不超过20)' placeholder-style="padding-left:8px;" password="true" bindinput="firstPasswordInput"
+                        maxlength="20"></input>
+                    <input class="inputChange" placeholder='确认密码' placeholder-style="padding-left:8px;" password="true" bindinput="checkPasswordInput" maxlength="20"></input>
+                    <view class="submit passwordBtn" bindtap="submitPasswordTap">提交</view>
+                </view>
             </view>
         </block>
     </view>

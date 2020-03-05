@@ -1,5 +1,6 @@
 <wxs src="../../utils/analysis-time.wxs" module="analysisTime"></wxs>
 <view class="nav">
+    <image class='background' src="/images/audit1.jpeg" mode="aspectFill"></image>
     <view class="current">
         <block wx:for="{{currentInfo}}" wx:key="index">
             <view>

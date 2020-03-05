@@ -45,10 +45,13 @@ page {
 .personalList view {
     position: relative;
 }
+.icon{
+    height: 34rpx;
+    width: 34rpx;
+    margin-right: 8rpx;
 
-.iconfont {
-    font-size: 14px;
 }
+
 
 .personalList view:before {
     color: #b02923;

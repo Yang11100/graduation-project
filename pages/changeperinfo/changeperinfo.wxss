@@ -1,4 +1,18 @@
-.changeImg{
+.title {
+    text-align: center;
+}
+
+.changeImg {
     height: 35rpx;
     width: 35rpx;
+}
+
+.text {
+    margin: 4px 10px;
+}
+
+.inputChange {
+    border: 1px solid silver;
+    margin-top: 5px;
+    border-radius: 5px;
 }

@@ -21,10 +21,18 @@ Page({
     })
   },
 
+  //登录事件
   loginbtnclick: function () {
-    //登录事件
     //查询user表中数据
-    if (
+    if (this.data.inputVerificationCode == null) {
+      //验证码为空
+      wx.showToast({
+        title: '验证码为空',
+        icon: 'none',
+        duration: 1000 //持续的时间
+      })
+      this.getcode()
+    } else if (
       this.data.inputVerificationCode.toLowerCase() ==
       this.data.verificationCode.toLowerCase()
     ) {
@@ -36,48 +44,30 @@ Page({
               url: '../personal/personal'
             })
           } else {
-
             wx.showToast({
-              title: '用户名或者验证码不正确！',
+              title: '用户名或者密码不正确！',
               icon: 'none',
               duration: 1000 //持续的时间
             })
+            this.getcode()
           }
         })
         .catch(err => {
           wx.showToast({
-            title: '用户名或者验证码不正确！',
+            title: '用户名或者密码不正确！',
             icon: 'none',
             duration: 1000 //持续的时间
           })
+          this.getcode()
         })
-
-      // if (this.data.first == 1) {
-      //   wx.switchTab({
-      //     url: '../personal/personal'
-      //   })
-      // } else {
-      //   wx.redirectTo({
-      //     url: '../admin/admin'
-      //   })
-      // }
-    }
-
-    // else if (this.data.inputVerificationCode == null) {
-    //验证码为空
-    //   wx.showToast({
-    //     title: '验证码为空',
-    //     icon: 'none',
-    //     duration: 1000 //持续的时间
-    //   })
-    // }
-    else {
+    } else {
       //弹出验证码不正确
       wx.showToast({
         title: '验证码不正确',
         icon: 'none',
         duration: 1000 //持续的时间
       })
+      this.getcode()
     }
   },
   usernameinput: function (e) {
@@ -162,5 +152,4 @@ Page({
       inputVerificationCode: e.detail.value
     })
   }
-  // 获得随机验证码
 })

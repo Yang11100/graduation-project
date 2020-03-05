@@ -2,10 +2,13 @@
 <view class="personalWrap">
 	<view class="personalMe">
 		<image src="/images/headportrait.png"
-			style="width:65px;height:65px;border:6rpx solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;"></image>
+			style="width:65px;height:65px;border:6rpx solid #ddd;float:left;margin:20rpx 20rpx;border-radius: 50%;">
+		</image>
 		<view class="personalInfo">
 			<text style="float: left;display: flex;align-content:justify-content;">用户名：{{userinfo.username}}</text>
-			<text style="float: right;margin-left: 80rpx;padding: 3rpx;padding-left: 10rpx;font-size: 30rpx;color: rgb(16, 130, 245);">{{identityname}} </text>
+			<text
+				style="float: right;margin-left: 80rpx;padding: 3rpx;padding-left: 10rpx;font-size: 30rpx;color: rgb(16, 130, 245);">{{identityname}}
+			</text>
 			<text>昵称：{{userinfo.Nickname}}</text>
 		</view>
 	</view>
@@ -13,19 +16,46 @@
 	<view class="personalList">
 		<!-- 管理员的功能 -->
 		<block wx:if="{{role === 0}}">
-			<view bindtap="listcheck">查看用户使用记录</view>
-			<view bindtap="listaudit">审核用户预订</view>
-			<view bindtap="listestimate">评价用户使用</view>
-			<view bindtap="listmanageperinfo">管理用户信息</view>
-			<view bindtap="listmybook">我的预定/退订</view>
-			<view bindtap="listregister">注册新用户</view>
+			<view bindtap="listcheck">
+				<image class="icon" src="/images/checkicon.png"></image>
+				查看用户使用记录
+			</view>
+			<view bindtap="listaudit">
+				<image class="icon" src="/images/auditicon.png"></image>
+				审核用户预订
+			</view>
+			<view bindtap="listestimate">
+				<image class="icon" src="/images/estimateicon.png"></image>
+				评价用户使用
+			</view>
+			<view bindtap="listmanageperinfo">
+				<image class="icon" src="/images/manageperinfoicon.png"></image>
+				管理用户信息
+			</view>
+			<view bindtap="listmybook">
+				<image class="icon" src="/images/mybookicon.png"></image>
+				我的预定/退订
+			</view>
+			<view bindtap="listregister">
+				<image class="icon" src="/images/registericon.png"></image>
+				注册新用户
+			</view>
 		</block>
 
 		<!-- 普通用户 -->
 		<block wx:else>
-			<view>信用积分：{{userinfo.mark}}</view>
-			<view bindtap="listmybook">我的预定/退订</view>
-			<view bindtap="listchangeperinfo">修改个人信息</view>
+			<view>
+				<image class="icon" src="/images/markicon.png"></image>
+				信用积分：{{userinfo.mark}}
+			</view>
+			<view bindtap="listmybook">
+				<image class="icon" src="/images/mybookicon.png"></image>
+				我的预定/退订
+			</view>
+			<view bindtap="listchangeperinfo">
+				<image class="icon" src="/images/changeperinfoicon.png"></image>
+				修改个人信息
+			</view>
 		</block>
 	</view>
 
