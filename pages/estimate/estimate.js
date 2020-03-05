@@ -9,21 +9,19 @@ Page({
     options: ['+3', '+2', '+1', '0', '-1', '-2', '-3'], //选择增加减少的积分0=3,1=2,2=1,3=0,4=-1,5=-2,6=-3
     changeMark: '3', //选择的顺序
     userMark: null, //用户的积分
-    changedMark: null, //更改后的积分，录入进数据库
-
+    changedMark: null //更改后的积分，录入进数据库
   },
 
-
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
-      resourceId: options.resourceId,
+      resourceId: options.resourceId
     })
     this.refreshData()
   },
 
   refreshData() {
-    const query = Bmob.Query('booking');
-    query.equalTo("objectId", "==", this.data.resourceId);
+    const query = Bmob.Query('booking')
+    query.equalTo('objectId', '==', this.data.resourceId)
     query.equalTo('results', '==', '3')
     query.find().then(res => {
       console.log('booking', res)
@@ -32,19 +30,22 @@ Page({
       })
       this.setData({
         currentInfo: res,
-        userId: res[0].userid,
+        userId: res[0].userid
       })
-    });
+    })
     // console.log('current', this.data.currentInfo)
     console.log('userId', this.data.userId)
-    const query1 = Bmob.Query("_User");
-    query1.equalTo("objectId", "==", this.data.userId);
+    const query1 = Bmob.Query('_User')
+    query1.equalTo('objectId', '==', this.data.userId)
     query1.find().then(res => {
       console.log('user', res)
-    });
+    })
   },
-  markPicker: function (e) {
-    this.data.currentInfo[e.target.dataset.index].mark = this.data.options[e.detail.value]
+  markPicker: function(e) {
+    // TODO:
+    this.data.currentInfo[e.target.dataset.index].mark = this.data.options[
+      e.detail.value
+    ]
     this.setData({
       changeMark: e.detail.value,
       currentInfo: this.data.currentInfo
@@ -53,28 +54,29 @@ Page({
   },
 
   submitEstimate(e) {
-    console.log('changeMarkOrder', this.data.changeMark)
     let userId = e.currentTarget.dataset.id
     console.log(userId)
-    const query = Bmob.Query("_User");
-    query.equalTo("objectId", "==", userId);
+    const query = Bmob.Query('_User')
+    query.equalTo('objectId', '==', userId)
     query.find().then(res => {
-      console.log(res)
       this.setData({
         userMark: res[0].mark
       })
-      console.log('userMark', this.data.userMark)
-      console.log('number', parseInt(this.data.userMark))
+      this.markOperation()
     })
-    console.log('number1', parseInt(this.data.userMark))
-    if (parseInt(this.data.userMark) === 100 && (parseInt(this.data.changeMark) >= 0 && parseInt(this.data.changeMark) < 4)) {
+  },
+  // 积分操作
+  markOperation() {
+    if (
+      parseInt(this.data.userMark) === 100 &&
+      parseInt(this.data.changeMark) >= 0 &&
+      parseInt(this.data.changeMark) < 4
+    ) {
       wx.showToast({
         title: '已是满分',
         icon: 'none',
         duration: 1000
       })
-      console.log('111')
     }
-
-  },
+  }
 })

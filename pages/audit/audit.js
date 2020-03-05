@@ -77,7 +77,8 @@ Page({
     query.equalTo("objectId", "==", this.data.resourceId);
     query.equalTo("results", "==", "0");
     query.find().then(res => {
-      console.log('res', res)
+      // TODO:
+      console.log('res', res.length)
       this.setData({
         currentInfo: res
       })

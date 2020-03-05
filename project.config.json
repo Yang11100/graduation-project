@@ -61,6 +61,19 @@
 					"pathName": "pages/login/login",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/estimate/estimate",
+					"pathName": "pages/estimate/estimate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/audit/audit",
+					"pathName": "pages/audit/audit",
+					"scene": null
 				}
 			]
 		}
