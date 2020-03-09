@@ -27,8 +27,6 @@ Page({
       })
       console.log(this.data.usernameInfo)
     })
-
-
   },
 
   //输入框用户名获取
@@ -136,7 +134,6 @@ Page({
               identity: _this.data.identity,
               mark: '100',
               Nickname: _this.data.Nickname,
-
             }
             Bmob.User.register(params).then(res => {
               console.log(res)

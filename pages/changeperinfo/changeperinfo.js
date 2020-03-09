@@ -3,6 +3,7 @@ const Bmob = require('../../utils/bmob.js')
 Page({
   data: {
     objectId: null, //用户ID
+    bookingObjectID: {}, //booking表里面的objectID
     username: null, //当前用户的用户名
     Nickname: null, //昵称
     mark: null, //积分
@@ -24,7 +25,17 @@ Page({
       Nickname: JSON.parse(wx.getStorageSync('bmob')).Nickname,
       mark: JSON.parse(wx.getStorageSync('bmob')).mark
     })
-    console.log('Id', this.data.objectId)
+    console.log('_User表里面的objectId', this.data.objectId)
+    //通过当前的_User表里面的objectID来查询booking表里面的userid从而获得booking里面的userid==当前userid的objectID
+    const query = Bmob.Query("booking");
+    query.equalTo("userid", "==", this.data.objectId);
+    query.find().then(res => {
+      console.log('userid的查询', res);
+      this.setData({
+        bookingObjectID: res
+      })
+      console.log('bookingObjectID', this.data.bookingObjectID)
+    });
   },
 
   // 修改昵称弹出输入框
@@ -95,6 +106,16 @@ Page({
             query.get(_this.data.objectId).then(res => {
               console.log(res)
               res.set('Nickname', _this.data.changeNickName)
+              res.save()
+            }).catch(err => {
+              console.log(err)
+            })
+            //需根据objectId修改表中内容，所以这里应该先通过_User表里面的objectID==booking表里面的
+            //userid,然后查询booking里面的objectID。还要修改缓存里面的数据
+            const query1 = Bmob.Query('booking');
+            query1.get(_this.data.bookingObjectID).then(res => {
+              console.log('booking表里面当前用户相关的数据展示', res)
+              res.set('username', _this.data.changeNickName)
               res.save()
             }).catch(err => {
               console.log(err)

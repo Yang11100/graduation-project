@@ -1,18 +1,36 @@
-.title {
-    text-align: center;
-}
-
 .changeImg {
     height: 35rpx;
     width: 35rpx;
+    margin-left: 10rpx;
 }
 
 .text {
-    margin: 4px 10px;
+    margin: 4px 20rpx;
+}
+
+.text-text {
+    width: 30%;
+    text-align: right;
+}
+
+.inputText {
+    float: left;
+    width: 30%;
+    text-align: right;
 }
 
 .inputChange {
     border: 1px solid silver;
     margin-top: 5px;
     border-radius: 5px;
+}
+
+.submit {
+    border: solid 1px cadetblue;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    margin: 10rpx;
+    margin-left: 10%;
+    padding: 1px;
 }

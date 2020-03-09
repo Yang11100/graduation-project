@@ -30,9 +30,28 @@ Page({
       url: '../booking/booking',
     })
   },
-  reservetap: function () {
+  //7舞蹈室跳转
+  danceRoomTap: function () {
     wx.navigateTo({
       url: '../booking/booking?first=' + '7',
+    })
+  },
+  //1多媒体教室跳转
+  roomTap: function () {
+    wx.navigateTo({
+      url: '../booking/booking?first=' + '1',
+    })
+  },
+  //4会议室跳转
+  meetingTap: function () {
+    wx.navigateTo({
+      url: '../booking/booking?first=' + '4',
+    })
+  },
+  //5琴房跳转
+  pianoTap: function () {
+    wx.navigateTo({
+      url: '../booking/booking?first=' + '5',
     })
   },
 

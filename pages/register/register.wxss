@@ -1,6 +1,8 @@
 .nav{
   height: 100%;
   width: 100%;
+  color: aliceblue;
+  font-size: 32rpx;
 }
 .background {
   width: 100%;
@@ -26,10 +28,21 @@
   border: solid 1px rgb(97, 91, 91);
   float: right;
   border-radius: 3px;
+  padding-left: 5rpx;
 }
 .pickerClass{
-  display: flex;
-  padding-right: 5%;
   float: right;
-  border: solid 1px slategrey;
+}
+.clear-register{
+  width: 80%;
+  margin-top: 120rpx;
+  margin-left: 5%;
+  color: black;
+  font-size: 38rpx;
+}
+.click{
+  border: blanchedalmond solid 1px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 2px 0;
 }

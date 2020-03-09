@@ -12,6 +12,7 @@
         <view>日期：{{ item.date }}</view>
         <view>时间：{{ analysisTime.handaltime(item.time) }}</view>
         <view>申请状态：{{ analysisTime.handelResults(item.results) }}</view>
+        <view>提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
         <button bindtap="auditTap" data-id="{{item.objectId}}">去处理</button>
       </block>
     </view>
@@ -28,6 +29,7 @@
         <view>日期：{{ item.date }}</view>
         <view>时间：{{ analysisTime.handaltime(item.time) }}</view>
         <view>申请状态：{{ analysisTime.handelResults(item.results) }}</view>
+        <view>提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
         <button bindtap="estimateTap" data-id="{{item.objectId}}">去评价</button>
       </block>
     </view>
@@ -44,6 +46,7 @@
         <view>日期：{{ item.date }}</view>
         <view>时间：{{ analysisTime.handaltime(item.time) }}</view>
         <view>申请状态：{{ analysisTime.handelResults(item.results) }}</view>
+        <view>提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
       </block>
     </view>
   </view>

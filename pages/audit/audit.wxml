@@ -1,6 +1,6 @@
 <wxs src="../../utils/analysis-time.wxs" module="analysisTime"></wxs>
 <view class="nav">
-    <image class='background' src="/images/audit1.jpeg" mode="aspectFill"></image>
+    <image class='background' src="{{backgroundImage}}" mode="aspectFill"></image>
     <view class="current">
         <block wx:for="{{currentInfo}}" wx:key="index">
             <view class="msg">
@@ -8,10 +8,11 @@
                     <view>{{item.name}}</view>
                 </view>
                 <view class="msgInfo">
-                    <view>提交时间：{{item.createdAt}}</view>
+                    <view>提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
                     <view>用户名：{{item.username}}</view>
                     <view>申请时间：{{item.date}}</view>
                     <view>申请时间段：{{analysisTime.handaltime(item.time)}}</view>
+                    <view>提交时间：{{item.createdAt}}</view>
                 </view>
             </view>
             <view class="buttonstyle">

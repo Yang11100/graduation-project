@@ -12,7 +12,7 @@ Page({
     changedMark: null //更改后的积分，录入进数据库
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       resourceId: options.resourceId
     })
@@ -24,7 +24,6 @@ Page({
     query.equalTo('objectId', '==', this.data.resourceId)
     query.equalTo('results', '==', '3')
     query.find().then(res => {
-      console.log('booking', res)
       res.forEach(element => {
         element.mark = 0
       })
@@ -32,25 +31,19 @@ Page({
         currentInfo: res,
         userId: res[0].userid
       })
-    })
-    // console.log('current', this.data.currentInfo)
-    console.log('userId', this.data.userId)
-    const query1 = Bmob.Query('_User')
-    query1.equalTo('objectId', '==', this.data.userId)
-    query1.find().then(res => {
-      console.log('user', res)
+      console.log('current', this.data.currentInfo)
+      console.log('userId', this.data.userId)
     })
   },
-  markPicker: function(e) {
+  markPicker: function (e) {
     // TODO:
-    this.data.currentInfo[e.target.dataset.index].mark = this.data.options[
-      e.detail.value
-    ]
+    this.data.currentInfo[e.target.dataset.index].mark = this.data.options[e.detail.value]
     this.setData({
-      changeMark: e.detail.value,
+      changeMark: this.data.options[e.detail.value],
       currentInfo: this.data.currentInfo
     })
-    console.log(e.detail.value)
+    console.log('cuinfo', this.data.currentInfo)
+    console.log('mark', this.data.changeMark)
   },
 
   submitEstimate(e) {
@@ -67,16 +60,17 @@ Page({
   },
   // 积分操作
   markOperation() {
-    if (
-      parseInt(this.data.userMark) === 100 &&
-      parseInt(this.data.changeMark) >= 0 &&
-      parseInt(this.data.changeMark) < 4
-    ) {
+    if (parseInt(this.data.userMark) === 100 && parseInt(this.data.changeMark) > 0 && parseInt(this.data.changeMark) < 4) {
       wx.showToast({
         title: '已是满分',
         icon: 'none',
         duration: 1000
       })
+    } else if (parseInt(this.data.userMark) < 100 && (parseInt(this.data.changeMark)) < 0) {
+      this.setData({
+        changedMark: parseInt(this.data.userMark) - parseInt(this.data.changeMark)
+      })
     }
+    console.log('changedMark', this.data.changedMark)
   }
 })

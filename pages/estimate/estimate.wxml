@@ -5,15 +5,16 @@
         <block wx:for="{{currentInfo}}" wx:key="index">
             <view>
                 <view>资源名称：{{item.name}}</view>
-                <view>提交时间：{{ analysisTime.sliceTime(item.createdAt) }}</view>
-                <view>用户名：{{ item.username}}</view>
+                <view>用户名：{{item.username}}</view>
                 <view>申请时间：{{item.date}}</view>
                 <view>申请时间段：{{ analysisTime.handaltime(item.time) }}</view>
+                <view>提交时间：{{item.createdAt}}</view>
             </view>
             <view>
-                积分变化：<picker class="markChange" disabled="{{picker}}" range="{{options}}" value="{{changeMark}}"
+                <view style="float: left;">积分变化：</view>
+                <picker class="markChange" disabled="{{picker}}" range="{{options}}" value="{{changeMark}}"
                     bind:change="markPicker" data-index="{{index}}">
-                    ▼{{item.mark}}</picker>
+                    ▶   {{item.mark}}</picker>
             </view>
             <view>
                 <button bindtap="submitEstimate" data-id="{{item.userid}}">提交处理</button>

@@ -5,6 +5,8 @@ Page({
   data: {
     currentInfo: {}, //当前的这条数据
     resourceId: null, //
+
+    backgroundImage:'/images/audit1.jpeg'
   },
 
   onLoad: function (options) {
@@ -78,6 +80,13 @@ Page({
     query.equalTo("results", "==", "0");
     query.find().then(res => {
       // TODO:
+      console.log('res.',res.length)
+      if (res.length === 0) {
+        console.log('success')
+        this.setData({
+          backgroundImage:'/images/none.png'
+        })
+      }
       console.log('res', res.length)
       this.setData({
         currentInfo: res

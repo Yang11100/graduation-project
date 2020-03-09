@@ -74,3 +74,4 @@ module.exports.handelImages = handelImages
 var sliceTime = function(date) {
   return date.slice(0, 10)
 }
+module.exports.sliceTime = sliceTime

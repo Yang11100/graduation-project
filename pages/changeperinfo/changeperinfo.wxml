@@ -1,9 +1,13 @@
 <view class="nav">
     <view class="msg">
-        <view class="title">我的信息</view>
+        <view>
+            <image src="/images/changeperinfoImg.png"
+                style="height: 80rpx;width: 100rpx;margin-left: 10rpx;float:left;padding-top: 20rpx;"></image>
+            <view style="padding-top: 35rpx;">我的信息</view>
+        </view>
         <block>
             <view class="text">
-                <view style="float: left;">用户名：</view>
+                <view class="text-text" style="float: left;clear: both;">用户名：</view>
                 <view>{{username}}</view>
             </view>
             <view class="text">
@@ -14,7 +18,9 @@
                 <image bind:tap="$onChangeNickName" class="nick changeImg" src="/images/change.png">
                 </image>
                 <view wx:if="{{ isChangeNickName }}">
-                    <input class="inputChange" placeholder='修改昵称(20个字符以内)' placeholder-style="padding-left:8px;" maxlength="20" bindinput="NicknameInput"></input>
+                    <input class="inputChange" placeholder='修改昵称(20个字符以内)'
+                        placeholder-style="padding-left:8px;font-size:32rpx;" maxlength="20"
+                        bindinput="NicknameInput"></input>
                     <view class="submit nicknameBtn" bindtap="submitNicknameTap">提交</view>
                 </view>
             </view>
@@ -31,10 +37,24 @@
                 <image bind:tap="$onChangePassword" class="nick changeImg" src="/images/change.png">
                 </image>
                 <view wx:if="{{ isChangePassword }}">
-                    <input class="inputChange" placeholder='输入旧密码' placeholder-style="padding-left:8px;" password="true" bindinput="oldPasswordInput" maxlength="20"></input>
-                    <input class="inputChange" placeholder='修改密码(长度不超过20)' placeholder-style="padding-left:8px;" password="true" bindinput="firstPasswordInput"
-                        maxlength="20"></input>
-                    <input class="inputChange" placeholder='确认密码' placeholder-style="padding-left:8px;" password="true" bindinput="checkPasswordInput" maxlength="20"></input>
+                    <view>
+                        <view class="inputText">原密码：</view>
+                        <input class="inputChange" placeholder='输入旧密码'
+                            placeholder-style="padding-left:8px;font-size:32rpx;" password="true"
+                            bindinput="oldPasswordInput" maxlength="20"></input>
+                    </view>
+                    <view>
+                        <view class="inputText">新密码：</view>
+                        <input class="inputChange" placeholder='修改密码(长度不超过20)'
+                            placeholder-style="padding-left:8px;font-size:32rpx;" password="true"
+                            bindinput="firstPasswordInput" maxlength="20"></input>
+                    </view>
+                    <view>
+                        <view class="inputText">确认密码：</view>
+                        <input class="inputChange" placeholder='确认密码'
+                            placeholder-style="padding-left:8px;font-size:32rpx;" password="true"
+                            bindinput="checkPasswordInput" maxlength="20"></input>
+                    </view>
                     <view class="submit passwordBtn" bindtap="submitPasswordTap">提交</view>
                 </view>
             </view>

@@ -16,8 +16,11 @@
 }
 
 .title {
-    color: lightsalmon;
+    color: rgb(204, 23, 23);
+    text-align: center;
+    font-size: 7px;
 }
+
 
 .msgInfo {
     float: right;

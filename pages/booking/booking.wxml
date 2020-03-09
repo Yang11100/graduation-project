@@ -2,8 +2,8 @@
 <view class="nav">
 	<view class="header">
 		<view class="header-date">
-			日期：<picker mode="date" bindchange="bindDateChange" value="{{date}}" start='{{startDate}}' end='2100-01-01'><text
-					class="picker">{{date}}</text></picker>
+			日期：<picker mode="date" bindchange="bindDateChange" value="{{date}}" start='{{startDate}}' end='2100-01-01'>
+				<text class="picker">{{date}}</text></picker>
 		</view>
 		<view class="header-time">
 			时间：<picker disabled="{{picker}}" bindchange="bindPickerOrder" value="{{time}}" range="{{daytime}}"><text
@@ -16,9 +16,10 @@
 		</view>
 		<view class="header-qrcode iconfont icon-qrcode" bindtap="getScanning"></view>
 	</view>
-	<view>
-		<view style="padding-top: 180rpx;width: 88%; padding-left: 6%;">
-			<image style="border-radius: 10px;padding-top: 20rpx;" src="{{analysisTime.handelImages(first)}}"></image>
+	<view class="body" style="bottom:30px;">
+		<view style="margin-top: 10rpx;width: 92%; padding-left: 4%;">
+			<image style="border-radius: 10px;width: 100%;" src="{{analysisTime.handelImages(first)}}">
+			</image>
 		</view>
 		<block class="item-messages" wx:for="{{roomList}}" wx:key="index">
 			<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
@@ -29,5 +30,7 @@
 			<view class="msg equipment">{{specific.equipment}}</view>
 		</block>
 	</view>
-	<button class="submit" bindtap="bookingbtn">预订</button>
+	<view style="">
+		<button class="submit" bind:tap="bookingbtn">预订</button>
+	</view>
 </view>

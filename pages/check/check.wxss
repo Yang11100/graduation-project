@@ -17,7 +17,6 @@
     padding-left: 20rpx;
   }
 
-  
   .block-details {
     float: left;
     border-bottom: 1px solid rgb(184, 198, 212, 0.2);

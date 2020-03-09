@@ -37,21 +37,21 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     console.log('options',options)
+    console.log('first',options.first)
     this.setData({
-      // first: options.first,
-      region: options.type,
+      first: options.first,
       date: util.formatTime(new Date()),
       userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
       mark: JSON.parse(wx.getStorageSync('bmob')).mark,
       username: JSON.parse(wx.getStorageSync('bmob')).Nickname,
       //设置不能选择当前日期以前的日期 minData:new Date()
     })
+    this.searchClassRoom()
   },
 
   onShow() {
     this.setData({
       time: 0,
-      first: 0
     })
     this.searchClassRoom()
   },
@@ -80,8 +80,8 @@ Page({
   searchClassRoom() {
     //查询莫个类型所有的数据
     console.log('time', this.data.time)
-    console.log(this.data.date)
-    console.log(this.data.first)
+    console.log('data',this.data.date)
+    console.log('first1',this.data.first)
     this.setData({
       specificroom: null
     })

@@ -42,6 +42,7 @@
 				<view>资源名称：{{item.name}}</view>
 				<view>日期：{{item.date}}</view>
 				<view>时间：{{analysisTime.handaltime(item.time)}}</view>
+				<view>提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
 			</block>
 		</view>
 	</view>

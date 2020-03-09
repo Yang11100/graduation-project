@@ -19,7 +19,7 @@
 
 		<view class="content">
 			<!-- 舞蹈室conten -->
-			<view class="content-item" bindtap="reservetap">
+			<view class="content-item" bindtap="danceRoomTap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
 				<image src="../../images/dance.jpg" />
@@ -28,16 +28,16 @@
 				</view>
 			</view>
 			<!-- 教室conten -->
-			<view class="content-item" bindtap="reservetap">
+			<view class="content-item" bindtap="roomTap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
 				<image src="/images/classroom.jpg" />
 				<view class="content-item-text">
-					<text>教室</text>
+					<text>多媒体教室</text>
 				</view>
 			</view>
 			<!-- 会议室 -->
-			<view class="content-item" bindtap="reservetap">
+			<view class="content-item" bindtap="meetingTap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
 				<image src="/images/meeting.jpg" />
@@ -46,7 +46,7 @@
 				</view>
 			</view>
 			<!-- 琴房conten -->
-			<view class="content-item" bindtap="reservetap">
+			<view class="content-item" bindtap="pianoTap">
 				<!-- 跳转到全部资源显示页面reserve -->
 				<!-- 循环四个框的数组contentItems -->
 				<image src="/images/pianoroom.jpg" />

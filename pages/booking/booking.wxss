@@ -97,6 +97,9 @@ picker {
     /*padding是容器内部的距离，margin是容器外部的距离（margin是指从自身边框到另一个容器边框之间的距离，
     就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
 }
+.messages:active{
+    background-color: aqua;
+}
 
 .msg {
     /* margin: 0 auto; */
@@ -116,4 +119,5 @@ picker {
     position: fixed;
     right: 10px;
     bottom: 10px;
+    background-color: #fff;
 }
