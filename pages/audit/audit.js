@@ -50,7 +50,6 @@ Page({
   },
   disagreeTap(e) {
     let id = e.currentTarget.dataset.id
-    let _this = this
     wx.showModal({
       title: '不同意',
       content: '是否确定',

@@ -32,7 +32,7 @@
             </view>
             <view class="buttonstyle">
                 <view class="agree" data-id="{{item.objectId}}" bind:tap="agreeTap" style="float: left;">通过</view>
-                <view class="disagree" bind:tap="disagreeTap" style="margin-left: 10%;">不通过</view>
+                <view class="disagree" data-id="{{item.objectId}}" bind:tap="disagreeTap" style="margin-left: 10%;">不通过</view>
             </view>
         </block>
     </view>
