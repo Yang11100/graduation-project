@@ -60,17 +60,18 @@ Page({
   },
   // 积分操作
   markOperation() {
+    console.log('??L>>>', parseInt(this.data.userMark))
+    console.log('>>>>', (parseInt(this.data.changeMark)))
     if (parseInt(this.data.userMark) === 100 && parseInt(this.data.changeMark) > 0 && parseInt(this.data.changeMark) < 4) {
       wx.showToast({
         title: '已是满分',
         icon: 'none',
         duration: 1000
       })
-    } else if (parseInt(this.data.userMark) < 100 && (parseInt(this.data.changeMark)) < 0) {
+    } else if (parseInt(this.data.userMark) <= 100 && (parseInt(this.data.changeMark)) < 0) {
       this.setData({
-        changedMark: parseInt(this.data.userMark) - parseInt(this.data.changeMark)
+        changedMark: parseInt(this.data.userMark) + parseInt(this.data.changeMark)
       })
     }
-    console.log('changedMark', this.data.changedMark)
   }
 })

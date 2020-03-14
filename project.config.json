@@ -75,6 +75,26 @@
 					"pathName": "pages/audit/audit",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/check/check",
+					"pathName": "pages/check/check",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/estimate/estimate",
+					"pathName": "pages/estimate/estimate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/changeperinfo/changeperinfo",
+					"pathName": "pages/changeperinfo/changeperinfo",
+					"scene": null
 				}
 			]
 		}
