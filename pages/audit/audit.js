@@ -17,9 +17,9 @@ Page({
     this.refreshData()
   },
 
-  agreeTap() {
-    
-    console.log('this',this.data.resourceId);
+  agreeTap(e) {
+    let id = e.currentTarget.dataset.id
+    console.log('this', this.data.resourceId);
     let _this = this
     wx.showModal({
       title: '同意',
@@ -27,7 +27,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           const query = Bmob.Query('booking');
-          query.get(_this.data.resourceId).then(res => {
+          query.get(id).then(res => {
             console.log(res)
             res.set('results', '1')
             res.save()
@@ -48,7 +48,8 @@ Page({
       }
     })
   },
-  disagreeTap() {
+  disagreeTap(e) {
+    let id = e.currentTarget.dataset.id
     let _this = this
     wx.showModal({
       title: '不同意',
@@ -56,7 +57,7 @@ Page({
       success: function (res) {
         if (res.confirm) {
           const query = Bmob.Query('booking');
-          query.get(_this.data.resourceId).then(res => {
+          query.get(id).then(res => {
             console.log(res)
             res.set('results', '2')
             res.save()
