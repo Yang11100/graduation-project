@@ -19,9 +19,10 @@ Page({
   },
   auditTap(e) {
     let resourceId = e.currentTarget.dataset.id
+    let jump = e.currentTarget.dataset.jump
     console.log(resourceId)
     wx.redirectTo({
-      url: '../audit/audit?resourceId=' + resourceId,
+      url: `../audit/audit?resourceId=${resourceId}&jump=${jump}`,
     })
   },
   estimateTap(e) {
