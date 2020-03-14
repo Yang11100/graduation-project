@@ -4,19 +4,22 @@ const Bmob = require('../../utils/bmob.js')
 Page({
   data: {
     currentInfo: {}, //当前的这条数据
-    resourceId: null, //
+    resourceId: null, //从记录表传来的id
 
-    backgroundImage:'/images/audit1.jpeg'
+    backgroundImage: '/images/audit1.jpeg'
   },
 
   onLoad: function (options) {
     this.setData({
       resourceId: options.resourceId,
     })
+    console.log(this.data.resourceId);
     this.refreshData()
   },
 
   agreeTap() {
+    
+    console.log('this',this.data.resourceId);
     let _this = this
     wx.showModal({
       title: '同意',
@@ -80,11 +83,11 @@ Page({
     query.equalTo("results", "==", "0");
     query.find().then(res => {
       // TODO:
-      console.log('res.',res.length)
+      console.log('res.', res.length)
       if (res.length === 0) {
         console.log('success')
         this.setData({
-          backgroundImage:'/images/none.png'
+          backgroundImage: '/images/none.png'
         })
       }
       console.log('res', res.length)

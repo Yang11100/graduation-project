@@ -57,22 +57,22 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/estimate/estimate",
-					"pathName": "pages/estimate/estimate",
+					"name": "pages/changeperinfo/changeperinfo",
+					"pathName": "pages/changeperinfo/changeperinfo",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 1,
-					"name": "pages/manageperinfo/manageperinfo",
-					"pathName": "pages/manageperinfo/manageperinfo",
+					"name": "pages/check/check",
+					"pathName": "pages/check/check",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/changeperinfo/changeperinfo",
-					"pathName": "pages/changeperinfo/changeperinfo",
+					"id": 2,
+					"name": "pages/audit/audit",
+					"pathName": "pages/audit/audit",
 					"query": "",
 					"scene": null
 				}

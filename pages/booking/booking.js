@@ -33,11 +33,11 @@ Page({
     name: null, //选择的资源的名字
     mark: null, //用户的积分
     username: null, //用户名称
+
+   
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    console.log('options',options)
-    console.log('first',options.first)
     this.setData({
       first: options.first,
       date: util.formatTime(new Date()),
@@ -53,6 +53,11 @@ Page({
     this.setData({
       time: 0,
     })
+    if(!this.data.first){
+      this.setData({
+        first: 0,
+      })
+    }
     this.searchClassRoom()
   },
   // 日期
@@ -81,7 +86,7 @@ Page({
     //查询莫个类型所有的数据
     console.log('time', this.data.time)
     console.log('data',this.data.date)
-    console.log('first1',this.data.first)
+    console.log('first',this.data.first)
     this.setData({
       specificroom: null
     })

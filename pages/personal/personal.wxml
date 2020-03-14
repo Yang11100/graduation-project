@@ -26,7 +26,7 @@
 			</view>
 			<view bindtap="listestimate">
 				<image class="icon" src="/images/estimateicon.png"></image>
-				评价用户使用
+				评估用户使用
 			</view>
 			<view bindtap="listmanageperinfo">
 				<image class="icon" src="/images/manageperinfoicon.png"></image>

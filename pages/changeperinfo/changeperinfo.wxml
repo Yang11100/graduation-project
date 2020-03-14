@@ -1,9 +1,10 @@
 <view class="nav">
+    <image class='background' src="/images/changeperinfo.jpg" mode="aspectFill"></image>
     <view class="msg">
         <view>
             <image src="/images/changeperinfoImg.png"
-                style="height: 80rpx;width: 100rpx;margin-left: 10rpx;float:left;padding-top: 20rpx;"></image>
-            <view style="padding-top: 35rpx;">我的信息</view>
+                style="height: 70rpx;width: 90rpx;margin-left: 10rpx;float:left;padding-top: 20rpx;"></image>
+            <view style="padding-top: 35rpx;color:red;font-size:36rpx">我的信息</view>
         </view>
         <block>
             <view class="text">
@@ -55,7 +56,7 @@
                             placeholder-style="padding-left:8px;font-size:32rpx;" password="true"
                             bindinput="checkPasswordInput" maxlength="20"></input>
                     </view>
-                    <view class="submit passwordBtn" bindtap="submitPasswordTap">提交</view>
+                    <view class="submit passwordBtn" bind:tap="submitPasswordTap">提交</view>
                 </view>
             </view>
         </block>

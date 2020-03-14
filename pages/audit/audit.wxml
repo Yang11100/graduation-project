@@ -8,16 +8,31 @@
                     <view>{{item.name}}</view>
                 </view>
                 <view class="msgInfo">
-                    <view>提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
-                    <view>用户名：{{item.username}}</view>
-                    <view>申请时间：{{item.date}}</view>
-                    <view>申请时间段：{{analysisTime.handaltime(item.time)}}</view>
-                    <view>提交时间：{{item.createdAt}}</view>
+                    <view class="msgmsg">
+                        <view class="specialMsg">提交时间：</view>
+                        <view class="sprcial">{{analysisTime.sliceTime(item.createdAt)}}</view>
+                    </view>
+                    <view class="msgmsg">
+                        <view class="specialMsg">用户名：</view>
+                        <view class="sprcial">{{item.username}}</view>
+                    </view>
+                    <view class="msgmsg">
+                        <view class="specialMsg">申请时间：</view>
+                        <view class="sprcial">{{item.date}}</view>
+                    </view>
+                    <view class="msgmsg">
+                        <view class="specialMsg">申请时间段：</view>
+                        <view class="sprcial">{{analysisTime.handaltime(item.time)}}</view>
+                    </view>
+                    <view class="msgmsg">
+                        <view class="specialMsg">提交时间：</view>
+                        <view class="sprcial">{{item.createdAt}}</view>
+                    </view>
                 </view>
             </view>
             <view class="buttonstyle">
-                <button class="agree" bind:tap="agreeTap" style="float: left;padding-left: 300rpx;padding-right: 60rpx;">Yes</button>
-                <view class="disagree" bind:tap="disagreeTap" style="border: silver solid 1px;">No</view>
+                <view class="agree" data-id="{{item.objectId}}" bind:tap="agreeTap" style="float: left;">通过</view>
+                <view class="disagree" bind:tap="disagreeTap" style="margin-left: 10%;">不通过</view>
             </view>
         </block>
     </view>

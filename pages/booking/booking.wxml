@@ -16,20 +16,24 @@
 		</view>
 		<view class="header-qrcode iconfont icon-qrcode" bindtap="getScanning"></view>
 	</view>
-	<view class="body" style="bottom:30px;">
-		<view style="margin-top: 10rpx;width: 92%; padding-left: 4%;">
-			<image style="border-radius: 10px;width: 100%;" src="{{analysisTime.handelImages(first)}}">
-			</image>
-		</view>
-		<block class="item-messages" wx:for="{{roomList}}" wx:key="index">
-			<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
-		</block>
-		<block class="item-msg" wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
-			<view class="msg" style="float: left;">{{specific.name}}</view>
-			<view class="msg" style="float: right;">容纳人数：{{specific.number}}</view>
-			<view class="msg equipment">{{specific.equipment}}</view>
-		</block>
+
+	<view class="body" style="margin-top:180rpx;border:1px solid black">
+		<scroll-view scroll-y="true">
+			<view style="margin-top: 10rpx;width: 92%; padding-left: 4%;">
+				<image style="border-radius: 10px;width: 100%;" src="{{analysisTime.handelImages(first)}}">
+				</image>
+			</view>
+			<block class="item-messages" wx:for="{{roomList}}" wx:key="index">
+				<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
+			</block>
+			<block class="item-msg" wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
+				<view class="msg" style="float: left;">{{specific.name}}</view>
+				<view class="msg" style="float: right;">容纳人数：{{specific.number}}</view>
+				<view class="msg equipment">{{specific.equipment}}</view>
+			</block>
+		</scroll-view>
 	</view>
+
 	<view style="">
 		<button class="submit" bind:tap="bookingbtn">预订</button>
 	</view>

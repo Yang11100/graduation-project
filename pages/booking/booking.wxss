@@ -77,28 +77,26 @@ picker {
     transform: rotate(135deg);
 }
 
-.body {
-    overflow: hidden;
-    padding-top: 180rpx;
-    margin: 20rpx;
-    /* width: 45%; */
-}
-
 .messages {
-    border: white solid 1px;
-    background-color: rgba(223, 122, 122, 0.193);
-    /* color: #b02923; */
-    font-size: 32rpx;
+    color: #b02923;
+    font-size: 30rpx;
+    text-align: center;
     /* position: relative; */
     float: left;
-    border-radius: 10%;
+    border: silver dashed 1px;
+    border-radius: 20px;
     padding: 20rpx;
     margin: 25rpx;
+    width: 37%;
     /*padding是容器内部的距离，margin是容器外部的距离（margin是指从自身边框到另一个容器边框之间的距离，
     就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
 }
-.messages:active{
-    background-color: aqua;
+.messages-hover{
+    border: burlywood dashed 1px;
+}
+
+.item-msg{
+    margin: 20rpx;
 }
 
 .msg {
@@ -109,9 +107,6 @@ picker {
     font-size: 32rpx;
 }
 
-.equipment {
-    
-}
 
 .submit {
     color: rgb(196, 7, 70);

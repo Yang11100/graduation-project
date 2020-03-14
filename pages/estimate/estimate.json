@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "评估用户使用",
+  "navigationBarTextStyle": "black",
   "navigationBarBackgroundColor": "#fbf8e5",
   "usingComponents": {}
 }
