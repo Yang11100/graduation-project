@@ -56,13 +56,6 @@ Page({
       })
     }
   },
-  /*输入框email获取
-  emailInput(e) {
-    this.setData({
-      email: e.detail.value
-    })
-    console.log(e.detail.value)
-  },*/
   //输入框phone获取
   phoneInput(e) {
     this.setData({

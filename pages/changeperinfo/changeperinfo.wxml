@@ -9,32 +9,38 @@
         <block>
             <view class="text">
                 <view class="text-text" style="float: left;clear: both;">用户名：</view>
-                <view>{{username}}</view>
+                <view style="float: left;">{{username}}</view>
+                <image class="changeImg" src="/images/changesliver.png">
+                </image>
             </view>
             <view class="text">
                 <view>
-                    <view class="nick" style="float: left;">昵称：</view>
+                    <view class="text-text" style="float: left;">昵  称：</view>
                     <view style="float: left;">{{Nickname}}</view>
                 </view>
-                <image bind:tap="$onChangeNickName" class="nick changeImg" src="/images/change.png">
+                <image bind:tap="$onChangeNickName" class="changeImg" src="/images/change.png">
                 </image>
                 <view wx:if="{{ isChangeNickName }}">
-                    <input class="inputChange" placeholder='修改昵称(20个字符以内)'
+                    <input class="inputChange" style="margin-left: 5%;width:90%" step="width:50%" placeholder='修改昵称(20个字符以内)'
                         placeholder-style="padding-left:8px;font-size:32rpx;" maxlength="20"
                         bindinput="NicknameInput"></input>
                     <view class="submit nicknameBtn" bindtap="submitNicknameTap">提交</view>
                 </view>
             </view>
             <view class="text">
-                <view style="float: left;">身份：</view>
-                <view>普通用户</view>
+                <view class="text-text" style="clear:left;float: left;">身  份：</view>
+                <view style="float: left;">普通用户</view>
+                <image class="changeImg" src="/images/changesliver.png">
+                </image>
             </view>
             <view class="text">
-                <view style="float: left;">信用分：</view>
-                <view>{{mark}}(低于95时,不能申请预约)</view>
+                <view class="text-text" style="float: left;">信用分：</view>
+                <view style="float: left;">{{mark}}(低于95时,不能申请预约)</view>
+                <image class="changeImg" src="/images/changesliver.png">
+                </image>
             </view>
             <view class="text">
-                <view style="float: left;">修改密码</view>
+                <view style="float: left;padding-left:30%">修改密码</view>
                 <image bind:tap="$onChangePassword" class="nick changeImg" src="/images/change.png">
                 </image>
                 <view wx:if="{{ isChangePassword }}">

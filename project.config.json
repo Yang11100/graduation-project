@@ -91,9 +91,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/changeperinfo/changeperinfo",
-					"pathName": "pages/changeperinfo/changeperinfo",
+					"id": 5,
+					"name": "pages/mybook/mybook",
+					"pathName": "pages/mybook/mybook",
+					"query": "",
 					"scene": null
 				}
 			]

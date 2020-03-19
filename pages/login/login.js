@@ -1,4 +1,3 @@
-// pages/login/login.js
 var app = getApp() //获得app.js里面的信息
 var Bmob = require('../../utils/bmob.js')
 Page({

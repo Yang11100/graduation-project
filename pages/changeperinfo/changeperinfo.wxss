@@ -15,13 +15,24 @@
 .changeImg {
     height: 35rpx;
     width: 35rpx;
-    margin-left: 10rpx;
+    padding-right: 5%;
 }
 
 .text {
-    margin: 4px 20rpx;
-    border-bottom: steelblue solid 1px;
+    margin-left: 5%;
+    width: 90%;
     margin-bottom: 20rpx;
+    margin-top: 40rpx;
+    border: 1px solid saddlebrown;
+    text-align: right;
+    padding: 20rpx 15rpx;
+    border-radius: 8px;
+}
+
+.text-text{
+    width: 30%;
+    text-align: center;
+    color: crimson;
 }
 
 
@@ -32,9 +43,11 @@
 }
 
 .inputChange {
+    width: 65%;
     border: 1px solid silver;
     margin-top: 5px;
     border-radius: 5px;
+    text-align: center;
 }
 
 .submit {
@@ -42,7 +55,7 @@
     border-radius: 5px;
     text-align: center;
     width: 80%;
-    margin: 10rpx;
+    margin: 20rpx;
     margin-left: 10%;
     padding: 1px;
 }

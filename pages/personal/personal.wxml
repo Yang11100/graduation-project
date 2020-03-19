@@ -9,7 +9,7 @@
 			<text
 				style="float: right;margin-left: 80rpx;padding: 3rpx;padding-left: 10rpx;font-size: 30rpx;color: rgb(16, 130, 245);">{{identityname}}
 			</text>
-			<text>昵称：{{userinfo.Nickname}}</text>
+			<text style="clear: both;">昵称：{{userinfo.Nickname}}</text>
 		</view>
 	</view>
 	<!-- 列表 -->
@@ -35,6 +35,10 @@
 			<view bindtap="listmybook">
 				<image class="icon" src="/images/mybookicon.png"></image>
 				我的预定/退订
+			</view>
+			<view bindtap="listchangeperinfo">
+				<image class="icon" src="/images/changeperinfoicon.png"></image>
+				修改个人信息
 			</view>
 			<view bindtap="listregister">
 				<image class="icon" src="/images/registericon.png"></image>

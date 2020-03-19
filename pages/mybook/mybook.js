@@ -28,9 +28,9 @@ Page({
 
     //调用获得数据的函数
     this.refreshData()
-
-
   },
+
+
   cancelTap(e) {
     console.log(e.currentTarget.dataset.id)
     let _this = this

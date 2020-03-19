@@ -17,7 +17,7 @@ Page({
     checkPassword: null //验证密码
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       objectId: JSON.parse(wx.getStorageSync('bmob')).objectId,
       username: JSON.parse(wx.getStorageSync('bmob')).username,
@@ -51,28 +51,28 @@ Page({
   },
 
   //获得昵称输入框的值
-  NicknameInput: function(e) {
+  NicknameInput: function (e) {
     this.setData({
       changeNickName: e.detail.value
     })
     console.log(this.data.changeNickName)
   },
   //获得旧密码输入框的值
-  oldPasswordInput: function(e) {
+  oldPasswordInput: function (e) {
     this.setData({
       oldPassword: e.detail.value
     })
     console.log(e.detail.value)
   },
   //获得第一次密码输入框的值
-  firstPasswordInput: function(e) {
+  firstPasswordInput: function (e) {
     this.setData({
       firstPassword: e.detail.value
     })
     console.log(e.detail.value)
   },
   //获得第二次密码输入框的值
-  checkPasswordInput: function(e) {
+  checkPasswordInput: function (e) {
     this.setData({
       checkPassword: e.detail.value
     })
@@ -99,12 +99,10 @@ Page({
       wx.showModal({
         title: '提交修改',
         content: '是否确定昵称',
-        success: function(res) {
+        success: function (res) {
           if (res.confirm) {
             const query = Bmob.Query('_User')
-            query
-              .get(_this.data.objectId)
-              .then(res => {
+            query.get(_this.data.objectId).then(res => {
                 console.log(res)
                 res.set('Nickname', _this.data.changeNickName)
                 res.save()
@@ -117,14 +115,11 @@ Page({
             const query1 = Bmob.Query('booking')
             let params = _this.data.bookingObjectID
             params.forEach(element => {
-              query1
-                .get(element.objectId)
-                .then(res => {
+              query1.get(element.objectId).then(res => {
                   console.log('booking表里面当前用户相关的数据展示', res)
                   res.set('username', _this.data.changeNickName)
                   res.save()
-                })
-                .catch(err => {
+                }).catch(err => {
                   console.log(err)
                 })
             })
@@ -158,7 +153,7 @@ Page({
       wx.showModal({
         title: '提交修改',
         content: '是否确定密码',
-        success: function(res) {
+        success: function (res) {
           if (res.confirm) {
             let objectId = _this.data.objectId
             let data = {

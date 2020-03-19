@@ -27,14 +27,10 @@ Page({
       success: function(res) {
         if (res.confirm) {
           const query = Bmob.Query('booking')
-          query
-            .get(id)
-            .then(res => {
-              console.log(res)
+          query.get(id).then(res => {
               res.set('results', '1')
               res.save()
-            })
-            .catch(err => {
+            }).catch(err => {
               console.log(err)
             })
           wx.showToast({
@@ -63,9 +59,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           const query = Bmob.Query('booking')
-          query
-            .get(id)
-            .then(res => {
+          query.get(id).then(res => {
               console.log(res)
               res.set('results', '2')
               res.save()
@@ -101,7 +95,6 @@ Page({
           backgroundImage: '/images/none.png'
         })
       }
-      console.log('res', res.length)
       this.setData({
         currentInfo: res
       })

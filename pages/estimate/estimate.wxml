@@ -1,23 +1,30 @@
 <wxs src="../../utils/analysis-time.wxs" module="analysisTime"></wxs>
 <view class="nav">
-    <image class='background' src="/images/audit1.jpeg" mode="aspectFill"></image>
+    <image class='background' src="{{backgroundImage}}" mode="aspectFill"></image>
     <view class="current">
         <block wx:for="{{currentInfo}}" wx:key="index">
-            <view>
-                <view>资源名称：{{item.name}}</view>
-                <view>用户名：{{item.username}}</view>
-                <view>申请时间：{{item.date}}</view>
-                <view>申请时间段：{{ analysisTime.handaltime(item.time) }}</view>
-                <view>提交时间：{{item.createdAt}}</view>
-            </view>
-            <view>
-                <view style="float: left;">积分变化：</view>
-                <picker class="markChange" disabled="{{picker}}" range="{{options}}" value="{{changeMark}}"
-                    bind:change="markPicker" data-index="{{index}}">
-                    ▶   {{item.mark}}</picker>
-            </view>
-            <view>
-                <button bindtap="submitEstimate" data-id="{{item.userid}}">提交处理</button>
+            <view style="border:1px solid rgb(241, 171, 171);border-radius:5px;padding:20rpx;padding-bottom:60rpx;margin:20rpx;">
+                <view>
+                    <view>资源名称：{{item.name}}</view>
+                    <view>用户名：{{item.username}}</view>
+                    <view>
+                        <view style="float:right;border:1px ridge;border-radius:25px;color:rgb(218, 103, 90);font-size:38rpx;padding:16rpx;margin-right:68rpx;"
+                            bind:tap="submitEstimate" data-id="{{item.userid}}" data-id1="{{item.objectId}}">提交</view>
+                    </view>
+                    <view>申请时间：{{item.date}}</view>
+                    <view>申请时间段：{{ analysisTime.handaltime(item.time) }}</view>
+                    <view>提交时间：{{item.createdAt}}</view>
+                    <view>
+                        <view style="color: red;float:left;">*</view>
+                        <view style="float: left;">积分变化：</view>
+                        <picker class="markChange" disabled="{{picker}}" range="{{options}}" value="{{changeMark}}"
+                            bind:change="markPicker" data-index="{{index}}">
+                            -- {{item.mark}} --
+                            <image class='choose' src="/images/choose.png" mode="aspectFill"></image>
+                        </picker>
+                    </view>
+                </view>
+
             </view>
         </block>
     </view>

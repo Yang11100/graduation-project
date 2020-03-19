@@ -1,19 +1,32 @@
 <view class="nav">
+    <image class='background' src="/images/manageperinfo.jpg" mode="aspectFill"></image>
     <view class="msg">
         <block wx:for="{{userInfo}}" wx:key="index">
-            <view class="changeId">
-                <view>用户Id：{{item.objectId}}</view>
+            <view style="padding-top: 30rpx; color: rgb(14, 13, 13);">
+                <view class="title">
+                    <view class="changed">用户Id：</view>
+                    <view class="special">{{item.objectId}}</view>
+                </view>
+                <view class="title">
+                    <view class="changed">用户名：</view>
+                    <view class="special">{{item.username}}</view>
+                </view>
+                <view class="title">
+                    <view class="changed">昵称：</view>
+                    <view class="special">{{item.Nickname}}</view>
+                </view>
+                <view class="title">
+                    <view class="changed">用户信用分：</view>
+                    <view class="special">{{item.mark}}分</view>
+                </view>
+                <view class="changedBtn" data-id="{{item.objectId}}" bind:tap="resetPasswordTap">重置密码</view>
+                <view class="changedBtn" data-id="{{item.objectId}}" bind:tap="deleteUserTap">删除用户</view>
             </view>
-            <view>用户名：{{item.username}}</view>
-            <view>昵称：{{item.Nickname}}</view>
-            <view>用户信用分：{{item.mark}}</view>
-            <view data-id="{{item.objectId}}" bind:tap="resetPasswordTap">重置用户密码</view>
-            <view data-id="{{item.objectId}}" bind:tap="deleteUserTap">删除当前用户</view>
         </block>
     </view>
     <view class="register">
-        <view bind:tap="registerTap">注册</view>
-
+        <image class='background' src="/images/registericon.png" mode="aspectFill" style="width:100rpx;height:100rpx;" bind:tap="registerTap"></image>
+        <!-- <view style="width:120rpx;height:120rpx;border:1px solid;border-radius:60rpx;display: flex;justify-content: center;align-items: center;"
+            bind:tap="registerTap">注册</view> -->
     </view>
-
 </view>

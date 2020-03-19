@@ -9,7 +9,9 @@ Page({
     options: ['+3', '+2', '+1', '0', '-1', '-2', '-3'], //选择增加减少的积分0=3,1=2,2=1,3=0,4=-1,5=-2,6=-3
     changeMark: '3', //选择的顺序
     userMark: null, //用户的积分
-    changedMark: null //更改后的积分，录入进数据库
+    changedMark: null,//更改后的积分，录入进数据库
+
+    backgroundImage: '/images/audit1.jpeg'
   },
 
   onLoad: function (options) {
@@ -24,6 +26,12 @@ Page({
     query.equalTo('objectId', '==', this.data.resourceId)
     query.equalTo('results', '==', '3')
     query.find().then(res => {
+      if (res.length === 0) {
+        console.log('success')
+        this.setData({
+          backgroundImage: '/images/none.png'
+        })
+      }
       res.forEach(element => {
         element.mark = 0
       })
@@ -47,10 +55,15 @@ Page({
   },
 
   submitEstimate(e) {
-    let userId = e.currentTarget.dataset.id
-    console.log(userId)
+    console.log('e', e);
+    this.setData({
+      userId: e.currentTarget.dataset.id,
+      resourceId: e.currentTarget.dataset.id1
+    })
+    console.log('userId', this.data.userId)
+    console.log('resourceId1', this.data.resourceId);
     const query = Bmob.Query('_User')
-    query.equalTo('objectId', '==', userId)
+    query.equalTo('objectId', '==', this.data.userId)
     query.find().then(res => {
       this.setData({
         userMark: res[0].mark
@@ -60,18 +73,45 @@ Page({
   },
   // 积分操作
   markOperation() {
-    console.log('??L>>>', parseInt(this.data.userMark))
-    console.log('>>>>', (parseInt(this.data.changeMark)))
     if (parseInt(this.data.userMark) === 100 && parseInt(this.data.changeMark) > 0 && parseInt(this.data.changeMark) < 4) {
       wx.showToast({
         title: '已是满分',
         icon: 'none',
         duration: 1000
       })
+      this.setData({
+        changedMark:100
+      })
     } else if (parseInt(this.data.userMark) <= 100 && (parseInt(this.data.changeMark)) < 0) {
       this.setData({
         changedMark: parseInt(this.data.userMark) + parseInt(this.data.changeMark)
       })
+    } else if (parseInt(this.data.userMark) <= 100 && (parseInt(this.data.changeMark)) > 0) {
+      if ((parseInt(this.data.userMark) + parseInt(this.data.changeMark)) >= 100) {
+        this.setData({
+          changedMark: 100
+        })
+      } else {
+        changedMark: parseInt(this.data.userMark) + parseInt(this.data.changeMark)
+      }
     }
+    console.log('changedMark', this.data.changedMark.toString());
+    const query = Bmob.Query('_User');
+    query.get(this.data.userId).then(res => {
+      console.log(res)
+      res.set('mark', this.data.changedMark.toString())
+      res.save()
+    }).catch(err => {
+      console.log(err)
+    })
+    const query1 = Bmob.Query('booking');
+    query1.get(this.data.resourceId).then(res => {
+      console.log(res)
+      res.set('results', '4')
+      res.save()
+    }).catch(err => {
+      console.log(err)
+    })
+    this.refreshData()
   }
 })

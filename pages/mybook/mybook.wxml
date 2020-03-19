@@ -3,7 +3,7 @@
 <view class="nav">
 	<view class="content">
 		<view class="header">
-			<view bind:tap="$onClickIsShow" data-type="isSuccessInfo">----------预订成功----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isSuccessInfo">预订成功</view>
 		</view>
 		<view class="details" wx:if="{{isSuccessInfo}}">
 			<block class="block-details" wx:for="{{successInfo}}" wx:key="index">
@@ -19,7 +19,7 @@
 
 	<view class="content">
 		<view class="header">
-			<view bind:tap="$onClickIsShow" data-type="isExaminingInfo">----------正在审核----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isExaminingInfo">正在审核</view>
 		</view>
 		<view class="details" wx:if="{{isExaminingInfo}}">
 			<block class="block-details" wx:for="{{examiningInfo}}" wx:key="index">
@@ -34,7 +34,7 @@
 
 	<view class="content">
 		<view class="header">
-			<view bind:tap="$onClickIsShow" data-type="isFailInfo">----------已退订/未通过----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isFailInfo">已退订/未通过</view>
 		</view>
 		<view class="details" wx:if="{{isFailInfo}}">
 			<block class="block-details" wx:for="{{failInfo}}" wx:key="index">
@@ -50,7 +50,7 @@
 
 	<view class="content">
 		<view class="header">
-			<view bind:tap="$onClickIsShow" data-type="isCompletedInfo">----------使用完成----------</view>
+			<view bind:tap="$onClickIsShow" data-type="isCompletedInfo">使用完成</view>
 		</view>
 		<view class="details" wx:if="{{isCompletedInfo}}">
 			<block class="block-details" wx:for="{{completedInfo}}" wx:key="index">

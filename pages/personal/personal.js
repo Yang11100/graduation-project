@@ -31,7 +31,12 @@ Page({
         url: '../login/login'
       })
     }
-  //  console.log(this.data.role)
+  },
+
+  onShow(){
+    this.setData({
+      userinfo: JSON.parse(wx.getStorageSync('bmob')),
+    })
   },
 
 

@@ -1,6 +1,7 @@
 .nav {
     height: 100%;
     width: 100%;
+    font-size:35rpx;
 }
 
 .background {
@@ -9,4 +10,17 @@
     position: fixed;
     background-size: 100% 100%;
     z-index: -1;
+}
+.current{
+    margin-top: 20rpx;
+}
+.markChange{
+    float: left;
+    /* border: 1px dashed forestgreen; */
+}
+.choose{
+    width: 40rpx;
+    height: 40rpx;
+    float: right;
+    padding-left: 25rpx;
 }
