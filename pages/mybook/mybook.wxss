@@ -1,20 +1,51 @@
-.header {
-  width: 20%;
-  float: left;
-  font-size: 38rpx;
-  justify-content: space-between;
-  align-items: center;
-  height: 60rpx;
-  padding-left: 10rpx;
-  padding-right: 10rpx;
-  margin-top: 10rpx;
-  margin-bottom: 20rpx;
-  text-align: right;
+.nav {
+  height: 100%;
+  width: 100%;
+  color: black;
+  font-size: 32rpx;
+  border-top: 0.5px black solid;
 }
-.details{
- 
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size: 100% 100%;
+  z-index: -1;
+}
+
+.content {
+  width: 100%;
+
+}
+
+.header {
+  display: flex;
+  /* position: fixed;
+  flex-flow : row; */
+  flex-direction: row;
+  height: 100%;
+  font-size: 35rpx;
+  align-items: center;
+}
+
+.headerT {
+  float: left;
+  margin: 9rpx;
+  padding: 5rpx;
+  border-radius: 2px;
+}
+
+.details {
   padding-bottom: 10rpx;
   padding-left: 20rpx;
+}
+
+.title {
+  text-align: center;
+  color: rgb(115, 121, 126);
+  font-size: 38rpx;
+  margin-bottom: 20rpx;
 }
 
 .block-details {
@@ -22,6 +53,22 @@
   border-bottom: 1px solid rgb(184, 198, 212, 0.2);
   padding-bottom: 10rpx;
 }
-.cancelBtn{
+
+.indexId {
+  text-align: center;
+  border: 1px dashed;
+  border-radius: 5px;
+  width: 10%;
+  margin: 0 auto;
+}
+
+.substance {
+  margin-top: 10rpx;
+}
+
+.cancelBtn {
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 100rpx;
   float: right;
 }
