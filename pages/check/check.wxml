@@ -3,7 +3,7 @@
   <image class='background' src="/images/check.jpeg" mode="aspectFill"></image>
   <view class="content">
     <view class="header">
-      <view bind:tap="$onClickIsShow" data-type="isUntreated">待处理</view> 
+      <view bind:tap="$onClickIsShow" data-type="isUntreated">待处理></view> 
     </view>
     <view class="details" wx:if="{{isUntreated}}">
       <block class="block-detail" wx:for="{{ untreated }}" wx:key="index">

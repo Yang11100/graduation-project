@@ -12,7 +12,7 @@ Page({
     Nickname: null,
 
     usernameInfo: {}, //所有用户名
-
+    verify:0,//验证用户名是否相同
     emptyvalue: null //清空输入
   },
 
@@ -23,7 +23,7 @@ Page({
     query.find().then(res => {
       // 返回成功
       this.setData({
-        usernameInfo: res
+        usernameInfo: res.map(o => o.username)
       })
       console.log(this.data.usernameInfo)
     })
@@ -35,6 +35,22 @@ Page({
       username: e.detail.value
     })
     console.log(e.detail.value)
+
+  },
+  //点击密码输入框
+  search() {
+    for (var i = 0; i < this.data.usernameInfo.length; i++) {
+      if (this.data.username === this.data.usernameInfo[i]) {
+        wx.showToast({
+          title: '用户名已存在',
+          icon: 'none',
+          duration: 1000
+        })
+        this.setData({
+          verify:1
+        })
+      }
+    }
   },
   //获得密码输入框中的数据
   passwordInput: function (e) {
@@ -48,6 +64,9 @@ Page({
       ensurePassword: e.detail.value
     })
     console.log(e.detail.value)
+  },
+  //验证密码是否一致
+  ensurePwd() {
     if (this.data.password != this.data.ensurePassword) {
       wx.showToast({
         title: '密码不一致',
@@ -101,7 +120,7 @@ Page({
         icon: 'none',
         duration: 1000
       })
-    } else if (_this.data.username === _this.data.usernameInfo) {
+    } else if (_this.data.verify === 1) {
       wx.showToast({
         title: '用户名已存在',
         icon: 'none',

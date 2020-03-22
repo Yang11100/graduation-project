@@ -38,7 +38,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          console.log('!!!!', _this.data)
+          _this.refreshData()
           if (_this.data.jump) {
             wx.redirectTo({
               url: '../check/check'
@@ -53,6 +53,7 @@ Page({
   },
   disagreeTap(e) {
     let id = e.currentTarget.dataset.id
+    let _this = this
     wx.showModal({
       title: '不同意',
       content: '是否确定',
@@ -72,9 +73,12 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          wx.redirectTo({
-            url: '../check/check'
-          })
+          _this.refreshData()
+          if (_this.data.jump) {
+            wx.redirectTo({
+              url: '../check/check'
+            })
+          }
         } else {
           //这里是点击了取消以后
           console.log('用户点击取消')

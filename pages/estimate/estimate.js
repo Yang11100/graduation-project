@@ -11,12 +11,15 @@ Page({
     userMark: null, //用户的积分
     changedMark: null,//更改后的积分，录入进数据库
 
+    jump: false, // 默认不跳转
+
     backgroundImage: '/images/audit1.jpeg'
   },
 
   onLoad: function (options) {
     this.setData({
-      resourceId: options.resourceId
+      resourceId: options.resourceId,
+      jump: options.jump ? options.jump : false
     })
     this.refreshData()
   },
@@ -55,21 +58,23 @@ Page({
   },
 
   submitEstimate(e) {
+    let _this = this
     console.log('e', e);
-    this.setData({
+    _this.setData({
       userId: e.currentTarget.dataset.id,
       resourceId: e.currentTarget.dataset.id1
     })
-    console.log('userId', this.data.userId)
-    console.log('resourceId1', this.data.resourceId);
+    console.log('userId', _this.data.userId)
+    console.log('resourceId1', _this.data.resourceId);
     const query = Bmob.Query('_User')
-    query.equalTo('objectId', '==', this.data.userId)
+    query.equalTo('objectId', '==', _this.data.userId)
     query.find().then(res => {
-      this.setData({
+      _this.setData({
         userMark: res[0].mark
       })
-      this.markOperation()
+      _this.markOperation()
     })
+    
   },
   // 积分操作
   markOperation() {
@@ -92,7 +97,9 @@ Page({
           changedMark: 100
         })
       } else {
-        changedMark: parseInt(this.data.userMark) + parseInt(this.data.changeMark)
+        this.setData({
+          changedMark: parseInt(this.data.userMark) + parseInt(this.data.changeMark)
+        })
       }
     }
     console.log('changedMark', this.data.changedMark.toString());
@@ -113,5 +120,10 @@ Page({
       console.log(err)
     })
     this.refreshData()
+    if (this.data.jump) {
+      wx.redirectTo({
+        url: '../check/check'
+      })
+    }
   }
 })

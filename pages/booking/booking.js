@@ -34,6 +34,8 @@ Page({
     mark: null, //用户的积分
     username: null, //用户名称
 
+    location:0,//滚动条的位置
+
    
   },
   onLoad: function (options) {
@@ -138,6 +140,7 @@ Page({
   nametap(e) {
     this.setData({
       id: e.currentTarget.dataset.id,
+      location:5000
     })
     console.log(this.data.id)
     const query = Bmob.Query("room");
@@ -150,6 +153,7 @@ Page({
       console.log(this.data.name)
     });
     console.log('specific', this.data.specificroom)
+
   },
   bookingbtn: function () {
     if (!wx.getStorageSync('bmob')) {

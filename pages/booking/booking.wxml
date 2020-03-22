@@ -1,5 +1,5 @@
 <wxs src="../../utils/analysis-time.wxs" module="analysisTime"></wxs>
-<view class="nav">
+<view class="nav" style="height: 100%;">
 	<view class="header">
 		<view class="header-date">
 			日期：<picker mode="date" bindchange="bindDateChange" value="{{date}}" start='{{startDate}}' end='2100-01-01'>
@@ -17,8 +17,8 @@
 		<view class="header-qrcode iconfont icon-qrcode" bindtap="getScanning"></view>
 	</view>
 
-	<view class="body" style="margin-top:180rpx;border:1px solid black">
-		<scroll-view scroll-y="true">
+	<view class="body" style="margin-top:180rpx;height:75%;position: fixed;bottom:11%;">
+		<scroll-view scroll-y="true" scroll-top="{{location}}" style="height: 100%;">
 			<view style="margin-top: 10rpx;width: 92%; padding-left: 4%;">
 				<image style="border-radius: 10px;width: 100%;" src="{{analysisTime.handelImages(first)}}">
 				</image>
@@ -27,14 +27,14 @@
 				<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
 			</block>
 			<block class="item-msg" wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
-				<view class="msg" style="float: left;">{{specific.name}}</view>
-				<view class="msg" style="float: right;">容纳人数：{{specific.number}}</view>
-				<view class="msg equipment">{{specific.equipment}}</view>
+				<view class="msg" style="float: left;width:40%;margin-left: 50rpx;">{{specific.name}}</view>
+				<view class="msg" style="float:right;margin-right:50rpx;">容纳人数：{{specific.number}}</view>
+				<view class="msg equipment" style="clear: both;margin-left: 50rpx;">设备：{{specific.equipment}}</view>
 			</block>
 		</scroll-view>
 	</view>
 
-	<view style="">
-		<button class="submit" bind:tap="bookingbtn">预订</button>
+	<view style="width:100%;color:antiquewhite;height:10%;position: fixed;bottom:0;">
+		<view class="submit" bind:tap="bookingbtn">预订</view>
 	</view>
 </view>

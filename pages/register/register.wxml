@@ -15,7 +15,7 @@
                 <view style="float: left;">密码：</view>
                 <view style="color: red;padding-top: 1px;">*</view>
             </view>
-            <input class="inputClass" bindinput="passwordInput" password="true" maxlength="20" value="{{emptyvalue}}"
+            <input class="inputClass" bindtap="search" bindinput="passwordInput" password="true" maxlength="20" value="{{emptyvalue}}"
                 placeholder='(长度6-20)' placeholder-style='font-size:12px;color: rgb(153, 141, 141);padding-left:8px;' />
         </view>
         <view class="info-input">
@@ -29,7 +29,7 @@
         </view>
         <view class="info-input">
             <view class="title">手机号：</view>
-            <input class="inputClass" bindinput="phoneInput" value="{{emptyvalue}}" maxlength="11" />
+            <input class="inputClass" bindtap="ensurePwd" bindinput="phoneInput" value="{{emptyvalue}}" maxlength="11" />
         </view>
         <view class="info-input">
             <view class="identity-picker title">

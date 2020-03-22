@@ -57,8 +57,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/changeperinfo/changeperinfo",
-					"pathName": "pages/changeperinfo/changeperinfo",
+					"name": "pages/personal/personal",
+					"pathName": "pages/personal/personal",
 					"query": "",
 					"scene": null
 				},
@@ -71,8 +71,8 @@
 				},
 				{
 					"id": 2,
-					"name": "pages/audit/audit",
-					"pathName": "pages/audit/audit",
+					"name": "pages/register/register",
+					"pathName": "pages/register/register",
 					"query": "",
 					"scene": null
 				},
@@ -92,8 +92,8 @@
 				},
 				{
 					"id": 5,
-					"name": "pages/mybook/mybook",
-					"pathName": "pages/mybook/mybook",
+					"name": "pages/booking/booking",
+					"pathName": "pages/booking/booking",
 					"query": "",
 					"scene": null
 				}

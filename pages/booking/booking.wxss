@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 176rpx;
+    height: 15%;
     line-height: 88rpx;
     z-index: 100;
     position: fixed;
@@ -92,25 +92,26 @@ picker {
     就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
 }
 .messages-hover{
-    border: burlywood dashed 1px;
+    background-color: #b02923;
 }
 
 .item-msg{
-    margin: 20rpx;
+    margin-left: 100rpx;
 }
 
 .msg {
-    /* margin: 0 auto; */
-    clear: left;
-    padding: 5px 1px;
-    margin-top: 4px;
-    font-size: 32rpx;
+    clear: both;
+    font-size: 34rpx;
+    margin-top: 10rpx;
 }
 
 
 .submit {
+    border: 1.5px solid cadetblue;
+    border-radius: 5px;
+    padding: 20rpx;
     color: rgb(196, 7, 70);
-    font-size: 16px;
+    font-size: 18px;
     position: fixed;
     right: 10px;
     bottom: 10px;
