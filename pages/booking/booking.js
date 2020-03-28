@@ -3,7 +3,7 @@ const util = require('../../utils/util.js')
 const Bmob = require('../../utils/bmob.js')
 Page({
   data: {
-    startDate: util.formatTime(new Date()), // 最早时间
+    startDate: util.formatTime(new Date(new Date().setHours(24))), // 最早时间
     options: false,
     daytime: [
       '请选择',
@@ -42,7 +42,7 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
       first: options.first,
-      date: util.formatTime(new Date()),
+      date: util.formatTime(new Date(new Date().setHours(24))),
       userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
       mark: JSON.parse(wx.getStorageSync('bmob')).mark,
       username: JSON.parse(wx.getStorageSync('bmob')).Nickname,

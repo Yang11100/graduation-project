@@ -38,6 +38,7 @@ Page({
       res.forEach(element => {
         element.mark = 0
       })
+      console.log('#####resres####', res)
       this.setData({
         currentInfo: res,
         userId: res[0].userid
@@ -59,13 +60,10 @@ Page({
 
   submitEstimate(e) {
     let _this = this
-    console.log('e', e);
     _this.setData({
       userId: e.currentTarget.dataset.id,
       resourceId: e.currentTarget.dataset.id1
     })
-    console.log('userId', _this.data.userId)
-    console.log('resourceId1', _this.data.resourceId);
     const query = Bmob.Query('_User')
     query.equalTo('objectId', '==', _this.data.userId)
     query.find().then(res => {
