@@ -12,7 +12,7 @@ Page({
     Nickname: null,
 
     usernameInfo: {}, //所有用户名
-    verify:0,//验证用户名是否相同
+    verify: 0, //验证用户名是否相同
     emptyvalue: null //清空输入
   },
 
@@ -47,7 +47,7 @@ Page({
           duration: 1000
         })
         this.setData({
-          verify:1
+          verify: 1
         })
       }
     }
@@ -58,6 +58,15 @@ Page({
       password: e.detail.value
     })
     console.log(e.detail.value)
+  },
+  ensureLength() {
+    if (this.data.password.length < 6) {
+      wx.showToast({
+        title: '密码小于6位',
+        icon: 'none',
+        duration: 1000,
+      })
+    }
   },
   ensurePasswordInput(e) {
     this.setData({
@@ -126,6 +135,12 @@ Page({
         icon: 'none',
         duration: 1000
       })
+    } else if (_this.data.password.length < 6) {
+      wx.showToast({
+        title: '密码小于6位',
+        icon: 'none',
+        duration: 1000,
+      })
     } else if (_this.data.password != _this.data.ensurePassword) {
       wx.showToast({
         title: '密码不一致',
@@ -137,7 +152,7 @@ Page({
         title: '确定提交',
         success: function (res) {
           if (res.confirm) {
-            //注册
+            //注册   
             let params = {
               username: _this.data.username,
               password: _this.data.password,

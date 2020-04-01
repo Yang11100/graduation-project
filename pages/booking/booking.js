@@ -34,15 +34,18 @@ Page({
     mark: null, //用户的积分
     username: null, //用户名称
 
-    location:0,//滚动条的位置
+    identity: null, //角色
 
-   
+    location: 0, //滚动条的位置
+
+
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
       first: options.first,
-      date: util.formatTime(new Date(new Date().setHours(24))),
+      date: util.formatTime(new Date()),
+      identity: JSON.parse(wx.getStorageSync('bmob')).identity,
       userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
       mark: JSON.parse(wx.getStorageSync('bmob')).mark,
       username: JSON.parse(wx.getStorageSync('bmob')).Nickname,
@@ -55,7 +58,7 @@ Page({
     this.setData({
       time: 0,
     })
-    if(!this.data.first){
+    if (!this.data.first) {
       this.setData({
         first: 0,
       })
@@ -87,8 +90,8 @@ Page({
   searchClassRoom() {
     //查询莫个类型所有的数据
     console.log('time', this.data.time)
-    console.log('data',this.data.date)
-    console.log('first',this.data.first)
+    console.log('data', this.data.date)
+    console.log('first', this.data.first)
     this.setData({
       specificroom: null
     })
@@ -140,7 +143,7 @@ Page({
   nametap(e) {
     this.setData({
       id: e.currentTarget.dataset.id,
-      location:5000
+      location: 5000
     })
     console.log(this.data.id)
     const query = Bmob.Query("room");
@@ -176,6 +179,11 @@ Page({
         wx.showModal({
           title: '提交失败',
           content: '您当前的积分小于95分不能提交申请',
+        })
+      } else if (this.data.identity === '0') {
+        wx.showModal({
+          title: '提交失败',
+          content: '不能使用管理员账号申请',
         })
       } else {
         if (this.data.specificroom != null && this.data.time != 0) {

@@ -27,14 +27,14 @@
 				<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
 			</block>
 			<block class="item-msg" wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
-				<view class="msg" style="float: left;width:40%;margin-left: 50rpx;">{{specific.name}}</view>
-				<view class="msg" style="float:right;margin-right:50rpx;">容纳人数：{{specific.number}}</view>
-				<view class="msg equipment" style="clear: both;margin-left: 50rpx;">设备：{{specific.equipment}}</view>
+				<view class="msg" style="float: left;width:40%;">{{specific.name}}</view>
+				<view class="msg" style="margin-right:50rpx;width:40%;">容纳人数：{{specific.number}}</view>
+				<view class="msg equipment" style="clear: both;">设备：{{specific.equipment}}</view>
 			</block>
 		</scroll-view>
 	</view>
 
-	<view style="width:100%;color:antiquewhite;height:10%;position: fixed;bottom:0;">
+	<view style="width:100%;color:antiquewhite;height:10%;position: fixed;bottom:30rpx;">
 		<view class="submit" bind:tap="bookingbtn">预订</view>
 	</view>
 </view>

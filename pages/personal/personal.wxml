@@ -32,10 +32,6 @@
 				<image class="icon" src="/images/manageperinfoicon.png"></image>
 				管理用户信息
 			</view>
-			<view bindtap="listmybook">
-				<image class="icon" src="/images/mybookicon.png"></image>
-				我的预定/退订
-			</view>
 			<view bindtap="listchangeperinfo">
 				<image class="icon" src="/images/changeperinfoicon.png"></image>
 				修改个人信息

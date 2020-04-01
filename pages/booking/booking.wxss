@@ -103,6 +103,7 @@ picker {
     clear: both;
     font-size: 34rpx;
     margin-top: 10rpx;
+    margin-left: 50rpx;
 }
 
 

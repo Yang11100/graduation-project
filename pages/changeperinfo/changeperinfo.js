@@ -116,12 +116,12 @@ Page({
             let params = _this.data.bookingObjectID
             params.forEach(element => {
               query1.get(element.objectId).then(res => {
-                  console.log('booking表里面当前用户相关的数据展示', res)
-                  res.set('username', _this.data.changeNickName)
-                  res.save()
-                }).catch(err => {
-                  console.log(err)
-                })
+                console.log('booking表里面当前用户相关的数据展示', res)
+                res.set('username', _this.data.changeNickName)
+                res.save()
+              }).catch(err => {
+                console.log(err)
+              })
             })
             wx.showToast({
               title: '成功',
@@ -143,7 +143,13 @@ Page({
   //提交密码修改
   submitPasswordTap() {
     let _this = this
-    if (_this.data.firstPassword != _this.data.checkPassword) {
+    if (_this.data.oldPassword === null) {
+      wx.showToast({
+        title: '原密码不能为空',
+        icon: 'none',
+        duration: 1000
+      })
+    } else if (_this.data.firstPassword != _this.data.checkPassword) {
       wx.showToast({
         title: '密码不一致',
         icon: 'none',

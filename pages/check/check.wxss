@@ -15,7 +15,7 @@
 
 .content {
   display: flex;
-  font-size: 34rpx;
+  font-size: 32rpx;
   height: 100%;
   border: 1px solid;
   margin: 0 30rpx;
@@ -23,11 +23,11 @@
 }
 
 .header {
-  width: 20%;
+  width: 22%;
   height: 100%;
-  float: left;
+  /* float: left; */
   font-size: 38rpx;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   height: 60rpx;
   padding-left: 10rpx;
@@ -39,11 +39,12 @@
 
 .details {
   /* overflow: hidden; */
-  width: 70%;
-  float: right;
+  width: 77%;
+  /* float: right; */
   padding-bottom: 10rpx;
   padding-left: 20rpx;
   margin-top: 30rpx;
+  margin-right: 15rpx;
 }
 
 .list {

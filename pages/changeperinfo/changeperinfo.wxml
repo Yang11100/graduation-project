@@ -15,20 +15,20 @@
             </view>
             <view class="text">
                 <view>
-                    <view class="text-text" style="float: left;">昵  称：</view>
+                    <view class="text-text" style="float: left;">昵 称：</view>
                     <view style="float: left;">{{Nickname}}</view>
                 </view>
                 <image bind:tap="$onChangeNickName" class="changeImg" src="/images/change.png">
                 </image>
                 <view wx:if="{{ isChangeNickName }}">
-                    <input class="inputChange" style="margin-left: 5%;width:90%" step="width:50%" placeholder='修改昵称(20个字符以内)'
-                        placeholder-style="padding-left:8px;font-size:32rpx;" maxlength="20"
+                    <input class="inputChange" style="margin-left: 5%;width:90%" step="width:50%"
+                        placeholder='修改昵称(10个字符以内)' placeholder-style="padding-left:8px;font-size:32rpx;" maxlength="10"
                         bindinput="NicknameInput"></input>
                     <view class="submit nicknameBtn" bindtap="submitNicknameTap">提交</view>
                 </view>
             </view>
             <view class="text">
-                <view class="text-text" style="clear:left;float: left;">身  份：</view>
+                <view class="text-text" style="clear:left;float: left;">身 份：</view>
                 <view style="float: left;">普通用户</view>
                 <image class="changeImg" src="/images/changesliver.png">
                 </image>

@@ -29,16 +29,15 @@
   align-items: center;
 }
 
-.headerT {
-  float: left;
-  margin: 9rpx;
-  padding: 5rpx;
-  border-radius: 2px;
-}
 
 .details {
+  /* overflow: hidden; */
+  width: 77%;
+  /* float: right; */
   padding-bottom: 10rpx;
   padding-left: 20rpx;
+  margin-top: 30rpx;
+  margin-right: 15rpx;
 }
 
 .title {

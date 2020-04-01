@@ -25,6 +25,7 @@
   flex-direction: row-reverse;
 }
 .inputClass{
+  width: 50%;
   border: solid 1px rgb(97, 91, 91);
   float: right;
   border-radius: 3px;

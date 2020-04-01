@@ -2,9 +2,9 @@ const app = getApp()
 const Bmob = require('../../utils/bmob.js')
 Page({
   data: {
-    isUntreated: true, // 是否显示未处理
-    isNoteValuatedInfo: true, // 是否显示待评价
-    isAllInfo: true, //是否显示全部的使用记录
+    isUntreated: false, // 是否显示未处理
+    isNoteValuatedInfo: false, // 是否显示待评价
+    isAllInfo: false, //是否显示全部的使用记录
     untreated: {}, //未处理 0
     noteValuatedInfo: {}, //未评价的申请的信息 3
     allInfo: null, //所有申请的数据 0-1-2-3-4
