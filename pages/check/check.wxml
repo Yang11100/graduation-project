@@ -3,10 +3,8 @@
   <image class="background" src="/images/check.jpeg" mode="aspectFill"></image>
   <view class="content">
     <view class="header">
-      <view>
         <view bind:tap="$onClickIsShow" data-type="isUntreated" style="float: left;">待处理</view>
         <view bind:tap="$onClickIsShow" data-type="isUntreated"> > </view>
-        </view>
     </view>
     <view class="details" wx:if="{{ isUntreated }}">
       <view wx:if="{{ untreated.length }}">
@@ -30,10 +28,8 @@
   </view>
   <view class="content">
     <view class="header">
-      <view>
        <view bind:tap="$onClickIsShow" data-type="isNoteValuatedInfo" style="float: left;">待评价</view>
        <view bind:tap="$onClickIsShow" data-type="isNoteValuatedInfo">></view>
-      </view>
     </view>
     <view class="details" wx:if="{{ isNoteValuatedInfo }}">
       <view wx:if="{{ noteValuatedInfo.length }}">
@@ -47,7 +43,7 @@
             <view class="detail">申请状态：{{ analysisTime.handelResults(item.results) }}</view>
             <view>提交时间：{{ analysisTime.sliceTime(item.createdAt) }}</view>
           </view>
-          <view class="btn" bindtap="estimateTap" data-id="{{ item.objectId }}">去评价</view>
+          <view class="btn" bindtap="estimateTap" data-id="{{ item.objectId }}" data-jump="{{ true }}">去评价</view>
         </block>
       </view>
       <view class="no-info" wx:else>
@@ -57,10 +53,8 @@
   </view>
   <view class="content">
     <view class="header">
-      <view>
-        <view bind:tap="$onClickIsShow" data-type="isAllInfo" style="float: left;">已完成</view>
+        <view bind:tap="$onClickIsShow" data-type="isAllInfo" style="float: left;">所有</view>
         <view bind:tap="$onClickIsShow" data-type="isAllInfo"> > </view>
-      </view>
     </view>
     <view class="details" wx:if="{{ isAllInfo }}">
       <view wx:if="{{ allInfo.length }}">

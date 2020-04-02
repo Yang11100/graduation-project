@@ -9,7 +9,7 @@ Page({
     backgroundImage: '/images/audit1.jpeg'
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       resourceId: options.resourceId,
       jump: options.jump ? options.jump : false
@@ -24,21 +24,21 @@ Page({
     wx.showModal({
       title: '同意',
       content: '是否确定',
-      success: function(res) {
+      success: function (res) {
         if (res.confirm) {
           const query = Bmob.Query('booking')
           query.get(id).then(res => {
-              res.set('results', '1')
-              res.save()
-            }).catch(err => {
-              console.log(err)
-            })
+            res.set('results', '1')
+            res.save()
+            _this.refreshDataTwo()
+          }).catch(err => {
+            console.log(err)
+          })
           wx.showToast({
             title: '成功',
             icon: 'success',
             duration: 2000
           })
-          _this.refreshData()
           if (_this.data.jump) {
             wx.redirectTo({
               url: '../check/check'
@@ -57,13 +57,14 @@ Page({
     wx.showModal({
       title: '不同意',
       content: '是否确定',
-      success: function(res) {
+      success: function (res) {
         if (res.confirm) {
           const query = Bmob.Query('booking')
           query.get(id).then(res => {
               console.log(res)
               res.set('results', '2')
               res.save()
+              _this.refreshDataTwo()
             })
             .catch(err => {
               console.log(err)
@@ -73,7 +74,7 @@ Page({
             icon: 'success',
             duration: 2000
           })
-          _this.refreshData()
+          console.log(_this.data.jump);
           if (_this.data.jump) {
             wx.redirectTo({
               url: '../check/check'
@@ -87,8 +88,30 @@ Page({
     })
   },
   refreshData() {
+    console.log('success login');
     const query = Bmob.Query('booking')
     query.equalTo('objectId', '==', this.data.resourceId)
+    query.equalTo('results', '==', '0')
+    query.find().then(res => {
+      // TODO:
+      console.log('res.', res.length)
+      if (res.length === 0) {
+        console.log('success')
+        this.setData({
+          backgroundImage: '/images/none.png'
+        })
+      }
+      this.setData({
+        currentInfo: res
+      })
+    })
+    console.log('current', this.data.currentInfo)
+  },
+
+  //刷新
+  refreshDataTwo(){
+    console.log('success login 2');
+    const query = Bmob.Query('booking')
     query.equalTo('results', '==', '0')
     query.find().then(res => {
       // TODO:

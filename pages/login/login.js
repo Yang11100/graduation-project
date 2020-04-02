@@ -31,10 +31,7 @@ Page({
         duration: 1000 //持续的时间
       })
       this.getcode()
-    } else if (
-      this.data.inputVerificationCode.toLowerCase() ==
-      this.data.verificationCode.toLowerCase()
-    ) {
+    } else if (this.data.inputVerificationCode.toLowerCase() == this.data.verificationCode.toLowerCase()) {
       Bmob.User.login(String(this.data.username), String(this.data.password))
         .then(res => {
           if (res.sessionToken) {
@@ -95,8 +92,8 @@ Page({
     var codeLength = 4
     //设置随机字符
     var random = new Array(
-      'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-      0,1,2,3,4,5,6,7,8,9
+      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+      0, 1, 2, 3, 4, 5, 6, 7, 8, 9
     )
     //循环codeLength 设置的4就循环4次
     for (var i = 0; i < codeLength; i++) {

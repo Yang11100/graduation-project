@@ -9,7 +9,7 @@ Page({
     options: ['+3', '+2', '+1', '0', '-1', '-2', '-3'], //选择增加减少的积分0=3,1=2,2=1,3=0,4=-1,5=-2,6=-3
     changeMark: '3', //选择的顺序
     userMark: null, //用户的积分
-    changedMark: null,//更改后的积分，录入进数据库
+    changedMark: null, //更改后的积分，录入进数据库
 
     jump: false, // 默认不跳转
 
@@ -47,6 +47,29 @@ Page({
       console.log('userId', this.data.userId)
     })
   },
+
+  //刷新
+  refreshDataTwo() {
+    console.log('2222');
+    const query = Bmob.Query('booking')
+    query.equalTo('results', '==', '3')
+    query.find().then(res => {
+      if (res.length === 0) {
+        console.log('success')
+        this.setData({
+          backgroundImage: '/images/none.png'
+        })
+      }
+      res.forEach(element => {
+        element.mark = 0
+      })
+      console.log('#####resres####', res)
+      this.setData({
+        currentInfo: res,
+        userId: res[0].userid
+      })
+    })
+  },
   markPicker: function (e) {
     // TODO:
     this.data.currentInfo[e.target.dataset.index].mark = this.data.options[e.detail.value]
@@ -72,7 +95,7 @@ Page({
       })
       _this.markOperation()
     })
-    
+
   },
   // 积分操作
   markOperation() {
@@ -83,7 +106,7 @@ Page({
         duration: 1000
       })
       this.setData({
-        changedMark:100
+        changedMark: 100
       })
     } else if (parseInt(this.data.userMark) <= 100 && (parseInt(this.data.changeMark)) < 0) {
       this.setData({
@@ -114,14 +137,15 @@ Page({
       console.log(res)
       res.set('results', '4')
       res.save()
+      this.refreshDataTwo()
     }).catch(err => {
       console.log(err)
-    })
-    this.refreshData()
+    })  
+    console.log(this.data.jump);
     if (this.data.jump) {
       wx.redirectTo({
         url: '../check/check'
       })
     }
-  }
+  },
 })

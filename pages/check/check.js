@@ -14,7 +14,8 @@ Page({
   onLoad: function (options) {
     this.refresh()
   },
-  onShow() {
+  
+  onShow: function (options) {
     this.refresh()
   },
   auditTap(e) {
@@ -27,8 +28,9 @@ Page({
   },
   estimateTap(e) {
     let resourceId = e.currentTarget.dataset.id
+    let jump = e.currentTarget.dataset.jump
     wx.redirectTo({
-      url: '../estimate/estimate?resourceId=' + resourceId,
+      url: `../estimate/estimate?resourceId=${resourceId}&jump=${jump}`,
     })
   },
   // 展示隐藏
@@ -65,5 +67,6 @@ Page({
       })
     })
     console.log('allInfo', this.data.allInfo)
-  }
+  },
+
 })

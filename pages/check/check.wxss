@@ -75,6 +75,11 @@
   padding: 20rpc;
   text-align: center;
 }
+.no-info{
+  font-size: large;
+  color: rgb(60, 141, 60);
+  text-align: center;
+}
 
 .cancelBtn {
   float: right;

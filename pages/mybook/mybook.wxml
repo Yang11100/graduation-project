@@ -3,26 +3,37 @@
 <view class="nav">
 	<image class='background' src="/images/check.jpeg" mode="aspectFill"></image>
 	<view class="body">
-		<view class="title" bind:tap="$onClickIsShow" data-type="isSuccessInfo">预订成功</view>
-		<view class="details" wx:if="{{isSuccessInfo}}">
-			<view wx:if="{{ successInfo.length }}">
-				<block class="block-details" wx:for="{{successInfo}}" wx:key="index">
-					<view class="indexId">{{index+1}}</view>
-					<view class="substance">资源名称：{{item.name}}</view>
-					<view class="substance" style="float: left;">日期：{{item.date}}</view>
-					<image class="cancelBtn" src="/images/cancel.png" mode="aspectFit|aspectFill|widthFix"
-						bindtap="cancelTap" data-id="{{item.objectId}}">
-					</image>
-					<view class="substance" style="clear: both;">时间：{{analysisTime.handaltime(item.time)}}</view>
-					<view class="substance">提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
-					<button>完成</button>
-				</block>
+		<view class="content">
+			<view class="header">
+				<view bind:tap="$onClickIsShow" data-type="isSuccessInfo" style="float: left;">预订成功</view>
+				<view bind:tap="$onClickIsShow" data-type="isSuccessInfo"> > </view>
 			</view>
-			<view class="no-info" wx:else>
-				暂无数据
+			<view class="details" wx:if="{{isSuccessInfo}}">
+				<view wx:if="{{ successInfo.length }}">
+					<block class="block-details" wx:for="{{successInfo}}" wx:key="index">
+						<view class="indexId">{{index+1}}</view>
+						<view class="substance">资源名称：{{item.name}}</view>
+						<view class="substance" style="float: left;">日期：{{item.date}}</view>
+						<image class="cancelBtn" src="/images/cancel.png" mode="aspectFit|aspectFill|widthFix"
+							bindtap="cancelTap" data-id="{{item.objectId}}">
+						</image>
+						<image class="completedBtn" src="/images/completed.png" mode="aspectFit|aspectFill|widthFix"
+							bindtap="completedTap" data-id="{{item.objectId}}">
+						</image>
+						<view class="substance" style="clear: both;">时间：{{analysisTime.handaltime(item.time)}}</view>
+						<view class="substance">提交时间：{{analysisTime.sliceTime(item.createdAt)}}</view>
+					</block>
+				</view>
+				<view class="no-info" wx:else>
+					暂无数据
+				</view>
 			</view>
-
-			<view class="title" data-type="isExaminingInfo" bind:tap="$onClickIsShow">正在审核</view>
+		</view>
+		<view class="content">
+			<view class="header">
+				<view bind:tap="$onClickIsShow" data-type="isExaminingInfo" style="float: left;">正在审核</view>
+				<view bind:tap="$onClickIsShow" data-type="isExaminingInfo"> > </view>
+			</view>
 			<view class="details" wx:if="{{isExaminingInfo}}">
 				<view wx:if="{{ examiningInfo.length }}">
 					<block class="block-details" wx:for="{{examiningInfo}}" wx:key="index">
@@ -41,8 +52,12 @@
 					暂无数据
 				</view>
 			</view>
-
-			<view class="title" data-type="isFailInfo" bind:tap="$onClickIsShow">已退订/未通过</view>
+		</view>
+		<view class="content">
+			<view class="header">
+				<view bind:tap="$onClickIsShow" data-type="isFailInfo" style="float: left;">已退订/未通过</view>
+				<view bind:tap="$onClickIsShow" data-type="isFailInfo"> > </view>
+			</view>
 			<view class="details" wx:if="{{isFailInfo}}">
 				<view wx:if="{{ failInfo.length }}">
 					<block class="block-details" wx:for="{{failInfo}}" wx:key="index">
@@ -57,8 +72,12 @@
 					暂无数据
 				</view>
 			</view>
-
-			<view class="title" bind:tap="$onClickIsShow" data-type="isCompletedInfo">使用完成</view>
+		</view>
+		<view class="content">
+			<view class="header">
+				<view bind:tap="$onClickIsShow" data-type="isCompletedInfo" style="float: left;">使用完成</view>
+				<view bind:tap="$onClickIsShow" data-type="isCompletedInfo"> > </view>
+			</view>
 			<view class="details" wx:if="{{isCompletedInfo}}">
 				<view wx:if="{{ completedInfo.length }}">
 					<block class="block-details" wx:for="{{completedInfo}}" wx:key="index">
@@ -75,6 +94,5 @@
 				</view>
 			</view>
 		</view>
-
 	</view>
 </view>

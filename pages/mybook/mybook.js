@@ -11,10 +11,10 @@ Page({
 
     time: null, //时间
 
-    isSuccessInfo: true, //是否显示预订成功
-    isExaminingInfo: true, //是否显示正在审核
-    isFailInfo: true, //是否显示预订成功
-    isCompletedInfo: true, //是否显示预订成功
+    isSuccessInfo: false, //是否显示预订成功
+    isExaminingInfo: false, //是否显示正在审核
+    isFailInfo: false, //是否显示预订成功
+    isCompletedInfo: false, //是否显示预订成功
 
   },
   onLoad: function (options) {
@@ -53,6 +53,32 @@ Page({
             title: '退订成功',
             icon: 'success',
             duration: 2000
+          })
+        } else { //这里是点击了取消以后
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  //完成completed
+  completedTap(e) {
+    console.log(e.currentTarget.dataset.id)
+    let _this = this
+    wx.showModal({
+      title: '确定完成',
+      content: '是否确定使用完成',
+      success: function (res) {
+        if (res.confirm) {
+          const query = Bmob.Query('booking');
+          query.get(e.currentTarget.dataset.id).then(res => {
+            console.log(res)
+            res.set('results', '3')
+            res.save()
+            //调用获得数据的函数，重新获得数据、刷新
+            _this.refreshData()
+          }).catch(err => {
+            console.log(err)
           })
         } else { //这里是点击了取消以后
           console.log('用户点击取消')
