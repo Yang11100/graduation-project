@@ -38,7 +38,6 @@ Page({
 
     location: 0, //滚动条的位置
 
-
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -141,22 +140,26 @@ Page({
   },
   //通过点击资源名字来显示资源的具体信息
   nametap(e) {
+    let changId
     this.setData({
       id: e.currentTarget.dataset.id,
-      location: 5000
+      key: e.target.dataset.index
     })
     console.log(this.data.id)
     const query = Bmob.Query("room");
     query.equalTo("objectId", "==", this.data.id);
     query.find().then(res => {
+      console.log('ididid',res);
       this.setData({
         specificroom: res,
-        name: res[0].name
+        name: res[0].name,
+        location: 5000,
+        changId: res[0].objectId,
+        borderChange: '1px solid red'
       })
       console.log(this.data.name)
     });
     console.log('specific', this.data.specificroom)
-
   },
   bookingbtn: function () {
     if (!wx.getStorageSync('bmob')) {

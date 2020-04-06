@@ -17,14 +17,16 @@
 		<view class="header-qrcode iconfont icon-qrcode" bindtap="getScanning"></view>
 	</view>
 
-	<view class="body" style="margin-top:180rpx;height:75%;position: fixed;bottom:11%;">
+	<view class="body" style="margin-top:180rpx;height:73%;position: fixed;bottom:13%;">
 		<scroll-view scroll-y="true" scroll-top="{{location}}" style="height: 100%;">
 			<view style="margin-top: 10rpx;width: 92%; padding-left: 4%;">
 				<image style="border-radius: 10px;width: 100%;" src="{{analysisTime.handelImages(first)}}">
 				</image>
 			</view>
 			<block class="item-messages" wx:for="{{roomList}}" wx:key="index">
-				<view class="messages" data-id="{{item.objectId}}" bindtap="nametap">{{item.name}}</view>
+				<view class="messages" data-index='{{index}}'
+					style='{{key==index?"border: 1px solid red;":""}}' data-id="{{item.objectId}}"
+					bindtap="nametap">{{item.name}}</view>
 			</block>
 			<block class="item-msg" wx:for="{{specificroom}}" wx:key="index" wx:for-item="specific">
 				<view class="msg" style="float: left;width:40%;">{{specific.name}}</view>

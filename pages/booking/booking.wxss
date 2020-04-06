@@ -91,11 +91,10 @@ picker {
     /*padding是容器内部的距离，margin是容器外部的距离（margin是指从自身边框到另一个容器边框之间的距离，
     就是容器外距离。在CSS中padding是指自身边框到自身内部另一个容器边框之间的距离，就是容器内距离。 */
 }
-.messages-hover{
-    background-color: #b02923;
-}
 
-.item-msg{
+
+
+.item-msg {
     margin-left: 100rpx;
 }
 
@@ -114,7 +113,7 @@ picker {
     color: rgb(196, 7, 70);
     font-size: 18px;
     position: fixed;
-    right: 10px;
-    bottom: 10px;
+    right: 40rpx;
+    bottom: 40rpx;
     background-color: #fff;
 }

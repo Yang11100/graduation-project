@@ -132,17 +132,23 @@ Page({
     }).catch(err => {
       console.log(err)
     })
+    let _this = this
     const query1 = Bmob.Query('booking');
-    query1.get(this.data.resourceId).then(res => {
+    query1.get(_this.data.resourceId).then(res => {
       console.log(res)
       res.set('results', '4')
       res.save()
-      this.refreshDataTwo()
+      _this.refreshDataTwo()
     }).catch(err => {
       console.log(err)
-    })  
-    console.log(this.data.jump);
-    if (this.data.jump) {
+    })
+
+    console.log(_this.data.jump);
+    if (_this.data.jump) {
+      var pages = getCurrentPages(); //获取页面栈
+      var prevPage = pages[pages.length - 2]; //获取当前页面的上一个页面
+      prevPage.onLoad(prevPage.options) //调用上一个页面的onload 来实现刷新数据 
+
       wx.redirectTo({
         url: '../check/check'
       })

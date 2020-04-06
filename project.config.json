@@ -54,57 +54,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "pages/audit/audit",
-					"pathName": "pages/audit/audit",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/check/check",
-					"pathName": "pages/check/check",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "pages/mybook/mybook",
-					"pathName": "pages/mybook/mybook",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/check/check",
-					"pathName": "pages/check/check",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/estimate/estimate",
-					"pathName": "pages/estimate/estimate",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "pages/booking/booking",
-					"pathName": "pages/booking/booking",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/estimate/estimate",
-					"pathName": "pages/estimate/estimate",
-					"query": "",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

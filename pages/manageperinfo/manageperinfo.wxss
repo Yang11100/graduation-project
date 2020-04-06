@@ -20,6 +20,7 @@
 
 .title {
     margin-top: 8rpx;
+    color: chocolate;
 }
 
 .changed {
@@ -42,8 +43,7 @@
     width: 30%;
     text-align: center;
     font-size: 38rpx;
-    color: rgb(104, 12, 69);
-    border: 1px outset rgb(64, 172, 235);
+    border: 1px outset saddlebrown;
     border-radius: 30px;
     font-family: '楷体';
 }

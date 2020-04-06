@@ -14,9 +14,9 @@ Page({
   onLoad: function (options) {
     this.refresh()
   },
-  
-  onShow: function (options) {
-    this.refresh()
+
+  onShow() {
+    this.onLoad()
   },
   auditTap(e) {
     let resourceId = e.currentTarget.dataset.id
