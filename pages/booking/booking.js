@@ -44,12 +44,16 @@ Page({
     this.setData({
       first: options.first,
       date: util.formatTime(new Date(new Date().setHours(24))),
-      identity: JSON.parse(wx.getStorageSync('bmob')).identity,
-      userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
-      mark: JSON.parse(wx.getStorageSync('bmob')).mark,
-      username: JSON.parse(wx.getStorageSync('bmob')).Nickname,
-      //设置不能选择当前日期以前的日期 minData:new Date()
     })
+    if (wx.getStorageSync('bmob')) {
+      this.setData({
+        identity: JSON.parse(wx.getStorageSync('bmob')).identity,
+        userid: JSON.parse(wx.getStorageSync('bmob')).objectId,
+        mark: JSON.parse(wx.getStorageSync('bmob')).mark,
+        username: JSON.parse(wx.getStorageSync('bmob')).Nickname,
+        //设置不能选择当前日期以前的日期 minData:new Date()
+      })
+    }
     this.searchClassRoom()
   },
 
@@ -149,13 +153,13 @@ Page({
     const query = Bmob.Query("room");
     query.equalTo("objectId", "==", this.data.id);
     query.find().then(res => {
-      console.log('ididid',res);
+      console.log('ididid', res);
       this.setData({
         specificroom: res,
         name: res[0].name,
         location: 5000,
         changId: res[0].objectId,
-        borderChange: '1px solid red'
+        borderChange: '1px solid #b02923'
       })
       console.log(this.data.name)
     });

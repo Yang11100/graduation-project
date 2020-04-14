@@ -13,8 +13,8 @@ Page({
         userinfo: JSON.parse(wx.getStorageSync('bmob')),
         role: JSON.parse(wx.getStorageSync('bmob')).identity
       })
-     // console.log(this.data.role)
-      if (this.data.role==1) {
+      // console.log(this.data.role)
+      if (this.data.role == 1) {
         this.setData({
           role: this.data.role,
           identityname: '普通用户'
@@ -33,10 +33,12 @@ Page({
     }
   },
 
-  onShow(){
-    this.setData({
-      userinfo: JSON.parse(wx.getStorageSync('bmob')),
-    })
+  onShow() {
+    if (wx.getStorageSync('bmob')) {
+      this.setData({
+        userinfo: JSON.parse(wx.getStorageSync('bmob')),
+      })
+    }
   },
 
 
@@ -80,7 +82,7 @@ Page({
     })
   },
   //注册新用户
-  listregister(){
+  listregister() {
     wx.navigateTo({
       url: '../register/register',
     })
@@ -88,7 +90,7 @@ Page({
   },
 
 
-  bookingbtn(){
+  bookingbtn() {
     wx.navigateTo({
       url: '../booking/booking',
     })
