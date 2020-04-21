@@ -2,7 +2,7 @@
     <image class='background' src="/images/changeperinfo.jpg" mode="aspectFill"></image>
     <view class="msg">
         <block wx:for="{{userInfo}}" wx:key="index">
-            <view style="padding-top: 30rpx;">
+            <view style="padding-top: 30rpx; overflow: hidden;">
                 <view class="title">
                     <view class="changed">用户Id：</view>
                     <view class="special">{{item.objectId}}</view>
